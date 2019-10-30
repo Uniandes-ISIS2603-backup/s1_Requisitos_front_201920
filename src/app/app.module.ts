@@ -10,6 +10,7 @@ import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service'
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import {CasodeusoModule} from './casodeuso/casodeuso.module';
+import {DesarrolladorModule} from './desarrollador/desarrollador.module'
 
 
 import {AppComponent} from './app.component';
@@ -30,6 +31,7 @@ import {AuthModule} from './auth/auth.module';
         AppRoutingModule,
         HttpClientModule,
         CasodeusoModule,
+        DesarrolladorModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
