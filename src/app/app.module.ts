@@ -10,16 +10,12 @@ import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service'
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import {CasodeusoModule} from './casodeuso/casodeuso.module';
+import {RequisitoModule} from './requisito/requisito.module';
 
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-
-
-
-
-
 
 @NgModule({
     declarations: [
@@ -30,6 +26,7 @@ import {AuthModule} from './auth/auth.module';
         AppRoutingModule,
         HttpClientModule,
         CasodeusoModule,
+        RequisitoModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
