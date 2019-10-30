@@ -3,12 +3,21 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Desarrollador</th>    
+                    <th>ID</th>    
+                    <th>Nombre</th>    
+                    <th>Correo</th>   
+                    <th>Tipo</th>  
+                    <th>Edad</th>    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let e of desarrolladores">
+                    <td>{{e.id}}</td>
                     <td>{{e.nombre}}</td>
+                    <td>{{e.correo}}</td>
+                    <td>{{e.tipo}}</td>
+                    <td>{{e.edad}}</td>
+                  
                   
                 </tr>
                 
