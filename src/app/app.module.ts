@@ -12,6 +12,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {CasodeusoModule} from './casodeuso/casodeuso.module';
 import {DesarrolladorModule} from './desarrollador/desarrollador.module'
 import {RequisitoModule} from './requisito/requisito.module';
+import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module';
 
 
 import {AppComponent} from './app.component';
@@ -29,6 +30,7 @@ import {AuthModule} from './auth/auth.module';
         CasodeusoModule,
         DesarrolladorModule,
         RequisitoModule,
+        EquipodesarrolloModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
