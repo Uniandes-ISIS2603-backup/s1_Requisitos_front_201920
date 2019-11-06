@@ -1,5 +1,16 @@
 <h1>Hola mundo</h1>
-<app-casodeuso-list></app-casodeuso-list>
+<ul class= "nav">
+    <li class= "nav-item">
+      <a class= "nav-link active" routerLink="casos/list" routerLinkActive="active">Casos de Uso</a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class ="border m-5 row">
+      <div class="col">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 <app-desarrollador-list>
 </app-desarrollador-list>
 <app-requisito-list></app-requisito-list>

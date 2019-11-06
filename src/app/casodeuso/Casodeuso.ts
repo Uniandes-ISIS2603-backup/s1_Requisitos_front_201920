@@ -1,6 +1,7 @@
 export class Casodeuso {
     id: number;
     servicios: string[];
+    name:string[];
     //variable encargada de almacenar la documentacion del caso de uso
     documentacion: string;
     //variable encargada de almacenar los resultados de las pruebas del caso de uso

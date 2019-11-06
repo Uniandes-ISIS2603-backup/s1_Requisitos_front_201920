@@ -5,7 +5,8 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-
+import {CasodeusoListComponent} from '../casodeuso/casodeuso-list/casodeuso-list.component'
+import {CasodeusoDetailComponent} from "../casodeuso/casodeuso-detail/casodeuso-detail.component"
 const routes: Routes = [
 
      {
@@ -33,14 +34,26 @@ const routes: Routes = [
             }
         ]
     },
-    {
-        path: 'home',
-        component: AuthLoginComponent
-    },
+    //{
+    //    path: 'home',
+      //  component: AuthLoginComponent
+    //},
     {
         path: '**',
         redirectTo: 'home',
-    }
+    },
+    {
+        path:'casos',
+        children:[
+          {
+            path: 'list',
+            component: CasodeusoListComponent
+          },{
+            path: ":id",
+            component: CasodeusoDetailComponent
+          }
+        ]
+          }
 ];
 
 @NgModule({

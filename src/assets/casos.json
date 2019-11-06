@@ -1,23 +1,62 @@
-[{
-
-    "servicios":["Login", "CrearCaso"],
-    "documentacion":"Hola", 
-    "pruebas":true,
-    "entidades":["hola", "hola2"],
-     "preCondiciones":["hola", "hola2"], 
-     "posCondiciones":["hola", "hola2"], 
-    "caminosAlternos":["prueba", "prueba2"], 
-    "caminosExcepcion":["hallo", "wie geht's"], 
-    "id":2},
+[
     {
-   "servicios":["Crear Equipo", "Terminar Proyecto"],
-    "documentacion":"Hola", 
-    "pruebas":true,
-    "entidades":["hola", "hola2"],
-     "preCondiciones":["hola", "hola2"], 
-     "posCondiciones":["hola", "hola2"], 
-    "caminosAlternos":["prueba", "prueba2"], 
-    "caminosExcepcion":["hallo", "wie geht's"], 
-    "id":2
-    }]
-  
+        "nombre": "Crear equipo",
+        "servicios": [
+            "Login",
+            "CrearCaso"
+        ],
+        "documentacion": "Hola",
+        "pruebas": true,
+        "entidades": [
+            "hola",
+            "hola2"
+        ],
+        "preCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "posCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "caminosAlternos": [
+            "prueba",
+            "prueba2"
+        ],
+        "caminosExcepcion": [
+            "hallo",
+            "wie geht's"
+        ],
+        "id": 2
+    },
+    {
+        "nombre": "Crear proyecto",
+        "servicios": [
+            "Crear Equipo",
+            "Terminar Proyecto"
+        ],
+        "documentacion": "Hola",
+        "pruebas": true,
+        "entidades": [
+            "hola",
+            "hola2"
+        ],
+        "preCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "posCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "caminosAlternos": [
+            "prueba",
+            "prueba2"
+        ],
+        "caminosExcepcion": [
+            "hallo",
+            "wie geht's"
+        ],
+        "id": 2
+    }
+]
