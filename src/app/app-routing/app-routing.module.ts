@@ -58,8 +58,7 @@ const routes: Routes = [
              component: RequisitoDetailComponent
            }
         ]
-      }
-    },
+      },
     {
         path:"requisito",
         children:[
@@ -72,7 +71,7 @@ const routes: Routes = [
              component: RequisitoDetailComponent
            }
         ]
-      }
+      },{
         path:'casos',
         children:[
           {
@@ -83,7 +82,8 @@ const routes: Routes = [
             component: CasodeusoDetailComponent
           }
         ]
-          }
+      }  
+        
 ];
 
 @NgModule({
