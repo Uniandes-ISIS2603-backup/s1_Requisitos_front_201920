@@ -4,6 +4,7 @@ import { CasodeusoListComponent } from './casodeuso-list/casodeuso-list.componen
 import { CasodeusoService } from './casodeuso.service';
 import { CasodeusoDetailComponent } from './casodeuso-detail/casodeuso-detail.component';
 import {AppRoutingModule} from "../app-routing/app-routing.module";
+import { CasoCreateComponent } from './caso-create/caso-create.component';
 
 
 
@@ -11,8 +12,8 @@ import {AppRoutingModule} from "../app-routing/app-routing.module";
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [CasodeusoListComponent, CasodeusoDetailComponent],
-  exports:[CasodeusoListComponent],
+  declarations: [CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
+  exports:[CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
   providers: [CasodeusoService]
 })
 export class CasodeusoModule { 

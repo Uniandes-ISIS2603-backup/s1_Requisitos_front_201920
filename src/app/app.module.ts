@@ -13,6 +13,7 @@ import {CasodeusoModule} from './casodeuso/casodeuso.module';
 import {DesarrolladorModule} from './desarrollador/desarrollador.module'
 import {RequisitoModule} from './requisito/requisito.module';
 import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 import {AppComponent} from './app.component';
@@ -29,6 +30,7 @@ import { ModificacionModule } from './modificacion/modificacion.module';
         AppRoutingModule,
         HttpClientModule,
         CasodeusoModule,
+        ReactiveFormsModule,
         DesarrolladorModule,
         RequisitoModule,
         EquipodesarrolloModule,
