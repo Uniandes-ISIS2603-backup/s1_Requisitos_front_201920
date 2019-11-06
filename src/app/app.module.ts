@@ -18,6 +18,7 @@ import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { ModificacionModule } from './modificacion/modificacion.module';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {AuthModule} from './auth/auth.module';
         RequisitoModule,
         EquipodesarrolloModule,
         BrowserAnimationsModule,
+        ModificacionModule,
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
