@@ -1,7 +1,7 @@
 export class Desarrollador {
   id:number;
-  nombre:String;
-  corrreo:String;
+  nombre:string;
+  corrreo:string;
   edad:number;
-  tipo:String;
+  tipo:string;
 }

@@ -5,13 +5,9 @@
                 <tr>
                     <th>Nombre</th> 
                     <th> Id</th>  
-                    <th> Servicios</th>  
-                    <th> Pruebas</th>  
-                    <th> Entidades</th>  
-                    <th> Caminos de Excepción</th>  
-                    <th> PosCondiciones</th>  
-                    <th> PreCondiciones</th> 
-                    <th> Caminos Alternos</th> 
+                    <th> Responsable</th>  
+                    <th> Representante Del Cliente</th>  
+                    
 
                 </tr>
             </thead>
@@ -22,13 +18,9 @@
                       <a class="figure-caption" routerLink="/casos/{{e.id}}">{{e.nombre}}</a>
                       </td>
                       <td> {{e.id}}</td>
-                      <td> {{e.servicios}}</td>
-                      <td> {{e.pruebas}}</td>
-                      <td> {{e.entidades}}</td>
-                      <td> {{e.caminosExcepcion}}</td>
-                      <td> {{e.posCondiciones}}</td>
-                      <td> {{e.preCondiciones}}</td>
-                      <td> {{e.caminosAlternos}}</td>
+                      <td> {{e.responsable.nombre}}</td>
+                      <td> {{e.representanteDelCliente.nombre}}</td>
+                     
                   
                 </tr>
                 

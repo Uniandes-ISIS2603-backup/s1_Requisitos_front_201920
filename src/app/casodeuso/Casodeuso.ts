@@ -1,3 +1,6 @@
+import { Desarrollador } from "../desarrollador/desarrollador";
+
+
 export class Casodeuso {
     id: number;
     servicios: string[];
@@ -25,6 +28,9 @@ export class Casodeuso {
     //variable encargada de almacenar los caminos alternos involucradas en el caso
   
     caminosAlternos: string[];
+
+    representanteDelCliente: Desarrollador;
+    responsable: Desarrollador;
   
   /*
     constructor(pId: number,pServicios: string[],pDocumentacion: string,pPruebas: boolean,pEntidades: string[],pCaminosExcepcion: string[],pPosCondiciones: string[],pPreCondiciones: string[],pCaminosAlternos: string[]){

@@ -27,7 +27,20 @@
             "hallo",
             "wie geht's"
         ],
-        "id": 2
+        "id": 3,
+
+        "responsable":{"nombre":"Nicole",
+            "correo":"n@gato.com",
+            "tipo":"A",
+            "edad":20,
+        "id":1},
+
+        "representanteDelCliente": 
+        {"nombre":"Sofia",
+        "correo":"s@gato.com",
+        "tipo":"B",
+        "edad":13
+        }
     },
     {
         "nombre": "Crear proyecto",
@@ -57,6 +70,19 @@
             "hallo",
             "wie geht's"
         ],
-        "id": 2
-    }
+        "id": 2, 
+
+        "responsable":{"nombre":"Nicole",
+            "correo":"n@gato.com",
+            "tipo":"A",
+            "edad":20,
+        "id":1},
+        "representanteDelCliente": 
+               {"nombre":"Sofia",
+        "correo":"s@gato.com",
+        "tipo":"B",
+        "edad":13,
+        "id":2}
+               }
+    
 ]

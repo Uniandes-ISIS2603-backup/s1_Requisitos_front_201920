@@ -1,9 +1,39 @@
 <div class="col-md-12">
     <div class="container-fluid">
-      <p class="h3 p-3"> Caso de uso: {{casoDetail.nombre}}
+      <p class="h3 p-3"> {{casoDetail.nombre}}
+
       </p>
-      <p class= "h3 p-3"> Requisitos: {{casoDetail.requisitos}}
-      </p>
-      <p> Modificaciones: {{casoDetail.modificaciones}}
+      <p>Documentacion: {{casoDetail.Documentacion}}</p>
+      <table class="table table-striped" >
+        <thead  class="thead-dark">
+            <tr>
+                <td>Entidades</td>
+                <td>Caminos de Excepción</td>
+                <td>Pruebas</td>
+                <td>PosCondiciones </td>
+                <td>PreCondiciones</td>
+                <td>Caminos Alternos</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of casoDetail.Entidades" >
+                <td>
+                    {{e}}
+                </td>
+            </tr>
+        </tbody>
+
+      </table>
+      
+      
+      <div class="card" style="width: 18rem;" *ngFor="let x of casoDetail.requisitos">
+            
+            <div class="card-body">
+              <h5 class="card-title">{{x.nombre}}</h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-primary">Ver el Requisito</a>
+            </div>
+          </div>
     </div>
     </div>
