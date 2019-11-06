@@ -59,6 +59,20 @@ const routes: Routes = [
            }
         ]
       }
+    },
+    {
+        path:"requisito",
+        children:[
+           {
+             path:'list',
+             component: RequisitoListComponent
+           },
+           {
+             path:':id',
+             component: RequisitoDetailComponent
+           }
+        ]
+      }
         path:'casos',
         children:[
           {
