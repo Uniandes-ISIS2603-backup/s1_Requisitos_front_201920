@@ -13,5 +13,19 @@
   </div>
 <app-desarrollador-list>
 </app-desarrollador-list>
-<app-requisito-list></app-requisito-list>
+<ul class="nav">
+	<li class="nav-item">
+		<a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Requisitos</a>
+	</li>
+</ul>
+<div class="container-fluid">
+	<div class="border m-5 row">
+		<div class="col">
+			<router-outlet></router-outlet>
+		</div>
+		<div class="col">
+			<router-outlet name="detail"></router-outlet>
+		</div>
+	</div>
+</div>
 <app-equipodesarrollo-list></app-equipodesarrollo-list>
