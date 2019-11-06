@@ -12,11 +12,13 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {CasodeusoModule} from './casodeuso/casodeuso.module';
 import {DesarrolladorModule} from './desarrollador/desarrollador.module'
 import {RequisitoModule} from './requisito/requisito.module';
+import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module';
 
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { ModificacionModule } from './modificacion/modificacion.module';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import {AuthModule} from './auth/auth.module';
         CasodeusoModule,
         DesarrolladorModule,
         RequisitoModule,
+        EquipodesarrolloModule,
         BrowserAnimationsModule,
+        ModificacionModule,
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,

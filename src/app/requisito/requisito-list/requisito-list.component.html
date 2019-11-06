@@ -1,17 +1,17 @@
-
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Requisito Name</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let e of requisitos">
-                    <td>{{e.nombre}}</td>  
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Requisito Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let e of requisitos">
+					<td style="cursor: pointer;">
+						<a class="figure-caption" routerLink="/requisito/{{e.id}}">{{e.nombre}}</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>

@@ -8,7 +8,7 @@ import { RequisitoService } from '../requisito.service';
   templateUrl: './requisito-list.component.html',
   styleUrls: ['./requisito-list.component.css']
 })
-export class RequisitosListComponent implements OnInit 
+export class RequisitoListComponent implements OnInit 
 {
   /**
      * The list of Requisitos which belong to the BookStore

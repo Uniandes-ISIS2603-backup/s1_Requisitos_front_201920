@@ -1,23 +1,88 @@
-[{
-
-    "servicios":["Login", "CrearCaso"],
-    "documentacion":"Hola", 
-    "pruebas":true,
-    "entidades":["hola", "hola2"],
-     "preCondiciones":["hola", "hola2"], 
-     "posCondiciones":["hola", "hola2"], 
-    "caminosAlternos":["prueba", "prueba2"], 
-    "caminosExcepcion":["hallo", "wie geht's"], 
-    "id":2},
+[
     {
-   "servicios":["Crear Equipo", "Terminar Proyecto"],
-    "documentacion":"Hola", 
-    "pruebas":true,
-    "entidades":["hola", "hola2"],
-     "preCondiciones":["hola", "hola2"], 
-     "posCondiciones":["hola", "hola2"], 
-    "caminosAlternos":["prueba", "prueba2"], 
-    "caminosExcepcion":["hallo", "wie geht's"], 
-    "id":2
-    }]
-  
+        "nombre": "Crear equipo",
+        "servicios": [
+            "Login",
+            "CrearCaso"
+        ],
+        "documentacion": "Hola",
+        "pruebas": true,
+        "entidades": [
+            "hola",
+            "hola2"
+        ],
+        "preCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "posCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "caminosAlternos": [
+            "prueba",
+            "prueba2"
+        ],
+        "caminosExcepcion": [
+            "hallo",
+            "wie geht's"
+        ],
+        "id": 3,
+
+        "responsable":{"nombre":"Nicole",
+            "correo":"n@gato.com",
+            "tipo":"A",
+            "edad":20,
+        "id":1},
+
+        "representanteDelCliente": 
+        {"nombre":"Sofia",
+        "correo":"s@gato.com",
+        "tipo":"B",
+        "edad":13
+        }
+    },
+    {
+        "nombre": "Crear proyecto",
+        "servicios": [
+            "Crear Equipo",
+            "Terminar Proyecto"
+        ],
+        "documentacion": "Hola",
+        "pruebas": true,
+        "entidades": [
+            "hola",
+            "hola2"
+        ],
+        "preCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "posCondiciones": [
+            "hola",
+            "hola2"
+        ],
+        "caminosAlternos": [
+            "prueba",
+            "prueba2"
+        ],
+        "caminosExcepcion": [
+            "hallo",
+            "wie geht's"
+        ],
+        "id": 2, 
+
+        "responsable":{"nombre":"Nicole",
+            "correo":"n@gato.com",
+            "tipo":"A",
+            "edad":20,
+        "id":1},
+        "representanteDelCliente": 
+               {"nombre":"Sofia",
+        "correo":"s@gato.com",
+        "tipo":"B",
+        "edad":13,
+        "id":2}
+               }
+    
+]

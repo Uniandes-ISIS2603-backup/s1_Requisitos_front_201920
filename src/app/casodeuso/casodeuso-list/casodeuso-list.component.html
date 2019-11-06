@@ -3,12 +3,24 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Casos de Uso</th>    
+                    <th>Nombre</th> 
+                    <th> Id</th>  
+                    <th> Responsable</th>  
+                    <th> Representante Del Cliente</th>  
+                    
+
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let e of casos">
-                    <td>{{e.servicios}}</td>
+
+                    <td style="cursor:pointer;">
+                      <a class="figure-caption" routerLink="/casos/{{e.id}}">{{e.nombre}}</a>
+                      </td>
+                      <td> {{e.id}}</td>
+                      <td> {{e.responsable.nombre}}</td>
+                      <td> {{e.representanteDelCliente.nombre}}</td>
+                     
                   
                 </tr>
                 

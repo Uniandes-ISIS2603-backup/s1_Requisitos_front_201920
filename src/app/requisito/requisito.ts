@@ -1,4 +1,4 @@
-export interface Requisito
+export class Requisito
 {
      /**
       * id del requisito
