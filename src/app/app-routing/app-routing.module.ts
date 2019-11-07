@@ -8,12 +8,11 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import {CasodeusoListComponent} from '../casodeuso/casodeuso-list/casodeuso-list.component'
 import {CasodeusoDetailComponent} from "../casodeuso/casodeuso-detail/casodeuso-detail.component"
-<<<<<<< HEAD
+
 import { CasoCreateComponent } from '../casodeuso/caso-create/caso-create.component';
-=======
-import {DesarrolladorListComponent} from '../desarrollador/desarrollador-list/desarrollador-list.component'
+import { DesarrolladorListComponent } from '../desarrollador/desarrollador-list/desarrollador-list.component';
 import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detail/desarrollador-detail.component"
->>>>>>> a3a5d7952a7e189a04c8dd80587cb50a63712545
+
 const routes: Routes = [
      {
         path: 'auth',
@@ -60,7 +59,7 @@ const routes: Routes = [
            }
         ]
       },
-<<<<<<< HEAD
+
     {
         path:"requisito",
         children:[
@@ -75,9 +74,8 @@ const routes: Routes = [
         ]
       },{
         
-=======
-      {
->>>>>>> a3a5d7952a7e189a04c8dd80587cb50a63712545
+      
+
         path:'casos',
         children:[
           {
@@ -90,11 +88,11 @@ const routes: Routes = [
         ]
       },
       {
-<<<<<<< HEAD
+
         path:'casos2',
         component:CasoCreateComponent
-      }  
-=======
+      },  
+{
           path:"desarrollador",
           children:[
              {
@@ -107,7 +105,7 @@ const routes: Routes = [
              }
           ]
         }
->>>>>>> a3a5d7952a7e189a04c8dd80587cb50a63712545
+
         
 ];
 
