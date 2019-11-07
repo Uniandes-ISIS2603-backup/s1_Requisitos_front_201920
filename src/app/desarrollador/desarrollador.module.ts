@@ -4,12 +4,15 @@ import { DesarrolladorListComponent } from './desarrollador-list/desarrollador-l
 import { DesarrolladorDetailComponent } from './desarrollador-detail/desarrollador-detail.component';
 import { DesarrolladorService } from './desarrollador.service';
 import {AppRoutingModule} from "../app-routing/app-routing.module";
+import { DesarrolladorCreateComponent } from './desarrollador-create/desarrollador-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
-    CommonModule,AppRoutingModule
+    CommonModule,AppRoutingModule,ReactiveFormsModule 
   ],
-  declarations: [DesarrolladorListComponent,DesarrolladorDetailComponent],
-  exports: [DesarrolladorListComponent],
+  declarations: [DesarrolladorListComponent,DesarrolladorDetailComponent, DesarrolladorCreateComponent],
+  exports: [DesarrolladorListComponent, DesarrolladorCreateComponent],
   providers: [DesarrolladorService]
 })
 export class DesarrolladorModule { }

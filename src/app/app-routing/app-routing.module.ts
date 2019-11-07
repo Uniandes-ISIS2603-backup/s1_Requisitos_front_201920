@@ -15,6 +15,7 @@ import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detai
 import { EquipodesarrolloListComponent } from '../equipodesarrollo/equipodesarrollo-list/equipodesarrollo-list.component';
 import {ListarIteracionComponent} from '../iteracion/listar-iteracion/listar-iteracion.component';
 import {IteracionDetailComponent}  from '../iteracion/iteracion-detail/iteracion-detail.component';
+import {DesarrolladorCreateComponent}  from '../desarrollador/desarrollador-create/desarrollador-create.component';
 
 const routes: Routes = [
      {
@@ -105,8 +106,14 @@ const routes: Routes = [
              {
                path:':id',
                component: DesarrolladorDetailComponent
+
              }
           ]
+        },
+        {
+
+          path:'desarrollador2',
+          component:DesarrolladorCreateComponent
         },
         {
           path:"equipodesarrollo",
