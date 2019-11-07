@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { DesarrolladorListComponent } from './desarrollador-list/desarrollador-list.component';
 import { DesarrolladorDetailComponent } from './desarrollador-detail/desarrollador-detail.component';
 import { DesarrolladorService } from './desarrollador.service';
-
+import {AppRoutingModule} from "../app-routing/app-routing.module";
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,AppRoutingModule
   ],
   declarations: [DesarrolladorListComponent,DesarrolladorDetailComponent],
   exports: [DesarrolladorListComponent],
