@@ -1,45 +1,102 @@
 <form [formGroup]="casoForm" (ngSubmit)="createCaso(casoForm.value)">
-    <h3>Crear Caso de uso:</h3>
+    <h3>Crear Caso de Uso:</h3>
     <div class="form-group mx-sm-3 mb-2">
-      <label for="nombre">
+      <label for="name">
         nombre:
       </label>
       <input novalidate
-        id="nombre"
+        id="name"
         class="form-control"
-        formControlName="nombre"
+        formControlName="name"
         placeholder="Nombre del Caso">
      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('name').hasError('required') && 
+        casoForm.get('name').touched">
+        nombre requerido
+      </div>
       <div class="form-group mx-sm-3 mb-2">
-        <label for="nombre">
-        Nombre:
+        <label for="documentacion">
+          documentacion:
        </label>
         <input novalidate
-        id="nombre"
+        id="documentacion"
         class="form-control"
-        formControlName="nombre"
-        placeholder="Nombre del requisito">
+        formControlName="documentacion"
+        placeholder="documentacion del caso">
      </div>
-      <div class="form-group">
-          <label for="descripcion">
-            Descripción:
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('documentacion').hasError('required') && 
+        casoForm.get('documentacion').touched">
+          documentacion requerida
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="entidades">
+              Entidades:
           </label>
-          <textarea class="form-control" id="descripcion" rows="3" 
-          formControlName="descripcion"
-          placeholder="Descripcion del requisito">
+          <textarea class="form-control" id="entidades" rows="3"
+          formControlName="entidades"
+          placeholder="Entidades del Caso">
           </textarea>
-      </div>
-      <div class="form-group  mx-sm-3 mb-2">
-          <label for="fuente">
-            Fuente:
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('entidades').hasError('required') && 
+        casoForm.get('entidades').touched">
+        entidades requeridas
+        </div>
+        <div class="form-group  mx-sm-3 mb-2">
+          <label for="servicios">
+              servicios:
           </label>
-          <input id="fuente" type="text"
+          <input id="servicios" type="text"
           class="form-control"
-          formControlName="fuente"
-         placeholder="Organización o entidad que propone el requisito">
-     </div>
-  
+          formControlName="servicios"
+         placeholder="servicios del requisito">
+      </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('servicios').hasError('required') && 
+        casoForm.get('servicios').touched">
+        servicios requeridos
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="caminosExcepcion">
+                caminos de  Excepcion:
+          </label>
+            <textarea class="form-control" id="caminosExcepcion" rows="3"
+          formControlName="caminosExcepcion"
+          placeholder="caminosExcepcion">
+          </textarea>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('caminosExcepcion').hasError('required') && 
+          casoForm.get('caminosExcepcion').touched">
+          servicios requeridos
+            </div>
+          <div class="form-group mx-sm-3 mb-2">
+          <label for="pruebas">
+            Pruebas:
+          </label>
+            <select class="form-control" id="pruebas" 
+            rows="3"
+            formControlName="pruebas">
+               <option>True</option>
+               <option>False</option>
+             
+             </select>
+          </div>
+           <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('pruebas').hasError('required') && 
+          casoForm.get('pruebas').touched">
+            pruerbas requeridas
+          </div> 
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="preCondiciones">
+              preCondiciones:
+        </label>
+          <textarea class="form-control" id="preCondiciones" rows="3"
+        formControlName="preCondiciones"
+        placeholder="preCondiciones">
+        </textarea>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('preCondiciones').hasError('required') && 
+          casoForm.get('preCondiciones').touched">
+          preCondiciones requeridos
+            </div>
+          
           <button class="button mx-sm-3 mb-2" type="submit"
-            [disabled]="requisitoForm.invalid">Create</button>
-  
+            [disabled]="requisitoForm.invalid" class="btn btn-success">Create</button>
   </form>

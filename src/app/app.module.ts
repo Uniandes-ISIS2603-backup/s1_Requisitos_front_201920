@@ -14,6 +14,7 @@ import {DesarrolladorModule} from './desarrollador/desarrollador.module'
 import {RequisitoModule} from './requisito/requisito.module';
 import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module';
 import {ReactiveFormsModule} from "@angular/forms";
+import {IteracionModule} from './iteracion/iteracion.module';
 
 
 import {AppComponent} from './app.component';
@@ -35,10 +36,12 @@ import { ModificacionModule } from './modificacion/modificacion.module';
         RequisitoModule,
         EquipodesarrolloModule,
         BrowserAnimationsModule,
+        IteracionModule,
         ModificacionModule,
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        ModificacionModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',

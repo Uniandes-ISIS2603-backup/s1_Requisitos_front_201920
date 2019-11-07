@@ -1,0 +1,24 @@
+[{
+  "id": 1,
+  "nombre": "Lógica",
+  "descripcion": "corresponde a la clases de lógica, el cliente requiere su fin en máximo 16 días."
+ 
+}, {
+  "id": 2,
+  "nombre": "Persitencia",
+  "descripcion": "Se pretende el correcto funcionamiento de la persistencia del proyecto, el enfoque principal deben ser las cláses primordiales para el debido funcionamiento del negocio."
+  
+ 
+},
+{
+  "id": 3,
+  "nombre": "Front ciclo 2",
+  "descripcion": "el front de la aplicación debe de ser desarrollado con la mayor calidad posible o Rubby se desquita con nuestra nota."
+
+},
+{
+  "id": 4,
+  "nombre": "ciclo 3",
+  "descripcion": "Mejorar la interfaz para que se vea muy linda"
+  
+}]

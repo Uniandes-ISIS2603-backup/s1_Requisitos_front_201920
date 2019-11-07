@@ -13,6 +13,8 @@ import { CasoCreateComponent } from '../casodeuso/caso-create/caso-create.compon
 import { DesarrolladorListComponent } from '../desarrollador/desarrollador-list/desarrollador-list.component';
 import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detail/desarrollador-detail.component"
 import { EquipodesarrolloListComponent } from '../equipodesarrollo/equipodesarrollo-list/equipodesarrollo-list.component';
+import {ListarIteracionComponent} from '../iteracion/listar-iteracion/listar-iteracion.component';
+import {IteracionDetailComponent}  from '../iteracion/iteracion-detail/iteracion-detail.component';
 
 const routes: Routes = [
      {
@@ -117,6 +119,19 @@ const routes: Routes = [
               path:'id',
               component: DesarrolladorDetailComponent
             }
+          ]
+          },
+          {
+          path: 'iteracion',
+          children: [{
+            path: 'list',
+            component: ListarIteracionComponent
+          },
+          {
+            path: ':id',
+            component: IteracionDetailComponent,
+            outlet: 'detail'
+          }
           ]
         }
 
