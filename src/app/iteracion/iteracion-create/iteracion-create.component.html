@@ -1,0 +1,62 @@
+<form [formGroup]="iteracionForm" (ngSubmit)="createIteracion(iteracionForm.value)">
+	<h3>Crear Iteracion:</h3>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="nombre">
+      Nombre:
+    </label>
+		<input novalidate
+      id="nombre"
+      class="form-control"
+      formControlName="nombre"
+      placeholder="Nombre de la iteracion">
+   </div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="iteracionForm.get('nombre').hasError('required') && 
+    iteracionForm.get('nombre').touched">
+    Nombre requerido
+		</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="descripcion">
+          descripcion:
+        </label>
+        <input novalidate
+        id="descripcion"
+      class="form-control"
+      formControlName="descripcion"
+      placeholder="descripcion de la iteracion">
+				
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="iteracionForm.get('descripcion').hasError('required') && 
+      iteracionForm.get('descripcion').touched">
+				descripcion requerida
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+				<label for="fechaInicio">
+          fechaInicio:
+        </label>
+        <input novalidate
+        id="fechaInicio"
+      class="form-control"
+      formControlName="fechaInicio"
+      placeholder="fecha de inicio de la iteracion">
+				
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="iteracionForm.get('fechaInicio').hasError('required') && 
+      iteracionForm.get('fechaInicio').touched">
+				fechaInicio requerida
+			</div>
+			<div class="form-group  mx-sm-3 mb-2">
+				<label for="fechaFin">
+          Fecha Fin:
+        </label>
+				<input id="fechaFin" type="text"
+        class="form-control"
+        formControlName="fechaFin"
+       placeholder="fechaFin">
+    </div>
+				<div class="alert alert-danger alert-dismissible fade show" *ngIf="iteracionForm.get('fechaFin').hasError('required') && 
+        iteracionForm.get('correo').touched">
+      fechaRequerida
+				</div>
+				<button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="iteracionForm.invalid" class="btn btn-success">Create</button>
+</form>

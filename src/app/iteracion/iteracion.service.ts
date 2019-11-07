@@ -24,6 +24,9 @@ export class IteracionService {
       console.log(iteracionId+" "+API_URL + "iteracion-" + iteracionId+".json");
         return this.http.get<IteracionDetail>(API_URL + "iteracion-" + iteracionId+".json");
     }
+    createIteracion(iteracion): Observable<IteracionDetail> {
+        return this.http.post<IteracionDetail>(API_URL + iteraciones, iteracion);
+    }
     
 
 }
