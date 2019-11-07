@@ -4,13 +4,17 @@ import { EquipodesarrolloListComponent } from './equipodesarrollo-list/equipodes
 import {EquipoDesarrolloDetailComponent} from './equipodesarrollo-detail/equipodesarrollo-detail.component';
 import { EquipodesarrolloService } from './equipodesarrollo.service';
 import {AppRoutingModule} from "../app-routing/app-routing.module";
+import {EquipodesarrolloCreateComponent} from "./equipodesarrollo-create/equipodesarrollo-create.component";
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule
   ],
-  declarations: [EquipodesarrolloListComponent, EquipoDesarrolloDetailComponent],
+  declarations: [EquipodesarrolloListComponent, EquipoDesarrolloDetailComponent, EquipodesarrolloCreateComponent],
   exports: [EquipodesarrolloListComponent],
   providers: [EquipodesarrolloService]
 })

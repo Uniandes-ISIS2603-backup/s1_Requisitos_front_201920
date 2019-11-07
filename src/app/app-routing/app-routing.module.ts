@@ -17,6 +17,7 @@ import {ListarIteracionComponent} from '../iteracion/listar-iteracion/listar-ite
 import {IteracionDetailComponent}  from '../iteracion/iteracion-detail/iteracion-detail.component';
 import { EquipoDesarrolloDetailComponent } from '../equipodesarrollo/equipodesarrollo-detail/equipodesarrollo-detail.component';
 import {DesarrolladorCreateComponent}  from '../desarrollador/desarrollador-create/desarrollador-create.component';
+import { EquipodesarrolloCreateComponent } from '../equipodesarrollo/equipodesarrollo-create/equipodesarrollo-create.component';
 
 const routes: Routes = [
      {
@@ -103,6 +104,10 @@ const routes: Routes = [
 
           path:'desarrollador2',
           component:DesarrolladorCreateComponent
+        },
+        {
+          path:"equipodesarrollo2",
+          component: EquipodesarrolloCreateComponent
         },
         {
           path:"equipodesarrollo",
