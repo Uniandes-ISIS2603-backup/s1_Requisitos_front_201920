@@ -1,0 +1,79 @@
+<form [formGroup]="desarrolladorForm" (ngSubmit)="createDesarrollador(desarrolladorForm.value)">
+	<h3>Crear Desarrollador:</h3>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="nombre">
+      Nombre:
+    </label>
+		<input novalidate
+      id="nombre"
+      class="form-control"
+      formControlName="nombre"
+      placeholder="Nombre del Desarrollador">
+   </div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('nombre').hasError('required') && 
+    desarrolladorForm.get('nombre').touched">
+    Nombre requerido
+		</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="edad">
+          Edad:
+        </label>
+        <input novalidate
+        id="edad"
+      class="form-control"
+      formControlName="edad"
+      placeholder="Edad del desarrollador">
+				
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('edad').hasError('required') && 
+      desarrolladorForm.get('edad').touched">
+				Edad requerida
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+				<label for="cedula">
+          Cedula:
+        </label>
+        <input novalidate
+        id="cedula"
+      class="form-control"
+      formControlName="cedula"
+      placeholder="Cedula del desarrollador">
+				
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('cedula').hasError('required') && 
+      desarrolladorForm.get('cedula').touched">
+				Edad requerida
+			</div>
+			<div class="form-group  mx-sm-3 mb-2">
+				<label for="correo">
+          Correo:
+        </label>
+				<input id="correo" type="text"
+        class="form-control"
+        formControlName="correo"
+       placeholder="Correo Desarrolllador">
+    </div>
+				<div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('correo').hasError('required') && 
+        desarrolladorForm.get('correo').touched">
+      Correo requerido
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+				<label for="tipo">
+          Tipo:
+        </label>
+					<select class="form-control" id="comentariosAdicionales" 
+          rows="3"
+          formControlName="tipo">
+             <option>REPRESENTANTE DEL CLIENTE</option>
+             <option>RESPONSABLE</option>
+             <option>COMUN</option>
+           </select>
+				</div>
+       	<div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('tipo').hasError('required') && 
+         desarrolladorForm.get('tipo').touched">
+					Tipo requerido
+				</div> 
+        
+				<button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="desarrolladorForm.invalid" class="btn btn-success">Create</button>
+</form>

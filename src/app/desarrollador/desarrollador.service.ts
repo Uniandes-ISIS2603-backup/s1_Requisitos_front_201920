@@ -17,4 +17,7 @@ export class DesarrolladorService {
     {
        return this.http.get<DesarrolladorDetail>(API_URL+'desarrollador'+desarrolladorId+'.json');
     }
+    createDesarrollador(desarrollador): Observable<DesarrolladorDetail> {
+      return this.http.post<DesarrolladorDetail>(API_URL + casos, desarrollador);
+  }
 }
