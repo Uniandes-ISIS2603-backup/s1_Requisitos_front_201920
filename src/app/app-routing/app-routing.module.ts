@@ -8,6 +8,8 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import {CasodeusoListComponent} from '../casodeuso/casodeuso-list/casodeuso-list.component'
 import {CasodeusoDetailComponent} from "../casodeuso/casodeuso-detail/casodeuso-detail.component"
+import {DesarrolladorListComponent} from '../desarrollador/desarrollador-list/desarrollador-list.component'
+import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detail/desarrollador-detail.component"
 const routes: Routes = [
      {
         path: 'auth',
@@ -37,11 +39,6 @@ const routes: Routes = [
     //{
     //    path: 'home',
       //  component: AuthLoginComponent
-    //},
-    {
-        path: '**',
-        redirectTo: 'home',
-    },
     {
         path: '**',
         redirectTo: 'home',
@@ -59,19 +56,7 @@ const routes: Routes = [
            }
         ]
       },
-    {
-        path:"requisito",
-        children:[
-           {
-             path:'list',
-             component: RequisitoListComponent
-           },
-           {
-             path:':id',
-             component: RequisitoDetailComponent
-           }
-        ]
-      },{
+      {
         path:'casos',
         children:[
           {
@@ -82,7 +67,20 @@ const routes: Routes = [
             component: CasodeusoDetailComponent
           }
         ]
-      }  
+      },
+      {
+          path:"desarrollador",
+          children:[
+             {
+               path:'list',
+               component: DesarrolladorListComponent
+             },
+             {
+               path:':id',
+               component: DesarrolladorDetailComponent
+             }
+          ]
+        }
         
 ];
 
