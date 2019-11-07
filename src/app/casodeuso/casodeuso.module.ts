@@ -6,14 +6,14 @@ import { CasodeusoDetailComponent } from './casodeuso-detail/casodeuso-detail.co
 import {AppRoutingModule} from "../app-routing/app-routing.module";
 import { CasoCreateComponent } from './caso-create/caso-create.component';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule 
   ],
   declarations: [CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
-  exports:[CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
+  exports:[CasodeusoListComponent, CasoCreateComponent],
   providers: [CasodeusoService]
 })
 export class CasodeusoModule { 

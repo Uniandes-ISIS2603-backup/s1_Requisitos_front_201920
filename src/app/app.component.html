@@ -1,7 +1,8 @@
+  
 <div class="container-fluid">
   <div class= "row">
  
-<h1>C13 <img src="https://www.pinclipart.com/picdir/big/354-3540180_png-construction-project-icon-png-clipart.png"height="100" width="100"> </h1>
+<h1>C13 - Requisitos  <img src="https://www.pinclipart.com/picdir/big/354-3540180_png-construction-project-icon-png-clipart.png"height="100" width="100"> </h1>
 
 
   
@@ -11,8 +12,14 @@
 
 
       <a class= "nav-link active" routerLink="casos/list" routerLinkActive="active"><button type="button" class="btn btn-primary">Ver Casos de Uso</button></a>
-      <a class= "nav-link active" routerLink="casos/form" routerLinkActive="active"><button type="button" class="btn btn-primary">Crear Casos de Uso</button></a>
+    
+
+      <a class= "nav-link active" routerLink="casos2" routerLinkActive="active"><button type="button" class="btn btn-primary">Crear Casos de Uso</button></a>
+
+     
       <a class= "nav-link active" routerLink="desarrollador/list" routerLinkActive="active"><button type="button" class="btn btn-primary">Ver Desarrolladores Activos</button></a>
+
+      <a class= "nav-link active" routerLink="requisito/list" routerLinkActive="active"><button type="button" class="btn btn-primary">Ver Requisitos</button></a>
   <div class="container-fluid">
     <div class ="border m-5 row">
       <div class="col">
@@ -22,17 +29,5 @@
   </div>
 
 
-<ul class="nav">
-<li class="nav-item">
-  <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Requisitos</a>
-</li>
-</ul>
-<div class="container-fluid">
-<div class="border m-5 row">
-  <div class="col">
-    <router-outlet name="detail"></router-outlet>
-  </div>
-</div>
-</div>
-<app-equipodesarrollo-list></app-equipodesarrollo-list>
+
 </div>
