@@ -13,7 +13,7 @@ import { CasoCreateComponent } from './caso-create/caso-create.component';
     CommonModule, AppRoutingModule
   ],
   declarations: [CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
-  exports:[CasodeusoListComponent, CasodeusoDetailComponent, CasoCreateComponent],
+  exports:[CasodeusoListComponent, CasoCreateComponent],
   providers: [CasodeusoService]
 })
 export class CasodeusoModule { 

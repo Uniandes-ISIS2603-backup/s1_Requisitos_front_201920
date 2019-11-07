@@ -18,6 +18,13 @@ export class CasodeusoListComponent implements OnInit {
   ngOnInit() {
     this.getCasos();
   }
+  navigationSubscription;
+
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+        this.navigationSubscription.unsubscribe();
+    }
+}
   
 
 } 

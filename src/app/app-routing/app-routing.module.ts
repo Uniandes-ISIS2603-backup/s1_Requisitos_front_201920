@@ -8,6 +8,7 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import {CasodeusoListComponent} from '../casodeuso/casodeuso-list/casodeuso-list.component'
 import {CasodeusoDetailComponent} from "../casodeuso/casodeuso-detail/casodeuso-detail.component"
+import { CasoCreateComponent } from '../casodeuso/caso-create/caso-create.component';
 const routes: Routes = [
      {
         path: 'auth',
@@ -72,6 +73,7 @@ const routes: Routes = [
            }
         ]
       },{
+        
         path:'casos',
         children:[
           {
@@ -82,6 +84,10 @@ const routes: Routes = [
             component: CasodeusoDetailComponent
           }
         ]
+      },
+      {
+        path:'casos2',
+        component:CasoCreateComponent
       }  
         
 ];
