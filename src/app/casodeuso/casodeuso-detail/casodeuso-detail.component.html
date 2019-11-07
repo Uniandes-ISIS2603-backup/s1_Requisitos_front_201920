@@ -3,25 +3,31 @@
       <p class="h3 p-3"> {{casoDetail.nombre}}
 
       </p>
-      <p>Documentacion: {{casoDetail.Documentacion}}</p>
+      <p>Documentacion: {{casoDetail.documentacion}}</p>
       <table class="table table-striped" >
         <thead  class="thead-dark">
             <tr>
-                <td>Entidades</td>
-                <td>Caminos de Excepción</td>
-                <td>Pruebas</td>
-                <td>PosCondiciones </td>
-                <td>PreCondiciones</td>
-                <td>Caminos Alternos</td>
+                <th>Entidades</th>
+                <th>Caminos de Excepción</th>
+                <th>Pruebas</th>
+                <th>PosCondiciones </th>
+                <th>PreCondiciones</th>
+                <th>Caminos Alternos</th>
             </tr>
 
         </thead>
         <tbody>
-            <tr *ngFor="let e of casoDetail.Entidades" >
-                <td>
+            <tr  >
+                <td *ngFor="let e of casoDetail.entidades">
+                     {{e}}
+                </td>
+                <td *ngFor="let e of casoDetail.caminosExcepcion" >
                     {{e}}
                 </td>
             </tr>
+            
+                
+            
         </tbody>
 
       </table>
@@ -31,7 +37,7 @@
             
             <div class="card-body">
               <h5 class="card-title">{{x.nombre}}</h5>
-              <p class="card-text"></p>
+              <p class="card-text">{{x.descripcion}}</p>
               <a href="#" class="btn btn-primary">Ver el Requisito</a>
             </div>
           </div>
