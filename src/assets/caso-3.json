@@ -1,45 +1,45 @@
 {
   "nombre": "Crear equipo",
-        "servicios": [
-            "Login",
-            "CrearCaso"
-        ],
-        "documentacion": "Hola",
-        "pruebas": true,
-        "entidades": [
-            "hola",
-            "hola2"
-        ],
-        "preCondiciones": [
-            "hola",
-            "hola2"
-        ],
-        "posCondiciones": [
-            "hola",
-            "hola2"
-        ],
-        "caminosAlternos": [
-            "prueba",
-            "prueba2"
-        ],
-        "caminosExcepcion": [
-            "hallo",
-            "wie geht's"
-        ],
-        "id": 3,
+  "servicios": [
+      "Login",
+      "CrearCaso"
+  ],
+  "documentacion": "Crear nuevos equipos de trabajo con por lo menos 4 integrantes",
+  "pruebas": true,
+  "entidades": [
+      "hola",
+      "hola2"
+  ],
+  "preCondiciones": [
+      "hola",
+      "hola2"
+  ],
+  "posCondiciones": [
+      "hola",
+      "hola2"
+  ],
+  "caminosAlternos": [
+      "prueba",
+      "prueba2"
+  ],
+  "caminosExcepcion": [
+      "hallo",
+      "wie geht's"
+  ],
+  "id": 3,
 
-        "responsable":{"nombre":"Nicole",
-            "correo":"n@gato.com",
-            "tipo":"A",
-            "edad":20,
-        "id":1},
+  "responsable":{"nombre":"Nicole Bahamon",
+      "correo":"n@gato.com",
+      "tipo":"Desarrollador",
+      "edad":20,
+  "id":1},
 
-        "representanteDelCliente": 
-        {"nombre":"Sofia",
-        "correo":"s@gato.com",
-        "tipo":"B",
-        "edad":13
-        },
+  "representanteDelCliente": 
+  {"nombre":"Sofia Garcia",
+  "correo":"s@gato.com",
+  "tipo":"Representante ",
+  "edad":13
+  },
     "modificaciones": "Modificación 1",
     "requisitos": [{
       "id": 90,
@@ -62,5 +62,6 @@
       "nombre":"ImplementarIntento2",
       "comentariosAdicionales":"Hola",
       "tipo":"ATRIBUTOCALIDAD"
-  }]
+  }
+]
   }
