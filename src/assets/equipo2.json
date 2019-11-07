@@ -1,0 +1,20 @@
+{
+    "id": 2,
+    "integrantes": [
+    {
+       "id": 10,
+       "nombre": "María",
+       "cedula": 1010247045
+     },
+     {
+       "id": 11,
+       "nombre": "Sisilia",
+       "cedula": 1010247046
+     },
+     {
+       "id": 13,
+       "nombre": "Umberto",
+       "cedula": 1010247047
+     }
+   ]
+}

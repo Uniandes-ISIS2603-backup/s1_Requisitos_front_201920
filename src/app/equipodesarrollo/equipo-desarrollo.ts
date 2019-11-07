@@ -1,4 +1,4 @@
-export interface EquipoDesarrollo {
+export class EquipoDesarrollo {
   id: number;
   equipoDesarrollo: string;
   

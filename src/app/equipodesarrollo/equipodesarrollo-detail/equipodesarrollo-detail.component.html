@@ -1,0 +1,22 @@
+<div class="col-md-12">
+    <div class="container-fluid">
+      <p class="h3 p-3"> {{equipoDetail.equipoDesarrollo}}
+
+      </p>
+      <table class="table table-striped" >
+        <thead  class="thead-dark">
+            <tr>
+                <td>Integrantes</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of equipoDetail.integrantes" >
+                <td>
+                    {{e.nombre}}
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
