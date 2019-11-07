@@ -3,13 +3,15 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th>Equipo Desarrollo</th>
+          <th>Equipos de Desarrollo</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor = "let x of equiposDesarrollo">
-            <td>{{x.equipoDesarrollo}}</td>
-        </tr>
-      </tbody>
+      <div class="card" style="width: 18rem;"  *ngFor = "let x of equiposDesarrollo">
+          <img src="https://cdn.pixabay.com/photo/2019/10/06/10/03/team-4529717_960_720.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{x.equipoDesarrollo}}</h5>
+            <a class="figure-caption" routerLink="/equipodesarrollo/{{x.id}}">Más información</a>
+          </div>
+        </div>
     </table>
   </div>

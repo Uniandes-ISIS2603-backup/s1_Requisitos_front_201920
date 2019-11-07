@@ -15,6 +15,7 @@ import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detai
 import { EquipodesarrolloListComponent } from '../equipodesarrollo/equipodesarrollo-list/equipodesarrollo-list.component';
 import {ListarIteracionComponent} from '../iteracion/listar-iteracion/listar-iteracion.component';
 import {IteracionDetailComponent}  from '../iteracion/iteracion-detail/iteracion-detail.component';
+import { EquipoDesarrolloDetailComponent } from '../equipodesarrollo/equipodesarrollo-detail/equipodesarrollo-detail.component';
 
 const routes: Routes = [
      {
@@ -104,8 +105,8 @@ const routes: Routes = [
               component: EquipodesarrolloListComponent
             },
             {
-              path:'id',
-              component: DesarrolladorDetailComponent
+              path:':id',
+              component: EquipoDesarrolloDetailComponent
             }
           ]
           },
