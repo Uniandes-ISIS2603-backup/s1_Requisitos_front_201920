@@ -12,6 +12,7 @@ import {CasodeusoDetailComponent} from "../casodeuso/casodeuso-detail/casodeuso-
 import { CasoCreateComponent } from '../casodeuso/caso-create/caso-create.component';
 import { DesarrolladorListComponent } from '../desarrollador/desarrollador-list/desarrollador-list.component';
 import {DesarrolladorDetailComponent} from "../desarrollador/desarrollador-detail/desarrollador-detail.component"
+import { EquipodesarrolloListComponent } from '../equipodesarrollo/equipodesarrollo-list/equipodesarrollo-list.component';
 
 const routes: Routes = [
      {
@@ -103,6 +104,19 @@ const routes: Routes = [
                path:':id',
                component: DesarrolladorDetailComponent
              }
+          ]
+        },
+        {
+          path:"equipodesarrollo",
+          children:[
+            {
+              path:'list',
+              component: EquipodesarrolloListComponent
+            },
+            {
+              path:'id',
+              component: DesarrolladorDetailComponent
+            }
           ]
         }
 

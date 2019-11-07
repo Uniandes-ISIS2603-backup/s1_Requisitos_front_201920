@@ -1,0 +1,20 @@
+{
+    "id": 1,
+    "integrantes": [
+        {
+           "id": 1,
+           "nombre": "Nicole",
+           "cedula": 1010247041
+        },
+        {
+           "id": 2,
+           "nombre": "Andrés",
+           "cedula": 1010247042
+         },
+         {
+           "id": 3,
+           "nombre": "Julián",
+           "cedula": 1010247043
+         }
+     ]
+}

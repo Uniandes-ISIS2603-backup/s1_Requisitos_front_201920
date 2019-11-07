@@ -1,11 +1,45 @@
 [
     {
       "id": 456,
-      "equipoDesarrollo": "Runaterra"
+      "equipoDesarrollo": "Runaterra",
+      "integrantes": [
+         {
+            "id": 1,
+            "nombre": "Nicole",
+            "cedula": 1010247041
+         },
+         {
+            "id": 2,
+            "nombre": "Andrés",
+            "cedula": 1010247042
+          },
+          {
+            "id": 3,
+            "nombre": "Julián",
+            "cedula": 1010247043
+          }
+      ]
    },
    {
       "id": 13,
-     "equipoDesarrollo": "Hola"
+     "equipoDesarrollo": "Hola",
+     "integrantes": [
+      {
+         "id": 10,
+         "nombre": "María",
+         "cedula": 1010247045
+       },
+       {
+         "id": 11,
+         "nombre": "Sisilia",
+         "cedula": 1010247046
+       },
+       {
+         "id": 13,
+         "nombre": "Umberto",
+         "cedula": 1010247047
+       }
+     ]
      }
   
   ]
