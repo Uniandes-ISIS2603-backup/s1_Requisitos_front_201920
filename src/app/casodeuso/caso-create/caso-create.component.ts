@@ -11,34 +11,43 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './caso-create.component.html',
   styleUrls: ['./caso-create.component.css']
 })
-export class CasoCreateComponent implements OnInit {
-    clientForm: FormGroup;
-    caso:Casodeuso;
-  constructor( private servicio: CasodeusoService,
-    private formBuilder: FormBuilder,   private toastrService: ToastrService,
-    private router: Router) {
+export class CasoCreateComponent  {
+  casoForm: FormGroup;
 
-        this.clientForm = this.formBuilder.group({
-            name: ["", [Validators.required, Validators.minLength(2)]],
-            address: ["", Validators.required]
-          });
-     }
-
-     ngOnInit() {
-      this.caso = new Casodeuso();
+ constructor
+ (
+    private requisitoService: CasodeusoService,
+    private formBuilder: FormBuilder
+  ) 
+  {
+    this.casoForm = this.formBuilder.group({
+      name: ["", [Validators.required]],
+      documentacion: ["", [Validators.required]],
+      pruebas: ["", [Validators.required]],
+      //responsable: ["",[Validators.required]],
+      //representanteDelCliente:["",[Validators.required]],
+      entidades:["", [Validators.required]],
+      servicios:["",[Validators.required]],
+      posCondiciones:["",[Validators.required]],
+      preCondiciones:["",[Validators.required]],
+      caminosExcepcion:["",[Validators.required]]
+    });
   }
 
-createCasos():Casodeuso{
-    
-      
-        this.servicio.createCaso(this.caso)
-            .subscribe(c => {
-                this.caso.id = c.id;
-                this.router.navigate(['/casos/' + c.id]);
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-        return this.caso;
-}
+  createCaso(newCaso: Casodeuso) 
+  {
+    // Process checkout data here
+  console.warn("Your order has been submitted", newCaso);
+
+   this.casoForm.reset();
+  }
+
+  
+  validarSiNumero(numero){
+    if (!/^([0-9])*$/.test(numero))
+      alert("El valor " + numero + " no es un número");
+  }
+
+
 
 }
