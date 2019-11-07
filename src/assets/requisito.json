@@ -1,25 +1,14 @@
 [
-    {
-      "id": 90,
-      "fuente":"Empresa X",
-      "autor":"Carlos Barragan",
-      "descripcion":"Intento1",
-      "importancia":10,
-      "estabilidad":true,
-      "nombre":"ImplementarIntento1",
-      "comentariosAdicionales":"Hola",
-      "tipo":"FUNCIONAL"
-   },
-   {
-      "id": 13,
-      "fuente":"Empresa X",
-      "autor":"Laura Medrano",
-      "descripcion":"Intento1",
-      "importancia":50,
-      "estabilidad":false,
-      "nombre":"ImplementarIntento2",
-      "comentariosAdicionales":"Hola",
-      "tipo":"ATRIBUTOCALIDAD"
+  {
+    "id": 1,
+    "nombre": "Dar todos los estudiantes que transnochan en la universidad."
+  },
+  {
+    "id": 2,
+    "nombre": "Actualizar las notas de los estudinates con materias en pendientes."
+  },
+  {
+    "id": 3,
+    "nombre": "Crear mejor interfaz de retiro para estudiantes que se retiran de la universidad."
   }
-  
-  ]
+]

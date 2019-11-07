@@ -1,0 +1,124 @@
+<form [formGroup]="requisitoForm" (ngSubmit)="createRequisito(requisitoForm.value)">
+	<h3>Crear requisito:</h3>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="autor">
+      Autor:
+    </label>
+		<input novalidate
+      id="autor"
+      class="form-control"
+      formControlName="autor"
+      placeholder="Autor del requisito">
+   </div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('autor').hasError('required') && 
+      requisitoForm.get('autor').touched">
+			Autor requerido
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for="nombre">
+      Nombre:
+     </label>
+			<input novalidate
+      id="nombre"
+      class="form-control"
+      formControlName="nombre"
+      placeholder="Nombre del requisito">
+   </div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('nombre').hasError('required') && 
+      requisitoForm.get('nombre').touched">
+				Nombre requerido
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="descripcion">
+          Descripción:
+        </label>
+				<textarea class="form-control" id="descripcion" rows="3"
+        formControlName="descripcion"
+        placeholder="Descripcion del requisito">
+        </textarea>
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('descripcion').hasError('required') && 
+      requisitoForm.get('descripcion').touched">
+				Descripcion requerida
+			</div>
+			<div class="form-group  mx-sm-3 mb-2">
+				<label for="fuente">
+          Fuente:
+        </label>
+				<input id="fuente" type="text"
+        class="form-control"
+        formControlName="fuente"
+       placeholder="Organización o entidad que propone el requisito">
+    </div>
+				<div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('fuente').hasError('required') && 
+      requisitoForm.get('fuente').touched">
+					Fuente requerida
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="comentariosAdicionales">
+           Comentarios adicionales:
+        </label>
+					<textarea class="form-control" id="comentariosAdicionales" rows="3"
+        formControlName="comentariosAdicionales"
+        placeholder="Comentarios adicionales del requisito">
+        </textarea>
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+				<label for="tipo">
+          Tipo:
+        </label>
+					<select class="form-control" id="comentariosAdicionales" 
+          rows="3"
+          formControlName="tipo">
+             <option>FUNCIONAL</option>
+             <option>SEGURIDAD</option>
+             <option>PLATAFORMA</option>
+             <option>ESCALABILIDAD</option>
+             <option>DESEMPENO</option>
+           </select>
+				</div>
+       	<div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('tipo').hasError('required') && 
+        requisitoForm.get('tipo').touched">
+					Tipo requerido
+				</div> 
+        <div class="form-group mx-sm-3 mb-2">
+				<label for="estabilidad">
+          Estabilidad:
+        </label>
+					<select class="form-control" id="comentariosAdicionales" 
+          rows="3"
+          formControlName="estabilidad">
+             <option>True</option>
+             <option>False</option>
+           </select>
+				</div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('estabilidad').hasError('required') && 
+        requisitoForm.get('estabilidad').touched">
+					Estabilidad requerida
+				</div> 
+        <div class="form-group mx-sm-3 mb-2">
+				<label for="importancia">
+          Importancia:
+        </label>
+					<select class="form-control" id="comentariosAdicionales" 
+          rows="3"
+          formControlName="importancia">
+             <option>1</option>
+             <option>2</option>
+             <option>3</option>
+             <option>4</option>
+             <option>5</option>
+             <option>6</option>
+             <option>7</option>
+             <option>8</option>
+             <option>9</option>
+             <option>10</option>
+           </select>
+				</div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('importancia').hasError('required') && 
+        requisitoForm.get('importancia').touched">
+					Importancia requerida
+				</div>
+				<button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="requisitoForm.invalid" class="btn btn-success">Create</button>
+</form>

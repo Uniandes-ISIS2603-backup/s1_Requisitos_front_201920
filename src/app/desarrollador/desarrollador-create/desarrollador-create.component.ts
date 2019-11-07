@@ -24,11 +24,12 @@ export class DesarrolladorCreateComponent  {
       nombre: ["", [Validators.required]],
       correo: ["", [Validators.required]],
       edad: ["", [Validators.required]],
+      cedula:["", [Validators.required]],
       tipo:["", [Validators.required]], 
     });
   }
 
-  createCaso(newCaso: Desarrollador) 
+  createDesarrollador(newCaso: Desarrollador) 
   {
     // Process checkout data here
   console.warn("Your order has been submitted", newCaso);
