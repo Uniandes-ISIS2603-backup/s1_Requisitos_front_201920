@@ -1,30 +1,24 @@
+
 <div class="container-fluid">
-  
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Nombre</th> 
-                    <th> Id</th>  
-                    <th> Responsable</th>  
-                    <th> Representante Del Cliente</th>  
-                    
+<div class= "row">
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let e of casos">
 
-                    <td style="cursor:pointer;">
-                      <a class="figure-caption" routerLink="/casos/{{e.id}}">{{e.nombre}}</a>
-                      </td>
-                      <td> {{e.id}}</td>
-                      <td> {{e.responsable.nombre}}</td>
-                      <td> {{e.representanteDelCliente.nombre}}</td>
-                     
-                  
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
+    <div class="card" style="width: 18rem;" *ngFor = "let e of casos">
+            <img src="https://freerangestock.com/sample/38789/lightbulb-with-idea-concept-icon.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><h2>{{e.nombre}}</h2></h5>
+              <p class="card-text">{{e.documentacion}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>id:</b> {{e.id}}</li>
+              <li class="list-group-item"><b>Responsable: </b>{{e.responsable.nombre}}</li>
+              <li class="list-group-item"><b>Respresentante del Cliente:</b> {{e.representanteDelCliente.nombre}}</li>
+            </ul>
+            <div class="card-body">
+              <a routerLink="/casos/{{e.id}}" class="card-link"><button type="button" class="btn btn-primary">Detalle</button></a>
+            </div>
+          </div>
+
+        </div>
+
+        </div>

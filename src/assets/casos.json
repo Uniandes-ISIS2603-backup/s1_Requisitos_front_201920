@@ -5,7 +5,7 @@
             "Login",
             "CrearCaso"
         ],
-        "documentacion": "Hola",
+        "documentacion": "Crear nuevos equipos de trabajo con por lo menos 4 integrante",
         "pruebas": true,
         "entidades": [
             "hola",
@@ -29,16 +29,16 @@
         ],
         "id": 3,
 
-        "responsable":{"nombre":"Nicole",
+        "responsable":{"nombre":"Nicole Bahamon",
             "correo":"n@gato.com",
-            "tipo":"A",
+            "tipo":"Desarrollador",
             "edad":20,
         "id":1},
 
         "representanteDelCliente": 
-        {"nombre":"Sofia",
+        {"nombre":"Sofia Garcia",
         "correo":"s@gato.com",
-        "tipo":"B",
+        "tipo":"Representante ",
         "edad":13
         }
     },
@@ -48,7 +48,7 @@
             "Crear Equipo",
             "Terminar Proyecto"
         ],
-        "documentacion": "Hola",
+        "documentacion": "Crea un proyecto con un equipo asignado",
         "pruebas": true,
         "entidades": [
             "hola",
@@ -72,16 +72,16 @@
         ],
         "id": 2, 
 
-        "responsable":{"nombre":"Nicole",
-            "correo":"n@gato.com",
-            "tipo":"A",
-            "edad":20,
+        "responsable":{"nombre":"Juan Felipe Rubio",
+            "correo":"r@uniandes.edu.co",
+            "tipo":"Desarrollador",
+            "edad":28,
         "id":1},
         "representanteDelCliente": 
-               {"nombre":"Sofia",
-        "correo":"s@gato.com",
-        "tipo":"B",
-        "edad":13,
+               {"nombre":"Maria Alejandra Perez",
+        "correo":"ma@gato.com",
+        "tipo":"Representante",
+        "edad":21,
         "id":2}
                }
     

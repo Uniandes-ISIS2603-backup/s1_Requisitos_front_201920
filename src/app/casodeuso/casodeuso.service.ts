@@ -3,8 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import {Casodeuso} from './Casodeuso';
 import {CasodeusoDetail} from "./casodeuso-detail"
+import {environment} from "../../environments/environment";
 
 const API_URL= "../../assets/";
+//const API_URL= environment.apiURL;
 const casos='casos.json';
 
 @Injectable()
