@@ -15,6 +15,7 @@ import {RequisitoModule} from './requisito/requisito.module';
 import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module';
 import {ReactiveFormsModule} from "@angular/forms";
 import {IteracionModule} from './iteracion/iteracion.module';
+import {ProyectoModule} from './proyecto/proyecto.module';
 
 
 import {AppComponent} from './app.component';
@@ -37,6 +38,7 @@ import { ModificacionModule } from './modificacion/modificacion.module';
         EquipodesarrolloModule,
         BrowserAnimationsModule,
         IteracionModule,
+        ProyectoModule,
         ModificacionModule,
         ModalDialogModule.forRoot(),
         AuthModule,
