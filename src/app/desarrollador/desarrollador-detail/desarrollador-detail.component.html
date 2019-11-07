@@ -2,6 +2,20 @@
     <div class="container-fluid">
        <p class="h3 p-3">Desarrollador: {{desarrolladorDetail.nombre}}</p>
        <p class="p-3">{{desarrolladorDetail.cedula}}</p>
+       <p class="p-3">Requisitos:</p>
+       <div *ngFor = "let requisito of desarrolladorDetail.requisitos">
+        <dd class="caption" routerLink="/requisito/{{requisito.id}}">{{requisito.nombre}}</dd>
+    </div>
+
+    <p class="p-3">Casos de Uso:</p>
+       <div *ngFor = "let casodeuso of desarrolladorDetail.casosdeuso">
+        <dd class="caption" routerLink="/casodeuso/{{casodeuso.id}}">{{casodeuso.name}}</dd>
+    </div>
+    <p class="p-3">Equipos Desarrollo:</p>
+       <div *ngFor = "let equipodesarrollo of desarrolladorDetail.equiposDesarrollo">
+        <dd class="caption" routerLink="/equipodesarrollo/{{equipodesarrollo.id}}">{{equipodesarrollo.equipoDesarrollo}}</dd>
+    </div>
+   
     </div>
  </div>
            
