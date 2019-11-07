@@ -13,14 +13,13 @@
             <tbody>
                 <tr *ngFor = "let e of desarrolladores">
                     <td>{{e.id}}</td>
-                    <td>{{e.nombre}}</td>
+                    <td style="cursor:pointer;">
+                        <a class="figure-caption" routerLink="/desarrollador/{{e.id}}">{{e.nombre}}</a>
+                        </td>
                     <td>{{e.correo}}</td>
                     <td>{{e.tipo}}</td>
                     <td>{{e.edad}}</td>
-                  
-                  
                 </tr>
-                
             </tbody>
         </table>
     </div>
