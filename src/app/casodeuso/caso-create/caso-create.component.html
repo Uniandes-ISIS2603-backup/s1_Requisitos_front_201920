@@ -1,1 +1,45 @@
-fuck this shit
+<form [formGroup]="casoForm" (ngSubmit)="createCaso(casoForm.value)">
+    <h3>Crear Caso de uso:</h3>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">
+        nombre:
+      </label>
+      <input novalidate
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Nombre del Caso">
+     </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="nombre">
+        Nombre:
+       </label>
+        <input novalidate
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Nombre del requisito">
+     </div>
+      <div class="form-group">
+          <label for="descripcion">
+            Descripción:
+          </label>
+          <textarea class="form-control" id="descripcion" rows="3" 
+          formControlName="descripcion"
+          placeholder="Descripcion del requisito">
+          </textarea>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+          <label for="fuente">
+            Fuente:
+          </label>
+          <input id="fuente" type="text"
+          class="form-control"
+          formControlName="fuente"
+         placeholder="Organización o entidad que propone el requisito">
+     </div>
+  
+          <button class="button mx-sm-3 mb-2" type="submit"
+            [disabled]="requisitoForm.invalid">Create</button>
+  
+  </form>

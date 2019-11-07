@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Desarrollador } from '../desarrollador';
+import { DesarrolladorDetail } from '../desarrollador-detail';
 import { DesarrolladorService } from '../desarrollador.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-desarrollador-detail",
@@ -9,13 +10,20 @@ import { DesarrolladorService } from '../desarrollador.service';
 })
 export class DesarrolladorDetailComponent implements OnInit {
 
-  desarrolladores: Desarrollador[];
-    constructor(private ds:DesarrolladorService ) {}
+  desarrolladorDetail: DesarrolladorDetail;
+  desarrolladorId:number;
+    constructor(private ds:DesarrolladorService,private route: ActivatedRoute ) {}
 
-    getDesarrolladores():void{
-      this.ds.getDesarrolladores().subscribe(pDesa => (this.desarrolladores = pDesa));
-    }
+    getDetail(): void {
+      this.ds.getDesarrolladorDetail(this.desarrolladorId)
+      .subscribe(DDetail => {
+          this.desarrolladorDetail = DDetail
+      });
+    } 
   ngOnInit() {
-    this.getDesarrolladores();
+    this.desarrolladorId = +this.route.snapshot.paramMap.get('id');
+    console.log(this.desarrolladorId);
+    this.desarrolladorDetail = new DesarrolladorDetail();
+    this.getDetail();
   }
 }
