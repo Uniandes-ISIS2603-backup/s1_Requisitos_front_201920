@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Requisito } from './requisito';
 import { Observable } from 'rxjs';
 import {RequisitoDetail} from './requisito-detail';
-
+import {environment} from '../../environments/environment'
 const API_URL = "../../assets/";
+//const API_URL= environment.apiURL;
 const requisito = 'requisito.json';
 
 @Injectable()

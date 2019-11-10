@@ -1,4 +1,4 @@
-<form [formGroup]="casoForm" (ngSubmit)="createCaso(casoForm.value)">
+<form [formGroup]="casoForm" (ngSubmit)="createCaso()">
 	<h3>Crear Caso de Uso:</h3>
 	<div class="form-group mx-sm-3 mb-2">
 		<label for="name">
@@ -8,7 +8,7 @@
       id="name"
       class="form-control"
       formControlName="name"
-      placeholder="nombre del requisito">
+      placeholder="nombre del caso">
    </div>
 		<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('name').hasError('required') && 
       casoForm.get('name').touched">
@@ -22,7 +22,7 @@
       id="documentacion"
       class="form-control"
       formControlName="documentacion"
-      placeholder="Documentacion del requisito">
+      placeholder="Documentacion del caso">
    </div>
 			<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('documentacion').hasError('required') && 
       casoForm.get('documentacion').touched">

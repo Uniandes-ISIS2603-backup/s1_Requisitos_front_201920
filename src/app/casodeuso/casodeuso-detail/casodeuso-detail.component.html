@@ -7,6 +7,7 @@
       <table class="table table-striped" >
         <thead  class="thead-dark">
             <tr>
+                <th>Servicios</th>
                 <th>Entidades</th>
                 <th>Caminos de Excepción</th>
                 <th>Pruebas</th>
@@ -18,11 +19,25 @@
         </thead>
         <tbody>
             <tr  >
-                <td *ngFor="let e of casoDetail.entidades">
-                     {{e}}
+              <td>{{casoDetail.servicios}}</td>
+                <td>
+                     {{casoDetail.entidades[0]}}
+                     
                 </td>
-                <td *ngFor="let e of casoDetail.caminosExcepcion" >
-                    {{e}}
+                <td  >
+                    {{casoDetail.caminosExcepcion[0]}}
+                </td>
+                <td  >
+                    {{casoDetail.pruebas}}
+                </td>
+                <td  >
+                    {{casoDetail.posCondiciones[0]}}
+                </td>
+                <td  >
+                    {{casoDetail.preCondiciones[0]}}
+                </td>
+                <td  >
+                    {{casoDetail.caminosAlternos[0]}}
                 </td>
             </tr>
             
