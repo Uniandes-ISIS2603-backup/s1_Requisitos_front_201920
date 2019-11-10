@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
-import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-caso-create',
@@ -24,13 +22,12 @@ export class CasoCreateComponent  {
       name: ["", [Validators.required]],
       documentacion: ["", [Validators.required]],
       pruebas: ["", [Validators.required]],
-      //responsable: ["",[Validators.required]],
-      //representanteDelCliente:["",[Validators.required]],
-      entidades:["", [Validators.required]],
-      servicios:["",[Validators.required]],
-      posCondiciones:["",[Validators.required]],
+      servicios: ["",[Validators.required]],
+      entidades:["",[Validators.required]],
+      caminosExcepcion:[""],
       preCondiciones:["",[Validators.required]],
-      caminosExcepcion:["",[Validators.required]]
+      posCondiciones:["",[Validators.required]],
+      caminosAlternos:["",[Validators.required]]
     });
   }
 

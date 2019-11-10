@@ -1,102 +1,138 @@
 <form [formGroup]="casoForm" (ngSubmit)="createCaso(casoForm.value)">
-    <h3>Crear Caso de Uso:</h3>
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="name">
-        nombre:
-      </label>
-      <input novalidate
-        id="name"
-        class="form-control"
-        formControlName="name"
-        placeholder="Nombre del Caso">
-     </div>
-      <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('name').hasError('required') && 
-        casoForm.get('name').touched">
-        nombre requerido
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <label for="documentacion">
-          documentacion:
-       </label>
-        <input novalidate
-        id="documentacion"
-        class="form-control"
-        formControlName="documentacion"
-        placeholder="documentacion del caso">
-     </div>
-        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('documentacion').hasError('required') && 
-        casoForm.get('documentacion').touched">
-          documentacion requerida
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="entidades">
-              Entidades:
-          </label>
-          <textarea class="form-control" id="entidades" rows="3"
-          formControlName="entidades"
-          placeholder="Entidades del Caso">
-          </textarea>
-        </div>
-        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('entidades').hasError('required') && 
-        casoForm.get('entidades').touched">
-        entidades requeridas
-        </div>
-        <div class="form-group  mx-sm-3 mb-2">
-          <label for="servicios">
-              servicios:
-          </label>
-          <input id="servicios" type="text"
-          class="form-control"
-          formControlName="servicios"
-         placeholder="servicios del requisito">
-      </div>
-          <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('servicios').hasError('required') && 
-        casoForm.get('servicios').touched">
-        servicios requeridos
-          </div>
-          <div class="form-group mx-sm-3 mb-2">
-            <label for="caminosExcepcion">
-                caminos de  Excepcion:
-          </label>
-            <textarea class="form-control" id="caminosExcepcion" rows="3"
-          formControlName="caminosExcepcion"
-          placeholder="caminosExcepcion">
-          </textarea>
-          </div>
-          <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('caminosExcepcion').hasError('required') && 
-          casoForm.get('caminosExcepcion').touched">
-          servicios requeridos
-            </div>
-          <div class="form-group mx-sm-3 mb-2">
-          <label for="pruebas">
-            Pruebas:
-          </label>
-            <select class="form-control" id="pruebas" 
-            rows="3"
-            formControlName="pruebas">
-               <option>True</option>
-               <option>False</option>
-             
-             </select>
-          </div>
-           <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('pruebas').hasError('required') && 
-          casoForm.get('pruebas').touched">
-            pruerbas requeridas
-          </div> 
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="preCondiciones">
-              preCondiciones:
+	<h3>Crear Caso de Uso:</h3>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="name">
+      Nombre:
+    </label>
+		<input novalidate
+      id="name"
+      class="form-control"
+      formControlName="name"
+      placeholder="nombre del requisito">
+   </div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('name').hasError('required') && 
+      casoForm.get('name').touched">
+			nombre requerido
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for="documentacion">
+      Documentacion:
+     </label>
+			<input novalidate
+      id="documentacion"
+      class="form-control"
+      formControlName="documentacion"
+      placeholder="Documentacion del requisito">
+   </div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('documentacion').hasError('required') && 
+      casoForm.get('documentacion').touched">
+				Documentacion requerida
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="pruebas">
+          Pruebas:
         </label>
-          <textarea class="form-control" id="preCondiciones" rows="3"
-        formControlName="preCondiciones"
-        placeholder="preCondiciones">
+        <select class="form-control" id="pruebas" 
+          rows="3"
+          formControlName="pruebas">
+             <option>True</option>
+             <option>False</option>
+           </select>
+				
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('pruebas').hasError('required') && 
+      casoForm.get('pruebas').touched">
+				pruebas requeridas
+			</div>
+			<div class="form-group  mx-sm-3 mb-2">
+				<label for="servicios">
+          Servicios:
+        </label>
+				<input id="servicios" type="text"
+        class="form-control"
+        formControlName="servicios"
+       placeholder="Servicios involucrados en el caso">
+    </div>
+				<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('servicios').hasError('required') && 
+      casoForm.get('servicios').touched">
+					servicios requeridos
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="entidades">
+           Entidades:
+        </label>
+					<textarea class="form-control" id="entidades" rows="3"
+        formControlName="entidades"
+        placeholder="entidades del requisito">
         </textarea>
-        </div>
-        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('preCondiciones').hasError('required') && 
-          casoForm.get('preCondiciones').touched">
-          preCondiciones requeridos
+				</div>
+				
+       	<div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('entidades').hasError('required') && 
+        casoForm.get('entidades').touched">
+					entidades requeridas
+				</div> 
+        <div class="form-group mx-sm-3 mb-2">
+				<label for="caminosExcepcion">
+          caminosde excepcion:
+        </label>
+        <input id="caminosExcepcion" type="text"
+        class="form-control"
+        formControlName="caminosExcepcion"
+       placeholder="caminos de Excepcion que puedan suceder">
+				</div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('caminosExcepcion').hasError('required') && 
+        casoForm.get('caminosExcepcion').touched">
+					caminos de excepcion requeridos
+        </div> 
+        
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="posCondiciones">
+            posCondiciones:
+          </label>
+          <input id="posCondiciones" type="text"
+          class="form-control"
+          formControlName="posCondiciones"
+         placeholder="posCondiciones del Caso">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('posCondiciones').hasError('required') && 
+          casoForm.get('posCondiciones').touched">
+            posCondiciones requeridas
+          </div> 
+
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="preCondiciones">
+              preCondiciones:
+            </label>
+            <input id="preCondiciones" type="text"
+            class="form-control"
+            formControlName="preCondiciones"
+           placeholder="preCondiciones del Caso">
             </div>
-          
-          <button class="button mx-sm-3 mb-2" type="submit"
-            [disabled]="requisitoForm.invalid" class="btn btn-success">Create</button>
-  </form>
+            <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('preCondiciones').hasError('required') && 
+            casoForm.get('preCondiciones').touched">
+              preCondiciones requeridas
+            </div> 
+       
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="caminosAlternos">
+                caminosAlternos:
+              </label>
+              <input id="caminosAlternos" type="text"
+              class="form-control"
+              formControlName="caminosAlternos"
+             placeholder="caminosAlternoss del Caso">
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('caminosAlternos').hasError('required') && 
+              casoForm.get('caminosAlternos').touched">
+                caminos alternos requeridos
+              </div> 
+        
+
+
+
+
+				<button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="casoForm.invalid" class="btn btn-success">Create</button>
+</form>
