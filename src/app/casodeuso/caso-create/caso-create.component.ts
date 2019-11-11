@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
@@ -11,87 +11,161 @@ import { EventEmitter } from 'events';
   templateUrl: './caso-create.component.html',
   styleUrls: ['./caso-create.component.css']
 })
-export class CasoCreateComponent  implements OnInit  {
+export class CasoCreateComponent implements OnInit {
   casoForm: FormGroup;
 
- constructor
- (
-    private casoService: CasodeusoService,
-    private formBuilder: FormBuilder,  private toastrService: ToastrService
-  ) 
-  {
+  constructor
+    (
+      private casoService: CasodeusoService,
+      private formBuilder: FormBuilder, private toastrService: ToastrService
+    ) {
+
+  }
+  casos: Casodeuso[];
+
+  caso: Casodeuso
+
+
+  /**
+  * The output which tells the parent component
+  * that the user no longer wants to create an editorial
+  */
+  @Output() cancel = new EventEmitter();
+  /**
+   * The output which tells the parent component
+   * that the user created a new author
+   */
+  @Output() create = new EventEmitter();
+  
+  createCaso(caso: Casodeuso) {
+    this.caso = caso;
+    console.warn("Your order has been submitted", caso);
+    
+    
+
+
+   
+    console.log(this.caso.nombre);
+    this.casoService.createCaso(caso).subscribe((cas) => {
+      console.log("hola");
+      console.log(cas.id);
+      this.casos.push(cas);
+      // this.create.emit();
+      this.toastrService.success("el caso fue creado", "caso creation");
+
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
+    this.casoForm.reset();
+    return this.caso;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  servicios: FormArray;
+  entidades: FormArray;
+  caminosExcepcion: FormArray;
+  preCondiciones: FormArray;
+  posCondiciones: FormArray;
+  caminosAlternos: FormArray;
+  ngOnInit() {
     this.casoForm = this.formBuilder.group({
-      name: ["", [Validators.required]],
+      nombre: ["", [Validators.required]],
       documentacion: ["", [Validators.required]],
       pruebas: ["", [Validators.required]],
-      servicios: ["",[Validators.required]],
-      entidades:["",[Validators.required]],
-      caminosExcepcion:[""],
-      preCondiciones:["",[Validators.required]],
-      posCondiciones:["",[Validators.required]],
-      caminosAlternos:["",[Validators.required]]
+      servicios: this.formBuilder.array([this.createServicio()]),
+      entidades: this.formBuilder.array([this.createEntidades()]),
+      caminosExcepcion: this.formBuilder.array([this.createCaminosEx()]),
+      preCondiciones: this.formBuilder.array([this.createPreCondiciones()]),
+      posCondiciones: this.formBuilder.array([this.createPosCondiciones()]),
+      caminosAlternos: this.formBuilder.array([this.createCaminosAL()])
+    });
+    this.casoService.getCasos().subscribe(c => (this.casos = c));
+  }
+
+  createServicio(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
+
     });
   }
 
-  caso:Casodeuso
-    /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an editorial
-    */
-   @Output() cancel = new EventEmitter();
-   /**
-    * The output which tells the parent component
-    * that the user created a new author
-    */
-   @Output() create = new EventEmitter();
-
-   serviciosList:string[];
-   entidadesList:string[];
-   caminosEList:string[];
-   caminosAList:string[];
-   preList:string[];
-   posList:string[];
-  createCaso() 
-  {
-    console.warn("Your order has been submitted", this.caso);
-    this.serviciosList.push( this.casoForm.controls['servicios'].value);
-    this.entidadesList.push( this.casoForm.controls['entidades'].value);
-    this.caminosEList.push(this.casoForm.controls['caminosExcepcion'].value);
-    this.preList.push( this.casoForm.controls['preCondiciones'].value);
-    this.posList.push(this.casoForm.controls['posCondiciones'].value);
-    this.caminosAList.push(this.casoForm.controls['caminosAlternos'].value);
-
-    console.log(this.casoForm.controls['name'].value);
-    this.caso.name= this.casoForm.controls['name'].value;
-    this.caso.servicios=this.serviciosList;
-    this.caso.pruebas= this.casoForm.controls['pruebas'].value;
-    this.caso.documentacion= this.casoForm.controls['documentacion'].value;
-    this.caso.entidades= this.entidadesList ;
-    this.caso.caminosExcepcion= this.caminosEList;
-    this.caso.preCondiciones=this.preList ;
-    this.caso.posCondiciones= this.posList;
-    this.caso.caminosAlternos= this.caminosAList;
-  this.casoService.createCaso(this.caso).subscribe((cas) => {
-      this.caso = cas;
-     // this.create.emit();
-      this.toastrService.success("el caso fue creado", "caso creation");
-
-  }, err => {
-    this.toastrService.error(err, "Error");
-});
-this.casoForm.reset();
-return this.caso;
- 
-   
-
+  addServicio(): void {
+    this.servicios = this.casoForm.get('servicios') as FormArray;
+    this.servicios.push(this.createServicio());
   }
 
- 
 
-  
- 
+  createEntidades(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
 
-  ngOnInit() {
-    this.caso= new Casodeuso();
+    });
+  }
+
+  addEntidades(): void {
+    this.entidades = this.casoForm.get('entidades') as FormArray;
+    this.entidades.push(this.createEntidades());
+  }
+
+  createCaminosEx(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
+
+    });
+  }
+
+  addCaminosEx(): void {
+    this.caminosExcepcion = this.casoForm.get('caminosExcepcion') as FormArray;
+    this.caminosExcepcion.push(this.createCaminosEx());
+  }
+
+  createPreCondiciones(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
+
+    });
+  }
+
+  addPreCondiciones(): void {
+    this.preCondiciones = this.casoForm.get('preCondiciones') as FormArray;
+    this.preCondiciones.push(this.createPreCondiciones());
+  }
+
+  createPosCondiciones(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
+
+    });
+  }
+
+  addPosCondiciones(): void {
+    this.posCondiciones = this.casoForm.get('posCondiciones') as FormArray;
+    this.posCondiciones.push(this.createPosCondiciones());
+  }
+
+
+  createCaminosAL(): FormGroup {
+    return this.formBuilder.group({
+      el1: '',
+
+    });
+  }
+
+  addCaminosAL(): void {
+    this.caminosAlternos = this.casoForm.get('caminosAlternos') as FormArray;
+    this.caminosAlternos.push(this.createCaminosAL());
   }
 }
