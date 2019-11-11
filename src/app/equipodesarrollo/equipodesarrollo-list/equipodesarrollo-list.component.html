@@ -1,17 +1,27 @@
 <div class="container-fluid">
-  <div class="col-md-2">
-    <table class="table table-striped">
+  <div class="row-md-2">
       <thead class="thead-dark">
         <tr>
           <th>Equipos de Desarrollo</th>
         </tr>
       </thead>
-      <div class="card" style="width: 18rem;"  *ngFor = "let x of equiposDesarrollo">
-          <img src="https://cdn.pixabay.com/photo/2019/10/06/10/03/team-4529717_960_720.jpg" class="card-img-top" alt="...">
+      
+      <div class="card-deck">
+      <div class="card col" style="width: 18rem;"  *ngFor = "let x of equiposDesarrollo | slice:0:5; let u = index;">
+          <img src="https://picsum.photos/id/{{u}}/200/300" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{x.equipoDesarrollo}}</h5>
             <a class="figure-caption" routerLink="/equipodesarrollo/{{x.id}}">Más información</a>
           </div>
         </div>
-    </table>
+      </div>
+      <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
   </div>
