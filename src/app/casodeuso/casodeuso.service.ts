@@ -25,10 +25,10 @@ export class CasodeusoService {
 
   createCaso(caso:Casodeuso): Observable<Casodeuso> {
     console.log(caso.nombre);
-    return this.http.post<CasodeusoDetail>(API_URL + '/casos',caso).pipe(tap((caso:Casodeuso)=>console.log(caso.id)));
+    return this.http.post<CasodeusoDetail>(API_URL + '/casos',caso);
 
   }
-
+/*
   createRelacionResponsable(casoId:number, desId:number):  Observable<Casodeuso>{
     
     console.log(casoId);
@@ -36,5 +36,5 @@ export class CasodeusoService {
     console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/1');
     return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarolladorc/'+desId+'/1', null);
   }
-
+*/
 }

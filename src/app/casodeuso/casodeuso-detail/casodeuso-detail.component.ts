@@ -27,8 +27,6 @@ export class CasodeusoDetailComponent implements OnInit {
     this.getDetail();
 }
 
-updatecasos():void{
-  this.getDetail();
-}
+
 
 }
