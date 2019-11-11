@@ -1,19 +1,16 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col">
-			<table class="table table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th>Proyectos</th>
-					</tr>
-				</thead>
-				<tbody>
-   <tr *ngFor = "let e of proyectos">
-        <td>{{proyecto.nombre}}</td>
-   </tr>
-</tbody>
-			</table>
-		</div>
-	</div>
-
-</div>
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Proyecto</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let e of proyectos">
+                    <td>{{e.nombre}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
