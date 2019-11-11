@@ -1,9 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
-import { EventEmitter } from 'events';
+
+
 
 
 @Component({
@@ -35,7 +36,7 @@ export class CasoCreateComponent implements OnInit {
    * The output which tells the parent component
    * that the user created a new author
    */
-  @Output() create = new EventEmitter();
+  @Output() updatecasos = new EventEmitter();
   
   createCaso(caso: Casodeuso) {
     this.caso = caso;
@@ -50,18 +51,27 @@ export class CasoCreateComponent implements OnInit {
       console.log("hola");
       console.log(cas.id);
       this.casos.push(cas);
-      // this.create.emit();
+      this.updatecasos.emit();
       this.toastrService.success("el caso fue creado", "caso creation");
 
     }, err => {
       this.toastrService.error(err, "Error");
     });
+    
     this.casoForm.reset();
     return this.caso;
 
   }
 
 
+ 
+
+
+
+//this.casoService.createRelacionResponsable(casId,desId).subscribe((cas)=>{
+ // this.toastrService.success("el caso asignado", "caso assigneds");
+
+//});
 
 
 
@@ -70,9 +80,6 @@ export class CasoCreateComponent implements OnInit {
 
 
 
-
-
-  
 
   servicios: FormArray;
   entidades: FormArray;
@@ -90,7 +97,7 @@ export class CasoCreateComponent implements OnInit {
       caminosExcepcion: this.formBuilder.array([this.createCaminosEx()]),
       preCondiciones: this.formBuilder.array([this.createPreCondiciones()]),
       posCondiciones: this.formBuilder.array([this.createPosCondiciones()]),
-      caminosAlternos: this.formBuilder.array([this.createCaminosAL()])
+      caminosAlternos: this.formBuilder.array([this.createCaminosAL()]),
     });
     this.casoService.getCasos().subscribe(c => (this.casos = c));
   }

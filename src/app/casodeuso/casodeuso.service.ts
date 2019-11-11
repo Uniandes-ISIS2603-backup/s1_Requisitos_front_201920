@@ -5,6 +5,7 @@ import {Casodeuso} from './Casodeuso';
 import {CasodeusoDetail} from "./casodeuso-detail"
 import {environment} from "../../environments/environment";
 import { tap } from "rxjs/operators";
+import { Desarrollador } from "../desarrollador/desarrollador";
 
 //const API_URL= "../../assets/";
 const API_URL= environment.apiURL;
@@ -25,6 +26,15 @@ export class CasodeusoService {
   createCaso(caso:Casodeuso): Observable<Casodeuso> {
     console.log(caso.nombre);
     return this.http.post<CasodeusoDetail>(API_URL + '/casos',caso).pipe(tap((caso:Casodeuso)=>console.log(caso.id)));
-}
+
+  }
+
+  createRelacionResponsable(casoId:number, desId:number):  Observable<Casodeuso>{
+    
+    console.log(casoId);
+    console.log(desId);
+    console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/1');
+    return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarolladorc/'+desId+'/1', null);
+  }
 
 }
