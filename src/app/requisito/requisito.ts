@@ -36,5 +36,12 @@ export class Requisito
      * tipo del requisito
      */
     tipo:number;
+    /**
+     * Metodo que retona un string que 
+     */
+    public toString():string
+    {
+      return "nombre:"+this.nombre+" id="+this.id;
+    }
 
 }
