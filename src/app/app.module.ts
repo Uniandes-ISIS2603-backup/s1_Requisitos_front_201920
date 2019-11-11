@@ -16,7 +16,6 @@ import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module
 import {ReactiveFormsModule} from "@angular/forms";
 import {IteracionModule} from './iteracion/iteracion.module';
 import {ProyectoModule} from './proyecto/proyecto.module';
-import { JwPaginationComponent } from 'jw-angular-pagination';
 
 
 import {AppComponent} from './app.component';
@@ -26,7 +25,7 @@ import { ModificacionModule } from './modificacion/modificacion.module';
 
 @NgModule({
     declarations: [
-        AppComponent, JwPaginationComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
