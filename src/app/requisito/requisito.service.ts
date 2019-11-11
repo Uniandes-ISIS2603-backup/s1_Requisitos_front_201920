@@ -4,9 +4,9 @@ import { Requisito } from './requisito';
 import { Observable } from 'rxjs';
 import {RequisitoDetail} from './requisito-detail';
 import {environment} from '../../environments/environment'
-const API_URL = "../../assets/";
-//const API_URL= environment.apiURL;
-const requisito = 'requisito.json';
+
+const API_URL= environment.apiURL;
+const requisito = 'requisitos.json';
 
 @Injectable()
 export class RequisitoService {
@@ -18,13 +18,13 @@ export class RequisitoService {
     * @param http The HttpClient - This is necessary in order to perform requests
     */
     getRequisitos() : Observable<Requisito[]> {
-        return this.http.get<Requisito[]>(API_URL + requisito);
+        return this.http.get<Requisito[]>(API_URL + '/requisitos');
     }
     /**
      * Retorna un Requisito Detail
      */
     getRequisitoDetail(requisitoId): Observable<RequisitoDetail>
     {
-       return this.http.get<RequisitoDetail>(API_URL+'requisito'+requisitoId+'.json');
+       return this.http.get<RequisitoDetail>(API_URL+'/requisitos/'+requisitoId);
     }
 }

@@ -35,6 +35,6 @@ export class Requisito
     /**
      * tipo del requisito
      */
-    tipo:String;
+    tipo:number;
 
 }
