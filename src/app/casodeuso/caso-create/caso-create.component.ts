@@ -36,7 +36,7 @@ export class CasoCreateComponent implements OnInit {
    * The output which tells the parent component
    * that the user created a new author
    */
-  @Output() updatecasos = new EventEmitter();
+  //@Output() updatecasos = new EventEmitter();
   
   createCaso(caso: Casodeuso) {
     this.caso = caso;
@@ -50,8 +50,8 @@ export class CasoCreateComponent implements OnInit {
     this.casoService.createCaso(caso).subscribe((cas) => {
       console.log("hola");
       console.log(cas.id);
-      this.casos.push(cas);
-      this.updatecasos.emit();
+     // this.casos.push(cas);
+      //this.updatecasos.emit();
       this.toastrService.success("el caso fue creado", "caso creation");
 
     }, err => {
@@ -99,7 +99,7 @@ export class CasoCreateComponent implements OnInit {
       posCondiciones: this.formBuilder.array([this.createPosCondiciones()]),
       caminosAlternos: this.formBuilder.array([this.createCaminosAL()]),
     });
-    this.casoService.getCasos().subscribe(c => (this.casos = c));
+   // this.casoService.getCasos().subscribe(c => (this.casos = c));
   }
 
   createServicio(): FormGroup {
