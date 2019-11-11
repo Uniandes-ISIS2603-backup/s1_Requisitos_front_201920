@@ -1,0 +1,23 @@
+[{
+    "id": 1,
+    "nombre": "Requisitos",
+    "fechaInicial": "01/01/2019",
+    "fechaFinal": "31/12/2019"
+  }, {
+    "id": 2,
+    "nombre": "Carpooling",
+    "fechaInicial": "02/02/2019",
+    "fechaFinal": "30/11/2019"
+  },
+  {
+    "id": 3,
+    "nombre": "Mascotas",
+    "fechaInicial": "03/03/2019",
+    "fechaFinal": "31/10/2019"
+  },
+  {
+    "id": 4,
+    "nombre": "Incidentes",
+    "fechaInicial": "04/04/2019",
+    "fechaFinal": "30/09/2019"
+  }]

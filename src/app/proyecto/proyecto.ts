@@ -1,6 +1,6 @@
-export class Proyecto {
+export interface Proyecto {
   id: number;
   nombre: string;
-  fechaInicial: Date;
-  fechaFinal: Date;
+  fechaInicial: any;
+  fechaFinal: any;
 }

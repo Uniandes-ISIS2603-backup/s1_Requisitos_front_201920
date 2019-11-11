@@ -1,26 +1,23 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>    
-                    <th>Nombre</th>    
-                    <th>Correo</th>   
-                    <th>Tipo</th>  
-                    <th>Edad</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let e of desarrolladores">
-                    <td>{{e.id}}</td>
-                    <td style="cursor:pointer;">
-                        <a class="figure-caption" routerLink="/desarrollador/{{e.id}}">{{e.nombre}}</a>
-                        </td>
-                    <td>{{e.correo}}</td>
-                    <td>{{e.tipo}}</td>
-                    <td>{{e.edad}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-           
+    <div class= "row">
+    
+    
+        <div class="card" style="width: 15rem;" *ngFor = "let e of desarrolladores">
+                <img src="https://image.flaticon.com/icons/svg/265/265667.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><h2>{{e.nombre}}</h2></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>Identificación:</b> {{e.id}}</li>
+                  <li class="list-group-item"><b>Correo: </b>{{e.correo}}</li>
+                  <li class="list-group-item"><b>Tipo de Desarrollador:</b> {{e.tipo}}</li>
+                  <li class="list-group-item"><b>Cedula:</b> {{e.cedula}}</li>
+                </ul>
+                <div class="card-body">
+                  <a routerLink="/desarrollador/{{e.id}}" class="card-link"><button type="button" class="btn btn-primary">Detalle</button></a>
+                </div>
+              </div>
+    
+            </div>
+    
+            </div>
