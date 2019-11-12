@@ -1,0 +1,23 @@
+<form [formGroup]="proyectoForm" (ngSubmit)="createProyecto(proyectoForm.value)">
+    <h3>Crear Proyecto:</h3>
+    
+
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="nombre">
+      Nombre:
+    </label>
+		<input novalidate
+      id="nombre"
+      class="form-control"
+      formControlName="nombre"
+      placeholder="Nombre del proyecto">
+   </div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="proyectoForm.get('nombre').hasError('required') && 
+    proyectoForm.get('nombre').touched">
+    Nombre requerido
+		</div>
+            
+        
+				<button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="proyectoForm.invalid" class="btn btn-success">Create</button>
+</form>

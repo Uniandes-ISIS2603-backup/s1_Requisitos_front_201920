@@ -20,6 +20,8 @@ import {DesarrolladorCreateComponent}  from '../desarrollador/desarrollador-crea
 import { EquipodesarrolloCreateComponent } from '../equipodesarrollo/equipodesarrollo-create/equipodesarrollo-create.component';
 import {IteracionCreateComponent}  from '../iteracion/iteracion-create/iteracion-create.component';
 import { ProyectoListComponent } from '../proyecto/proyecto-list/proyecto-list.component';
+import { ProyectoDetailComponent }  from '../proyecto/proyecto-detail/proyecto-detail.component';
+import { ProyectoCreateComponent }  from '../proyecto/proyecto-create/proyecto-create.component';
 import { ModificacionesListComponent } from '../modificacion/modificacion-list/modificaciones-list.component';
 
 const routes: Routes = [
