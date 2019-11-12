@@ -10,7 +10,7 @@ import { IteracionDetail } from '../iteracion-detail';
   styleUrls: ['./iteracion-detail.component.css']
 })
 export class IteracionDetailComponent implements OnInit {
-  iteracionDetail: IteracionDetail;
+  @Input() iteracionDetail: IteracionDetail;
 
   constructor(private iteracionService: IteracionService,
     private route: ActivatedRoute) { }

@@ -7,10 +7,12 @@ import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-iteracion-create',
   templateUrl: './iteracion-create.component.html',
-  styleUrls: ['./iteracion-create.component.css']
+  styleUrls: ['./iteracion-create.component.css'],
+  
 })
 export class IteracionCreateComponent  {
 
@@ -29,6 +31,7 @@ export class IteracionCreateComponent  {
       descripcion: ["", [Validators.required]],
       fechaInicio: ["", [Validators.required]],
       fechaFin:["", [Validators.required]], 
+     
     });
   }
   showSuccess() {
@@ -43,6 +46,8 @@ export class IteracionCreateComponent  {
   createIteracion(newCaso: Iteracion) 
   {
     console.warn("el equipo fue creado", newCaso);
+    newCaso.fechaInicio = new Date(newCaso.fechaInicio)
+    newCaso.fechaFin = new Date(newCaso.fechaFin)
     this.iteracionService.createIteracion(newCaso).subscribe(pIteracion => { this.iteracion.push(pIteracion);
     this.showSuccess();
     });
