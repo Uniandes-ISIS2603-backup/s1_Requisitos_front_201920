@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Proyecto } from './proyecto';
 import { Observable } from 'rxjs';
+import { ProyectoDetail } from './proyecto-detail';
 
 
 const API_URL = "../../assets/";
@@ -19,4 +20,12 @@ export class ProyectoService {
     getProyectos() : Observable<Proyecto[]> {
         return this.http.get<Proyecto[]>(API_URL + proyecto);
     }
+    getProyectoDetail(proyectoId): Observable<ProyectoDetail> {
+      console.log(proyectoId+" "+API_URL + "proyecto-" + proyectoId+".json");
+        return this.http.get<ProyectoDetail>(API_URL + "proyecto-" + proyectoId+".json");
+    }
+    createProyecto(proyecto): Observable<ProyectoDetail> {
+        return this.http.post<ProyectoDetail>(API_URL +proyecto, proyecto);
+    }
+    
 }
