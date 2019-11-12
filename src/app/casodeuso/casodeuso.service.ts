@@ -15,8 +15,8 @@ const casos='casos.json';
 export class CasodeusoService {
   constructor(private http: HttpClient) {}
 
-  getCasos(): Observable<Casodeuso[]> {
-    return this.http.get<Casodeuso[]>(API_URL + '/casos');
+  getCasos(): Observable<CasodeusoDetail[]> {
+    return this.http.get<CasodeusoDetail[]>(API_URL + '/casos');
   }
 
   getCasosDetail(casoId):Observable<CasodeusoDetail>{
