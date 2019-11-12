@@ -13,7 +13,7 @@ export class Iteracion {
     * descripcion iteracion 
     */
 
-    descripcion: String;
+   descripcion: String;
     /**
     * fecha de inicio de la iteracion 
     */

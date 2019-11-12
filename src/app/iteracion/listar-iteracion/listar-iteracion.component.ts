@@ -26,12 +26,12 @@ export class ListarIteracionComponent implements OnInit {
      * Asks the service to update the list of editorials
      */
     getEditorials(): void {
-        this.iteracionService.getIteraciones().subscribe(iteraciones => this.iteraciones = iteraciones);
+      this.iteracionService.getIteraciones().subscribe(iteraciones => this.iteraciones = iteraciones);
     }
     onSelected(iteracion_id: number): void {
     this.iteracion_id = iteracion_id;
     this.selectedIteracion = new IteracionDetail();
-    this.iteracionService.getIteracionDetail(iteracion_id).subscribe(o => this.selectedIteracion = o);
+    this.iteracionService.getIteracionDetail(iteracion_id).subscribe(pIteracion => this.selectedIteracion = pIteracion);
   }
 
     /**

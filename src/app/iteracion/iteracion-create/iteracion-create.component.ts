@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IteracionService } from '../iteracion.service';
 import { Iteracion } from '../iteracion';
+import { IteracionDetail } from '../iteracion-detail';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,11 +15,13 @@ import { ToastrService } from 'ngx-toastr';
 export class IteracionCreateComponent  {
 
  iteracionForm: FormGroup;
+ iteracion: IteracionDetail[]
 
  constructor
  (
     private iteracionService: IteracionService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) 
   {
     this.iteracionForm = this.formBuilder.group({
@@ -28,13 +31,22 @@ export class IteracionCreateComponent  {
       fechaFin:["", [Validators.required]], 
     });
   }
+  showSuccess() {
+    for (let i = 0; i < this.iteracion.length; i++){
+      console.log(this.iteracion[i].id+' '+this.iteracion[i].nombre);
+    }
+    this.toastr.success("Equipo", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
+   
+  }
+  
 
   createIteracion(newCaso: Iteracion) 
   {
-    // Process checkout data here
-  console.warn("Your order has been submitted", newCaso);
-
-   this.iteracionForm.reset();
+    console.warn("el equipo fue creado", newCaso);
+    this.iteracionService.createIteracion(newCaso).subscribe(pIteracion => { this.iteracion.push(pIteracion);
+    this.showSuccess();
+    });
+    this.iteracionForm.reset();
   }
 
   
