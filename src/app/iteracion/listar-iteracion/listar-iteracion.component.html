@@ -10,8 +10,8 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let i of iteraciones">
-						<td style="cursor: pointer;">
-							<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
+						<td   style="cursor: pointer; " >
+							<a class="figure-caption" (click)="onSelected(i.id)" onmouseover="this.style.color='red';" onmouseout="this.style.color='black';">{{i.nombre}}</a>
 						</td>
             <td> {{i.descripcion}}
             </td>  
