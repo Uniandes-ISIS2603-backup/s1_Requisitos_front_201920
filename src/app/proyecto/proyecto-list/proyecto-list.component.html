@@ -7,9 +7,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let e of proyectos">
-                    <td>{{e.nombre}}</td>
-                  
+                <tr *ngFor = "let i of proyectos">
+						<td style="cursor: pointer;">
+								<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
+							</td>
                 </tr>
             </tbody>
         </table>

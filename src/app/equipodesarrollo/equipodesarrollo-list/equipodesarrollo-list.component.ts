@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EquipoDesarrollo} from '../equipo-desarrollo';
 import {EquipodesarrolloService} from '../equipodesarrollo.service';
+
+
 @Component({
   selector: 'app-equipodesarrollo-list',
   templateUrl: './equipodesarrollo-list.component.html',
@@ -9,6 +11,7 @@ import {EquipodesarrolloService} from '../equipodesarrollo.service';
 export class EquipodesarrolloListComponent implements OnInit {
 
 equiposDesarrollo: EquipoDesarrollo[];
+pageOfItems: Array<EquipoDesarrollo>;
 
   constructor(private equipodesarrolloService: EquipodesarrolloService) { }
 
@@ -18,5 +21,8 @@ equiposDesarrollo: EquipoDesarrollo[];
   ngOnInit() {
     this.getEquiposdesarrollo();
   }
-
+  onChangePage(pageOfItems: Array<EquipoDesarrollo>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+}
 }

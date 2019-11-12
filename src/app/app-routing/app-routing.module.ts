@@ -20,6 +20,7 @@ import {DesarrolladorCreateComponent}  from '../desarrollador/desarrollador-crea
 import { EquipodesarrolloCreateComponent } from '../equipodesarrollo/equipodesarrollo-create/equipodesarrollo-create.component';
 import {IteracionCreateComponent}  from '../iteracion/iteracion-create/iteracion-create.component';
 import { ProyectoListComponent } from '../proyecto/proyecto-list/proyecto-list.component';
+import { ModificacionesListComponent } from '../modificacion/modificacion-list/modificaciones-list.component';
 
 const routes: Routes = [
      {
@@ -158,7 +159,13 @@ const routes: Routes = [
           path:"crearProyecto",
           component: IteracionCreateComponent
         },
-        
+        {
+          path: 'modificaciones',
+          children: [{
+            path: 'list',
+            component: ModificacionesListComponent
+          }]
+        }
 ];
 
 @NgModule({

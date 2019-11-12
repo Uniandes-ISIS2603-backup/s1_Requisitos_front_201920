@@ -1,17 +1,19 @@
+
 <div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-dark">
-				<tr>
-					<th>Requisito Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let e of requisitos">
-					<td style="cursor: pointer;">
-						<a class="figure-caption" routerLink="/requisito/{{e.id}}">{{e.nombre}}</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class="row">
+		<div class="card" style="width: 15rem;" *ngFor="let e of requisitos">
+			<img src="https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_960_720.jpg" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">
+					<h2>{{e.nombre}}</h2>
+				</h5>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><b>Autor: </b>{{e.autor}}</li>
+			</ul>
+			<div class="card-body">
+				<a class="figure-caption" routerLink="/requisito/{{e.id}}"><button type="button"
+					class="btn btn-primary">Ver detalles</button></a>
+			</div>
+		</div>
 	</div>

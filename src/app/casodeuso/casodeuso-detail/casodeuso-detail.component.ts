@@ -18,6 +18,7 @@ export class CasodeusoDetailComponent implements OnInit {
     .subscribe(CDetail => {
         this.casoDetail = CDetail
     });
+    console.log(this.casoDetail.servicios[0]);
   }
 
   ngOnInit() {

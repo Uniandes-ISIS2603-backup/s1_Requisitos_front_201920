@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Casodeuso} from '../Casodeuso'
 import {CasodeusoService } from '../casodeuso.service';
+import { CasodeusoDetail } from '../casodeuso-detail';
 
 @Component({
   selector: 'app-casodeuso-list',
@@ -8,7 +9,9 @@ import {CasodeusoService } from '../casodeuso.service';
   styleUrls: ['./casodeuso-list.component.css']
 })
 export class CasodeusoListComponent implements OnInit {
-  casos: Casodeuso[];
+
+  casos: CasodeusoDetail[];
+
   constructor(private casoService:CasodeusoService ) { }
   getCasos(): void {
     this.casoService.getCasos().subscribe(pCasos => (this.casos = pCasos));
@@ -24,6 +27,7 @@ export class CasodeusoListComponent implements OnInit {
     if (this.navigationSubscription) {
         this.navigationSubscription.unsubscribe();
     }
+    
 }
   
 

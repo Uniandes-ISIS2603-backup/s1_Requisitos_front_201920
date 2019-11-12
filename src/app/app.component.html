@@ -1,54 +1,100 @@
-
 <div class="container-fluid">
   <div class="row">
-
     <h1>C13 - Requisitos <img
         src="https://www.pinclipart.com/picdir/big/354-3540180_png-construction-project-icon-png-clipart.png"
         height="100" width="100"> </h1>
-
-
-
-
   </div>
   <h2>Organiza y maneja tus proyectos de desarrollo. Sencillo y sin estrés</h2>
 
-  <div class="row">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #7da6e4;">
+    <img src="https://typea4.com/template/dynfont.php?color=8&text=R&font=4" width="30" height="30" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Requisitos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Ver requisito</a>
+            <a class="nav-link active" routerLink="requisitoC" routerLinkActive="active">Crear requisito</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Equipos de desarrollo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="equipodesarrollo/list" routerLinkActive="active">Ver Equipos de
+              Desarrollo</a>
+            <a class="nav-link active" routerLink="equipodesarrollo2" routerLinkActive="active">Crear Equipo de
+              Desarrollo</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Casos de uso
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="casos/list" routerLinkActive="active">Ver casos de uso</a>
+            <a class="nav-link active" routerLink="casos2" routerLinkActive="active">Crear casos de uso</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Desarrolladores
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="desarrollador2" routerLinkActive="active">Crear Desarrolladores</a>
+            <a class="nav-link active" routerLink="desarrollador/list" routerLinkActive="active">Ver Desarrolladores
+              Activos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Iteraciones
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="iteracion/list" routerLinkActive="active">Ver iteraciones</a>
+            <a class="nav-link active" routerLink="crearIteracion" routerLinkActive="active">Crear Iteracion</a>
+          </div>
+        </li>
 
-    <a class="nav-link active" routerLink="casos/list" routerLinkActive="active"><button type="button"
-        class="btn btn-primary">Ver Casos de Uso</button></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Proyectos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link active" routerLink="proyecto/list" routerLinkActive="active">Ver proyectos</a>
+          </div>
+        </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Historial de modificaciones
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link active" routerLink="modificaciones/list" routerLinkActive="active">Ver modificaciones</a>
+            </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 
-    <a class="nav-link active" routerLink="casos2" routerLinkActive="active"><button type="button"
-        class="btn btn-primary">Crear Casos de Uso</button></a>
-
-
-      <a class= "nav-link active" routerLink="desarrollador2" routerLinkActive="active"><button type="button" class="btn btn-primary">Crear Desarrollador</button></a>
-      <a class= "nav-link active" routerLink="desarrollador/list" routerLinkActive="active"><button type="button" class="btn btn-primary">Ver Desarrolladores Activos</button></a>
-      
-      <a class= "nav-link active" routerLink="iteracion/list" routerLinkActive="active"><button type="button" class="btn btn-primary">Ver iteraciones</button></a>
-      <a class= "nav-link active" routerLink="crearIteracion" routerLinkActive="active"><button type="button" class="btn btn-primary">Crear Iteracion</button></a>
-
-
-  
-
-    <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active"><button type="button"
-        class="btn btn-primary">Ver Requisitos</button></a>
-
-    <a class="nav-link active" routerLink="requisitoC" routerLinkActive="active"><button type="button"
-        class="btn btn-primary">Crear requisito</button></a>
-
-    <a class="nav-link active" routerLink="equipodesarrollo/list" routerLinkActive="active"><button type="button"
-        class="btn btn-primary">Ver Equipos de Desarrollo</button></a>
-    <a class="nav-link active" routerLink="equipodesarrollo2" routerLinkActive="active"><button type="button"
-         class="btn btn-primary">Crear Equipo de Desarrollo</button></a>
-
-         <a class="nav-link active" routerLink="proyecto/list" routerLinkActive="active"><button type="button"
-          class="btn btn-primary">Ver Proyectos</button></a>
-
-          
-          
-          
-  </div>
   <div class="container-fluid">
     <div class="border m-5 row">
       <div class="col">
@@ -56,7 +102,4 @@
       </div>
     </div>
   </div>
-
-
-
 </div>

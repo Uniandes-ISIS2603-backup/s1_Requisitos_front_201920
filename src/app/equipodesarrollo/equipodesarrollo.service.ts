@@ -3,7 +3,9 @@ import { HttpClient} from '@angular/common/http';
 import {EquipoDesarrollo} from './equipo-desarrollo';
 import {EquipoDesarrolloDetail} from './equipodesarrollo-detail';
 import {Observable } from 'rxjs';
-const API_URL = "../../assets/";
+import {environment} from "../../environments/environment";
+//const API_URL = "../../assets/";
+const API_URL = environment.apiURL;
 const equiposdesarrollo= 'equiposdesarrollo.json';
 @Injectable()
 export class EquipodesarrolloService {
@@ -11,12 +13,12 @@ export class EquipodesarrolloService {
   constructor(private http:HttpClient) { }
 
   getEquipodesarrollo() :Observable<EquipoDesarrollo[]> {
-    return this.http.get<EquipoDesarrollo[]>(API_URL + equiposdesarrollo);
+    return this.http.get<EquipoDesarrollo[]>(API_URL + '/equipoDesarrollo');
   }
   getEquiposDetail(equipoId):Observable<EquipoDesarrolloDetail>{
-    return this.http.get<EquipoDesarrolloDetail>(API_URL+"equipo"+equipoId+".json");
+    return this.http.get<EquipoDesarrolloDetail>(API_URL+ '/equipoDesarrollo/'+ equipoId);
   }
   createEquipoDesarrollo(equipo): Observable<EquipoDesarrolloDetail> {
-    return this.http.post<EquipoDesarrolloDetail>(API_URL + equiposdesarrollo, equipo);
+    return this.http.post<EquipoDesarrolloDetail>(API_URL + '/equipoDesarrollo', equipo);
 }
 }

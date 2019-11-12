@@ -7,7 +7,6 @@ import { RequisitoCreateComponent } from './requisito-create/requisito-create.co
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,
