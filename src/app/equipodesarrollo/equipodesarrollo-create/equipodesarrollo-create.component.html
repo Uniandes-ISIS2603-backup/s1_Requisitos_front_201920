@@ -16,20 +16,6 @@
             </div>
         </div>
     
-        <div class="form-group  mx-sm-3 mb-2">
-            <label for="integrante1">
-          Integrante 1
-        </label>
-            <input id="integrante1" type="text"
-         class="form-control"
-         formControlName="integrante1"
-         placeholder="El primer integrante">
-    
-            <div class="alert alert-danger alert-dismissible fade show"
-                *ngIf="equipodesarrolloForm.get('integrante1').hasError('required') && equipodesarrolloForm.get('integrante1').touched">
-                Integrante1 requerido
-            </div>
-      </div>
             <button class="button mx-sm-3 mb-2" type="submit">Create</button>
     
     </form>

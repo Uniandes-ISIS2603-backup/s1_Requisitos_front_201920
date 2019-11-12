@@ -18,7 +18,7 @@ export class EquipodesarrolloService {
   getEquiposDetail(equipoId):Observable<EquipoDesarrolloDetail>{
     return this.http.get<EquipoDesarrolloDetail>(API_URL+ '/equipoDesarrollo/'+ equipoId);
   }
-  createEquipoDesarrollo(equipo): Observable<EquipoDesarrolloDetail> {
-    return this.http.post<EquipoDesarrolloDetail>(API_URL + '/equipoDesarrollo', equipo);
+  createEquipoDesarrollo(equipo): Observable<EquipoDesarrollo> {
+    return this.http.post<EquipoDesarrollo>(API_URL + '/equipoDesarrollo', equipo);
 }
 }

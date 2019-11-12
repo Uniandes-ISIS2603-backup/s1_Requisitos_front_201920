@@ -18,7 +18,7 @@ export class EquipodesarrolloCreateComponent implements OnInit {
 
   equipodesarrolloForm: FormGroup;
 
-  equiposDesarrollo: EquipoDesarrolloDetail[];
+  equipoDesarrollo: EquipoDesarrollo;
 
   constructor(
     private equipodesarrolloService: EquipodesarrolloService,
@@ -27,20 +27,17 @@ export class EquipodesarrolloCreateComponent implements OnInit {
   ) {
     this.equipodesarrolloForm = this.formBuilder.group({
       equipoDesarrollo: ["", [Validators.required, Validators.minLength(2)]],
-
     });
   }
 
   showSuccess() {
-    for (let i = 0; i < this.equiposDesarrollo.length; i++){
-      console.log(this.equiposDesarrollo[i].id+' '+this.equiposDesarrollo[i].equipoDesarrollo);
-    }
+   
     this.toastr.success("Equipo", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
    
   }
   createEquipoDesarrollo(newEquipodesarrollo: EquipoDesarrollo)  {
     console.warn("el equipo fue creado", newEquipodesarrollo);
-    this.equipodesarrolloService.createEquipoDesarrollo(newEquipodesarrollo).subscribe(pEquipo => { this.equiposDesarrollo.push(pEquipo);
+    this.equipodesarrolloService.createEquipoDesarrollo(newEquipodesarrollo).subscribe(pEquipo => { this.equipoDesarrollo=pEquipo;
     this.showSuccess();
     });
     this.equipodesarrolloForm.reset();
