@@ -15,7 +15,7 @@ export class RequisitoListComponent implements OnInit
      */
   requisitos: Requisito[];
 
-/**
+ /**
    * Asks the service to update the list of Requisitos
    */
   getRequisitos(): void 

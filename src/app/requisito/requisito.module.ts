@@ -6,12 +6,14 @@ import { RequisitoDetailComponent } from './requisito-detail/requisito-detail.co
 import { RequisitoCreateComponent } from './requisito-create/requisito-create.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DesarrolladorModule} from '../desarrollador/desarrollador.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    DesarrolladorModule],
   declarations: [RequisitoListComponent, RequisitoDetailComponent,RequisitoCreateComponent],
   exports:[RequisitoListComponent,RequisitoCreateComponent],
   providers: [RequisitoService]

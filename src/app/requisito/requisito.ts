@@ -1,5 +1,17 @@
+import {Desarrollador}from "../desarrollador/desarrollador";
+import {Casodeuso} from "../casodeuso/Casodeuso";
+
+
 export class Requisito
-{
+{   
+    /**
+     * Caso de uso del requisito
+     */
+    requisitosFuncionalesCaso:Casodeuso;
+    /**
+     * Desarrollador del requisito
+     */
+     desarrollador:Desarrollador;
      /**
       * id del requisito
       */

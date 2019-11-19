@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Requisito } from "../requisito";
 import { RequisitoService } from "../requisito.service";
 import { ToastrService } from 'ngx-toastr';
+import { Desarrollador } from "../../desarrollador/desarrollador";
 
 @Component({
   selector: 'app-requisito-create',
@@ -18,6 +19,10 @@ export class RequisitoCreateComponent {
     * El nuevo requisito
     */
   requisito: Requisito;
+  /**
+  * Lista de desarrolladores
+  */
+  desarrolladores: Desarrollador[];
 
 
   constructor
@@ -38,7 +43,8 @@ export class RequisitoCreateComponent {
     });
   }
 
-  createRequisito(newRequisito: Requisito) {
+  createRequisito(newRequisito: Requisito) 
+  {
     // Process checkout data here
     console.warn("Your order has been submitted", newRequisito);
 
@@ -56,6 +62,15 @@ export class RequisitoCreateComponent {
     */
   ngOnInit() {
     this.requisito = new Requisito();
+    this.getDesarrolladores();
+  }
+
+  /**
+   * Asks the service to update the list of Desarrolladores
+   */
+  getDesarrolladores(): void 
+  {
+    this.requisitoService.getDesarrolladores().subscribe( pDesarrolladores => this.desarrolladores = pDesarrolladores);
   }
 
 }
