@@ -1,60 +1,66 @@
 <div class="col-md-12">
     <div class="container-fluid">
-      <p class="h3 p-3"> {{casoDetail.nombre}}
+        <p class="h3 p-3"> {{casoDetail.nombre}}
 
-      </p>
-      <p>Documentacion: {{casoDetail.documentacion}}</p>
-      <table class="table table-striped" >
-        <thead  class="thead-dark">
-            <tr>
-                <th>Servicios</th>
-                <th>Entidades</th>
-                <th>Caminos de Excepción</th>
-                <th>Pruebas</th>
-                <th>PosCondiciones </th>
-                <th>PreCondiciones</th>
-                <th>Caminos Alternos</th>
-            </tr>
+        </p>
+        <p>Documentacion: {{casoDetail.documentacion}}</p>
+        <table class="table table-striped">
 
-        </thead>
-        <tbody>
-            <tr  >
-              <td>{{casoDetail.servicios[0]}}</td>
-                <td>
-                     {{casoDetail.entidades[0]}}
-                     
-                </td>
-                <td  >
-                    {{casoDetail.caminosExcepcion[0]}}
-                </td>
-                <td  >
-                    {{casoDetail.pruebas}}
-                </td>
-                <td  >
-                    {{casoDetail.posCondiciones[0]}}
-                </td>
-                <td  >
-                    {{casoDetail.preCondiciones[0]}}
-                </td>
-                <td  >
-                    {{casoDetail.caminosAlternos[0]}}
-                </td>
-            </tr>
-            
-                
-            
-        </tbody>
+            <tbody>
+                <tr>
+                    <th>Servicios</th>
+                    <td *ngFor="let e of casoDetail.servicios">
+                        {{e}}
+                    </td>
+                </tr>
 
-      </table>
-      
-      
-      <div class="card" style="width: 18rem;" *ngFor="let x of casoDetail.requisitos">
-            
+                <tr>
+                    <th>Entidades</th>
+                    <td *ngFor="let e of casoDetail.entidades">
+                        {{e}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Caminos de Excepcion</th>
+                    <td *ngFor="let e of casoDetail.caminosExcepcion">
+                        {{e}}
+                    </td>
+                </tr>
+
+                <tr>
+                        <th>Caminos de Alternos</th>
+                        <td *ngFor="let e of casoDetail.caminosAlternos">
+                            {{e}}
+                        </td>
+                    </tr>
+                    <tr>
+                            <th>PreCondiciones</th>
+                            <td *ngFor="let e of casoDetail.preCondiciones">
+                                {{e}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                                <th>Caminos de Excepcion</th>
+                                <td *ngFor="let e of casoDetail.posCondiciones">
+                                    {{e}}
+                                </td>
+                            </tr>
+
+
+            </tbody>
+
+        </table>
+
+
+        <div class="card" style="width: 18rem;" *ngFor="let x of casoDetail.requisitos">
+
             <div class="card-body">
-              <h5 class="card-title">{{x.nombre}}</h5>
-              <p class="card-text">{{x.descripcion}}</p>
-              <a href="#" class="btn btn-primary">Ver el Requisito</a>
+                <h5 class="card-title">{{x.nombre}}</h5>
+                <p class="card-text">{{x.descripcion}}</p>
+                <a href="#" class="btn btn-primary">Ver el Requisito</a>
             </div>
-          </div>
+        </div>
     </div>
-    </div>
+</div>

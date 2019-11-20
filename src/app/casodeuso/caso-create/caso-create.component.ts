@@ -1,11 +1,8 @@
-import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
-
-
-
 
 @Component({
   selector: 'app-caso-create',
@@ -26,153 +23,83 @@ export class CasoCreateComponent implements OnInit {
 
   caso: Casodeuso
 
+ 
 
-  /**
-  * The output which tells the parent component
-  * that the user no longer wants to create an editorial
-  */
-  @Output() cancel = new EventEmitter();
-  /**
-   * The output which tells the parent component
-   * that the user created a new author
-   */
-  //@Output() updatecasos = new EventEmitter();
-  
   createCaso(caso: Casodeuso) {
+    caso= this.arreglarDatos(caso);
+    
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
+
+
     this.caso = caso;
     console.warn("Your order has been submitted", caso);
-    
-    
-
-
-   
     console.log(this.caso.nombre);
     this.casoService.createCaso(caso).subscribe((cas) => {
-      console.log("hola");
-      console.log(cas.id);
       this.casos.push(cas);
-      //this.updatecasos.emit();
       this.toastrService.success("el caso fue creado", "caso creation");
 
     }, err => {
       this.toastrService.error(err, "Error");
     });
-    
+
     this.casoForm.reset();
     return this.caso;
 
   }
 
 
- 
 
-
-
-//this.casoService.createRelacionResponsable(casId,desId).subscribe((cas)=>{
- // this.toastrService.success("el caso asignado", "caso assigneds");
-
-//});
-
-
-
-
-
-
-
-
-
-  servicios: FormArray;
-  entidades: FormArray;
-  caminosExcepcion: FormArray;
-  preCondiciones: FormArray;
-  posCondiciones: FormArray;
-  caminosAlternos: FormArray;
   ngOnInit() {
+
     this.casoForm = this.formBuilder.group({
       nombre: ["", [Validators.required]],
       documentacion: ["", [Validators.required]],
       pruebas: ["", [Validators.required]],
-      servicios: this.formBuilder.array([this.createServicio()]),
-      entidades: this.formBuilder.array([this.createEntidades()]),
-      caminosExcepcion: this.formBuilder.array([this.createCaminosEx()]),
-      preCondiciones: this.formBuilder.array([this.createPreCondiciones()]),
-      posCondiciones: this.formBuilder.array([this.createPosCondiciones()]),
-      caminosAlternos: this.formBuilder.array([this.createCaminosAL()]),
+      servicios: ["", [Validators.required]],
+      entidades: ["", [Validators.required]],
+      caminosExcepcion: ["", [Validators.required]],
+      preCondiciones: ["", [Validators.required]],
+      posCondiciones: ["", [Validators.required]],
+      caminosAlternos: ["", [Validators.required]],
     });
-     this.casoService.getCasos().subscribe(c => (this.casos = c));
-  }
-
-  createServicio(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
-
-    });
-  }
-
-  addServicio(): void {
-    this.servicios = this.casoForm.get('servicios') as FormArray;
-    this.servicios.push(this.createServicio());
+    this.casoService.getCasos().subscribe(c => (this.casos = c));
   }
 
 
-  createEntidades(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
 
-    });
+
+  arreglarDatos(caso:Casodeuso): Casodeuso{
+    var a: string[] = caso.servicios;
+    var arrayServ= a.toString().split(',');
+    caso.servicios=[];
+    arrayServ.forEach(st=> caso.servicios.push(st));
+
+    var a: string[] = caso.entidades;
+    var arrayServ= a.toString().split(',');
+    caso.entidades=[];
+    arrayServ.forEach(st=> caso.entidades.push(st));
+
+    var a: string[] = caso.caminosAlternos;
+    var arrayServ= a.toString().split(',');
+    caso.caminosAlternos=[];
+    arrayServ.forEach(st=> caso.caminosAlternos.push(st));
+
+    var a: string[] = caso.caminosExcepcion;
+    var arrayServ= a.toString().split(',');
+    caso.caminosExcepcion=[];
+    arrayServ.forEach(st=> caso.caminosExcepcion.push(st));
+
+    var a: string[] = caso.preCondiciones;
+    var arrayServ= a.toString().split(',');
+    caso.preCondiciones=[];
+    arrayServ.forEach(st=> caso.preCondiciones.push(st));
+
+    var a: string[] = caso.posCondiciones;
+    var arrayServ= a.toString().split(',');
+    caso.posCondiciones=[];
+    arrayServ.forEach(st=> caso.posCondiciones.push(st));
+    return caso;
   }
 
-  addEntidades(): void {
-    this.entidades = this.casoForm.get('entidades') as FormArray;
-    this.entidades.push(this.createEntidades());
-  }
-
-  createCaminosEx(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
-
-    });
-  }
-
-  addCaminosEx(): void {
-    this.caminosExcepcion = this.casoForm.get('caminosExcepcion') as FormArray;
-    this.caminosExcepcion.push(this.createCaminosEx());
-  }
-
-  createPreCondiciones(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
-
-    });
-  }
-
-  addPreCondiciones(): void {
-    this.preCondiciones = this.casoForm.get('preCondiciones') as FormArray;
-    this.preCondiciones.push(this.createPreCondiciones());
-  }
-
-  createPosCondiciones(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
-
-    });
-  }
-
-  addPosCondiciones(): void {
-    this.posCondiciones = this.casoForm.get('posCondiciones') as FormArray;
-    this.posCondiciones.push(this.createPosCondiciones());
-  }
-
-
-  createCaminosAL(): FormGroup {
-    return this.formBuilder.group({
-      el1: '',
-
-    });
-  }
-
-  addCaminosAL(): void {
-    this.caminosAlternos = this.casoForm.get('caminosAlternos') as FormArray;
-    this.caminosAlternos.push(this.createCaminosAL());
-  }
 }
