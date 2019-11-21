@@ -22,3 +22,9 @@
   .toast-warning {
     background-color: #F89406 !important;
   }
+/* Item para que la imagen de usuario salgo pequeña*/
+.sidebar .nav-item .nav-link .img-profile,
+.topbar .nav-item .nav-link .img-profile {
+  height: 2rem;
+  width: 2rem;
+}
