@@ -29,8 +29,7 @@ export class CasoCreateComponent implements OnInit {
     caso= this.arreglarDatos(caso);
     
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
-
+   
 
     this.caso = caso;
     console.warn("Your order has been submitted", caso);

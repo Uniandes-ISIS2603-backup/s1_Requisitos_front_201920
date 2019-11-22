@@ -4,6 +4,7 @@ import { DesarrolladorService } from '../desarrollador.service';
 import { Desarrollador } from '../desarrollador';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
+import { DesarrolladorDetail } from '../desarrollador-detail';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,7 +18,7 @@ export class DesarrolladorCreateComponent  {
  constructor
  (
     private desarrolladorService: DesarrolladorService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,  private toastrService: ToastrService
   ) 
   {
     this.desarrolladorForm = this.formBuilder.group({
@@ -29,10 +30,21 @@ export class DesarrolladorCreateComponent  {
     });
   }
 
+  casos: Desarrollador[];
   createDesarrollador(newCaso: Desarrollador) 
   {
+  
+
     // Process checkout data here
   console.warn("Your order has been submitted", newCaso);
+
+  this.desarrolladorService.createDesarrollador(newCaso).subscribe((cas) => {
+    this.casos.push(cas);
+    this.toastrService.success("el caso fue creado", "caso creation");
+
+  }, err => {
+    this.toastrService.error(err, "Error");
+  });
 
    this.desarrolladorForm.reset();
   }
@@ -43,6 +55,9 @@ export class DesarrolladorCreateComponent  {
       alert("El valor " + numero + " no es un número");
   }
 
+  ngOnInit() {
 
+    this.desarrolladorService.getDesarrolladores().subscribe(c => (this.casos = c));
+  }
 
 }
