@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-caso-create',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CasoCreateComponent implements OnInit {
   casoForm: FormGroup;
+ // desForm: FormGroup;
 
   constructor
     (
@@ -22,15 +24,12 @@ export class CasoCreateComponent implements OnInit {
   casos: Casodeuso[];
 
   caso: Casodeuso
-
+ 
  
 
   createCaso(caso: Casodeuso) {
+    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
     caso= this.arreglarDatos(caso);
-    
-
-   
-
     this.caso = caso;
     console.warn("Your order has been submitted", caso);
     console.log(this.caso.nombre);
@@ -43,11 +42,27 @@ export class CasoCreateComponent implements OnInit {
     });
 
     this.casoForm.reset();
+    
     return this.caso;
 
   }
+/*
+  asignarDes(caso:Casodeuso,idResponsable, idRepresentante){
+  
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(idResponsable, null, 4));
+    alert(idResponsable);
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(caso, null, 4));
+    this.casoService.createRelacionResponsable(caso.id,idResponsable).subscribe((cas) => {
+      this.toastrService.success("el responsable fue creado", "caso creation");
 
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
 
+    this.desForm.reset();
+
+  }
+  */
 
   ngOnInit() {
 
@@ -61,7 +76,16 @@ export class CasoCreateComponent implements OnInit {
       preCondiciones: ["", [Validators.required]],
       posCondiciones: ["", [Validators.required]],
       caminosAlternos: ["", [Validators.required]],
+      idResponsable: ["", [Validators.required]],
+      idRepresentante: ["", [Validators.required]]
     });
+    /*
+    this.desForm = this.formBuilder.group({
+      idResponsable: ["", [Validators.required]],
+      idRepresentante: ["", [Validators.required]],
+      
+    });
+    */
     this.casoService.getCasos().subscribe(c => (this.casos = c));
   }
 

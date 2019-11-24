@@ -14,6 +14,7 @@ export class CasodeusoListComponent implements OnInit {
 
   constructor(private casoService:CasodeusoService ) { }
   getCasos(): void {
+    
     this.casoService.getCasos().subscribe(pCasos => (this.casos = pCasos));
     
   }

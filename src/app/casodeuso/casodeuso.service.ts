@@ -28,13 +28,11 @@ export class CasodeusoService {
     return this.http.post<CasodeusoDetail>(API_URL + '/casos',caso);
 
   }
-/*
+
   createRelacionResponsable(casoId:number, desId:number):  Observable<Casodeuso>{
     
-    console.log(casoId);
-    console.log(desId);
     console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/1');
     return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarolladorc/'+desId+'/1', null);
   }
-*/
+
 }
