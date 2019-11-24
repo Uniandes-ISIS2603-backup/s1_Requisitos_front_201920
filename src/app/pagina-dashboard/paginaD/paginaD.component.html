@@ -1,0 +1,148 @@
+
+    
+      <!-- Barra superior -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  
+      <!-- Icono de tres lineas que aparece cuando comprimimos una pagina -->
+      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+      </button>
+  
+      <!-- Barra de busqueda -->
+      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Lista de elementos de la Nav bar -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Items Nav cuando se compime  (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-search fa-fw"></i>
+          </a>
+        </li>
+  
+        <!--Item usuario -->
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+          </a>
+          <!-- menu Dropdown del usuario -->
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+              Profile
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+              Activity Log
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+              <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- Fin barra Superior-->
+    <div class="row">
+    <!-- Barra Lateral --> 
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar shadow">
+      <div class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Requisitos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Ver requisito</a>
+                  <a class="nav-link active" routerLink="requisitoC" routerLinkActive="active">Crear requisito</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Equipos de desarrollo
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="equipodesarrollo/list" routerLinkActive="active">Ver Equipos de
+                    Desarrollo</a>
+                  <a class="nav-link active" routerLink="equipodesarrollo2" routerLinkActive="active">Crear Equipo de
+                    Desarrollo</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Casos de uso
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="casos/list" routerLinkActive="active">Ver casos de uso</a>
+                  <a class="nav-link active" routerLink="casos2" routerLinkActive="active">Crear casos de uso</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Desarrolladores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="desarrollador2" routerLinkActive="active">Crear Desarrolladores</a>
+                  <a class="nav-link active" routerLink="desarrollador/list" routerLinkActive="active">Ver Desarrolladores
+                    Activos</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Iteraciones
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="iteracion/list" routerLinkActive="active">Ver iteraciones</a>
+                  <a class="nav-link active" routerLink="crearIteracion" routerLinkActive="active">Crear Iteracion</a>
+                </div>
+              </li>
+      
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Proyectos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="proyecto/list" routerLinkActive="active">Ver proyectos</a>
+                  <a class="nav-link active" routerLink="crearProyecto" routerLinkActive="active">Crear proyecto</a>
+                </div>
+              </li>
+      
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Modificaciones
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link active" routerLink="modificaciones/list" routerLinkActive="active">Ver modificaciones</a>
+                  </div>
+              </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Fin barra Lateral -->
+  
+        <div class="col md-10">
+          <router-outlet></router-outlet>
+          <router-outlet name="popup"></router-outlet>
+        </div>
+   </div>
+  
+  
+

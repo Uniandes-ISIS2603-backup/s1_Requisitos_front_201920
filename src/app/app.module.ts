@@ -23,6 +23,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { ModificacionModule } from './modificacion/modificacion.module';
 
+import { PaginaDashboardModule } from './pagina-dashboard/pagina-dashboard.module';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -33,6 +35,7 @@ import { ModificacionModule } from './modificacion/modificacion.module';
         HttpClientModule,
         CasodeusoModule,
         ReactiveFormsModule,
+        PaginaDashboardModule,
         DesarrolladorModule,
         RequisitoModule,
         EquipodesarrolloModule,

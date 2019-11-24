@@ -23,6 +23,7 @@ import { ProyectoListComponent } from '../proyecto/proyecto-list/proyecto-list.c
 import { ProyectoDetailComponent }  from '../proyecto/proyecto-detail/proyecto-detail.component';
 import { ProyectoCreateComponent }  from '../proyecto/proyecto-create/proyecto-create.component';
 import { ModificacionesListComponent } from '../modificacion/modificacion-list/modificaciones-list.component';
+import { PaginaDComponent } from '../pagina-dashboard/paginaD/paginaD.component';
 
 const routes: Routes = [
      {
@@ -57,116 +58,137 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     },
-    {
-        path:"requisito",
-        children:[
-           {
-             path:'list',
-             component: RequisitoListComponent
-           },
-           {
-             path:':id',
-             component: RequisitoDetailComponent
-           }
-        ]
-      },
-      {
+    
+         
         
-        path:'casos',
-        children:[
-          {
-            path: 'list',
-            component: CasodeusoListComponent
-          },{
-            path: ":id",
-            component: CasodeusoDetailComponent
+        {
+          path: 'dashboard',
+          children:[{
+            path: 'inicio',
+            component: PaginaDComponent,
+            children:[
+              {
+                path:"crearProyecto",
+                component: IteracionCreateComponent
+              },
+              {
+                path: 'modificaciones',
+                children: [{
+                  path: 'list',
+                  component: ModificacionesListComponent
+                }]
+              },
+              {
+                path: 'iteracion',
+                children: [{
+                  path: 'list',
+                  component: ListarIteracionComponent
+                },
+                {
+                  path: ':id',
+                  component: IteracionDetailComponent,
+                  outlet: 'detail'
+                }
+                ]
+              },
+              {
+                path:"crearIteracion",
+                component: IteracionCreateComponent
+              },
+              {
+                path: 'proyecto',
+                children: [{
+                  path: 'list',
+                  component: ProyectoListComponent
+                },
+                {
+                  path: ':id',
+                  component: IteracionDetailComponent,
+                  outlet: 'detail'
+                }
+                ]
+              },
+
+              {
+                path:"requisito",
+                children:[
+                   {
+                     path:'list',
+                     component: RequisitoListComponent
+                   },
+                   {
+                     path:':id',
+                     component: RequisitoDetailComponent
+                   }
+                ]
+              },
+              {
+                
+                path:'casos',
+                children:[
+                  {
+                    path: 'list',
+                    component: CasodeusoListComponent
+                  },{
+                    path: ":id",
+                    component: CasodeusoDetailComponent
+                  }
+                ]
+              },
+              {
+                path:'casos2',
+                component:CasoCreateComponent
+              }, 
+              {
+                path:'requisitoC',
+                component:RequisitoCreateComponent
+              }, 
+              {
+                  path:"desarrollador",
+                  children:[
+                     {
+                       path:'list',
+                       component: DesarrolladorListComponent
+                     },
+                     {
+                       path:':id',
+                       component: DesarrolladorDetailComponent
+        
+                     }
+                  ]
+                },
+                {
+        
+                  path:'desarrollador2',
+                  component:DesarrolladorCreateComponent
+                },
+                {
+                  path:"equipodesarrollo2",
+                  component: EquipodesarrolloCreateComponent
+                },
+                {
+                  path:"equipodesarrollo",
+                  children:[
+                    {
+                      path:'list',
+                      component: EquipodesarrolloListComponent
+                    },
+                    {
+                      path:':id',
+                      component: EquipoDesarrolloDetailComponent
+                    }
+                  ]
+                  }
+
+
+
+
+
+            ]
           }
+        
+        
         ]
-      },
-      {
-        path:'casos2',
-        component:CasoCreateComponent
-      }, 
-      {
-        path:'requisitoC',
-        component:RequisitoCreateComponent
-      }, 
-      {
-          path:"desarrollador",
-          children:[
-             {
-               path:'list',
-               component: DesarrolladorListComponent
-             },
-             {
-               path:':id',
-               component: DesarrolladorDetailComponent
-
-             }
-          ]
-        },
-        {
-
-          path:'desarrollador2',
-          component:DesarrolladorCreateComponent
-        },
-        {
-          path:"equipodesarrollo2",
-          component: EquipodesarrolloCreateComponent
-        },
-        {
-          path:"equipodesarrollo",
-          children:[
-            {
-              path:'list',
-              component: EquipodesarrolloListComponent
-            },
-            {
-              path:':id',
-              component: EquipoDesarrolloDetailComponent
-            }
-          ]
-          },
-          {
-          path: 'iteracion',
-          children: [{
-            path: 'list',
-            component: ListarIteracionComponent
-          },
-          {
-            path: ':id',
-            component: IteracionDetailComponent,
-            outlet: 'detail'
-          }
-          ]
-        },
-        {
-          path:"crearIteracion",
-          component: IteracionCreateComponent
-        },
-        {
-          path: 'proyecto',
-          children: [{
-            path: 'list',
-            component: ProyectoListComponent
-          },
-          {
-            path: ':id',
-            component: IteracionDetailComponent,
-            outlet: 'detail'
-          }
-          ]
-        },
-        {
-          path:"crearProyecto",
-          component: IteracionCreateComponent
-        },
-        {
-          path: 'modificaciones',
-          children: [{
-            path: 'list',
-            component: ModificacionesListComponent
-          }]
         }
 ];
 
