@@ -23,6 +23,7 @@ export class Casodeuso {
     representanteDelCliente: Desarrollador;
     responsable: Desarrollador;
   
+ 
   /*
     constructor(pId: number,pServicios: string[],pDocumentacion: string,pPruebas: boolean,pEntidades: string[],pCaminosExcepcion: string[],pPosCondiciones: string[],pPreCondiciones: string[],pCaminosAlternos: string[]){
   this.id= pId;
