@@ -31,25 +31,28 @@ export class CasoCreateComponent implements OnInit {
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
     caso= this.arreglarDatos(caso);
     this.caso = caso;
-    var num= this.caso.id;
-    alert (num);
+    var num;
+  
     console.warn("Your order has been submitted", caso);
     console.log(this.caso.nombre);
     this.casoService.createCaso(caso).subscribe((cas) => {
       this.casos.push(cas);
+      
       this.toastrService.success("el caso fue creado", "caso creation");
-
+      
     }, err => {
       this.toastrService.error(err, "Error");
     });
+    
 
-    alert(num);
-    this.casoService.createRelacionResponsable(num,this.casoForm.value.idResponsable).subscribe((cas) => {
+    
+    this.casoService.createRelacionResponsable(this.casos[this.casos.length].id,this.casoForm.value.idResponsable).subscribe((cas) => {
       
-      this.toastrService.success("el responsable fue aignado", "caso creation");
+      this.toastrService.success("el responsable fue asignado", "caso creation");
 
     }, err => {
       this.toastrService.error(err, "Error asignando el responsable");
+
     });
 
     this.casoForm.reset();

@@ -6,6 +6,7 @@ import {CasodeusoDetail} from "./casodeuso-detail"
 import {environment} from "../../environments/environment";
 import { tap } from "rxjs/operators";
 import { Desarrollador } from "../desarrollador/desarrollador";
+import { validateConfig } from "@angular/router/src/config";
 
 //const API_URL= "../../assets/";
 const API_URL= environment.apiURL;
@@ -24,15 +25,26 @@ export class CasodeusoService {
   }
 
   createCaso(caso:Casodeuso): Observable<Casodeuso> {
-    console.log(caso.nombre);
+  
     return this.http.post<CasodeusoDetail>(API_URL + '/casos',caso);
-
+    
   }
 
   createRelacionResponsable(casoId:number, desId:number):  Observable<Casodeuso>{
     
-    console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/1');
-    return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarolladorc/'+desId+'/1', null);
+   // console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/1');
+    return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarrolladorc/'+desId+'/1', null);
   }
+
+  createRelacionRepresentante(casoId:number, desId:number):  Observable<Casodeuso>{
+    
+    //console.log('/casos/'+casoId+'/desarolladorc/'+desId+'/2');
+    return this.http.post<CasodeusoDetail>(API_URL + '/casos/'+casoId+'/desarrolladorc/'+desId+'/1', null);
+  }
+
+  deleteCaso(casoId:number):Observable<Casodeuso>{
+    return this.http.delete<CasodeusoDetail>(API_URL+'/casos/casoId');
+  }
+
 
 }
