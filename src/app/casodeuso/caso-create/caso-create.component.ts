@@ -31,52 +31,66 @@ export class CasoCreateComponent implements OnInit {
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
     caso= this.arreglarDatos(caso);
     this.caso = caso;
-    var num;
-  
+    var idResp=this.casoForm.value.idResponsable; 
+    var idRepre= this.casoForm.value.idRepresentante;
     console.warn("Your order has been submitted", caso);
     console.log(this.caso.nombre);
-    this.casoService.createCaso(caso).subscribe((cas) => {
-      this.casos.push(cas);
+    this.caso.id=this.casos.length;
+    
+      this.casoService.createCaso(caso).subscribe((cas) => {
+        this.casos.push(cas);
+        
+  
+        this.toastrService.success("el caso fue creado", "caso creation");
+        
+      }, err => {
+        this.toastrService.error(err, "Error");
+      });
+  
+  
+      var that=this;
+  setTimeout(function () {
+
+    
+    that.casoService.createRelacionResponsable(that.casos[that.casos.length-1].id,idResp).subscribe((cas) => {
       
-      this.toastrService.success("el caso fue creado", "caso creation");
-      
+      that.toastrService.success("el responsable fue asignado", "Relacion creada");
+
     }, err => {
-      this.toastrService.error(err, "Error");
+      that.toastrService.error(err, "Error asignando el responsable");
+      
     });
     
+  }, 500);
 
-    
-    this.casoService.createRelacionResponsable(this.casos[this.casos.length].id,this.casoForm.value.idResponsable).subscribe((cas) => {
+  setTimeout(function(){
+
+    that.casoService.createRelacionRepresentante(that.casos[that.casos.length-1].id,idRepre).subscribe((cas) => {
       
-      this.toastrService.success("el responsable fue asignado", "caso creation");
+      that.toastrService.success("el representante fue asignado", "relacion creada");
 
     }, err => {
-      this.toastrService.error(err, "Error asignando el responsable");
+      that.toastrService.error(err, "Error asignando el representante");
 
     });
+
+
+  },500);
+
+    
+
 
     this.casoForm.reset();
+  
     
+
     return this.caso;
 
   }
-/*
-  asignarDes(caso:Casodeuso,idResponsable, idRepresentante){
-  
-   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(idResponsable, null, 4));
-    alert(idResponsable);
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(caso, null, 4));
-    this.casoService.createRelacionResponsable(caso.id,idResponsable).subscribe((cas) => {
-      this.toastrService.success("el responsable fue creado", "caso creation");
 
-    }, err => {
-      this.toastrService.error(err, "Error");
-    });
 
-    this.desForm.reset();
 
-  }
-  */
+ 
 
   ngOnInit() {
 
