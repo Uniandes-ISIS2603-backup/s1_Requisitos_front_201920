@@ -4,6 +4,7 @@ import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
 import { Alert } from 'selenium-webdriver';
+//import { DesarrolladorService } from 'src/app/desarrollador/desarrollador.service';
 
 @Component({
   selector: 'app-caso-create',
@@ -12,12 +13,13 @@ import { Alert } from 'selenium-webdriver';
 })
 export class CasoCreateComponent implements OnInit {
   casoForm: FormGroup;
- // desForm: FormGroup;
+
 
   constructor
     (
       private casoService: CasodeusoService,
-      private formBuilder: FormBuilder, private toastrService: ToastrService
+      private formBuilder: FormBuilder, private toastrService: ToastrService,
+     // private ds:DesarrolladorService
     ) {
 
   }
@@ -107,13 +109,7 @@ export class CasoCreateComponent implements OnInit {
       idResponsable: ["", [Validators.required]],
       idRepresentante: ["", [Validators.required]]
     });
-    /*
-    this.desForm = this.formBuilder.group({
-      idResponsable: ["", [Validators.required]],
-      idRepresentante: ["", [Validators.required]],
-      
-    });
-    */
+    
     this.casoService.getCasos().subscribe(c => (this.casos = c));
   }
 

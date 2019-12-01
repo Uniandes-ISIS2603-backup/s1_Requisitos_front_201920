@@ -13,7 +13,8 @@
             <ul class="list-group list-group-flush">
                 
               <li class="list-group-item"><b>id:</b> {{e.id}}</li>
-             
+              <li class="list-group-item"><b>Representante del Cliente:</b> {{e.representanteDelCliente.nombre}}</li>
+              <li class="list-group-item"><b>Responsable:</b> {{e.responsable.nombre}}</li>
             </ul>
             <div class="card-body">
               <a routerLink="../../casos/{{e.id}}" class="card-link"><button type="button" class="btn btn-primary">Detalle</button></a>
