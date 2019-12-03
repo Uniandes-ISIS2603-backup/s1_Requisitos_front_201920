@@ -53,17 +53,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'home',
-    component: PaginaVComponent
-  },
- // {
-   // path: '**',
-    //redirectTo: 'home',
-  //},
-
-
-
-  {
     path: 'dashboard',
     children: [{
       path: 'inicio',
@@ -191,7 +180,19 @@ const routes: Routes = [
 
 
     ]
+  },
+  {
+    path: 'home',
+    component: PaginaVComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
+
+
+
+ 
 ];
 
 @NgModule({
