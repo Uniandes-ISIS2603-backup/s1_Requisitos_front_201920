@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
@@ -16,7 +16,8 @@ import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        ReactiveFormsModule
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent],
     providers: [AuthService],

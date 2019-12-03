@@ -57,7 +57,7 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login (role): void {
-        if (role === 'Administrator') {
+        if (role === 'REPRESENTANTEDELCLIENTE') {
             this.setAdministratorRole();
         } else {
             this.setClientRole()
