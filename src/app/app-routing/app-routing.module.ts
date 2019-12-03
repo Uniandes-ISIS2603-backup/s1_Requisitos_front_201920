@@ -71,7 +71,7 @@ const routes: Routes = [
       children: [
         {
           path: "crearProyecto",
-          component: IteracionCreateComponent
+          component: ProyectoCreateComponent
         },
         {
           path: 'modificaciones',
@@ -105,7 +105,7 @@ const routes: Routes = [
           },
           {
             path: ':id',
-            component: IteracionDetailComponent,
+            component: ProyectoDetailComponent,
             outlet: 'detail'
           }
           ]
