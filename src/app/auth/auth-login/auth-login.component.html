@@ -5,13 +5,10 @@
         <br>
         <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             <div class="form-group">
-                <label for="username"><b>Name</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
+                <label for="nombre"><b>Nombre</b></label>
+                <input type="text" name="nombre" class="form-control" id="username" [(ngModel)]="user.name" required>
             </div>
-            <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>
-            </div>
+         
             <div class="form-group">
                 <label for="role"><b>Role</b></label>
                 <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>
@@ -19,7 +16,7 @@
                 </select>
             </div>
             <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <a routerLink= "/dashboard/inicio" routerLinkActive="active">   <button type="submit" class="btn btn-primary">Login</button></a>
             </div>
         </form>
     </div>
