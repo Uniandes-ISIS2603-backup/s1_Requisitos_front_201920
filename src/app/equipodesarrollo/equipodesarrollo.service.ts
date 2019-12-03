@@ -21,4 +21,5 @@ export class EquipodesarrolloService {
   createEquipoDesarrollo(equipo): Observable<EquipoDesarrollo> {
     return this.http.post<EquipoDesarrollo>(API_URL + '/equipoDesarrollo', equipo);
 }
+
 }

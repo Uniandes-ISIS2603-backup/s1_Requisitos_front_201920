@@ -10,6 +10,7 @@ import { Desarrollador } from '../../desarrollador/desarrollador';
 import { DesarrolladorService } from '../../desarrollador/desarrollador.service';
 import { DesarrolladorDetail } from '../../desarrollador/desarrollador-detail';
 
+
 @Component({
     selector: 'app-auth-login',
     templateUrl: './auth-login.component.html',
@@ -73,10 +74,10 @@ export class AuthLoginComponent implements OnInit {
         this.ds.getDesarrolladorDetail(id)
             .subscribe(DDetail => {
                 this.detail=DDetail;
-               
+               localStorage.setItem('id', String(this.detail.id));
                 
                 this.toastrService.success("Bienvenido "+ DDetail.nombre + " Rol: "+DDetail.tipo , "si existe el usuario");
-                
+            
                 this.login();
             }, err => {
               this.toastrService.error(err, "El usuario no existe");
@@ -84,5 +85,7 @@ export class AuthLoginComponent implements OnInit {
         
     }
     detail: DesarrolladorDetail;
+
+    
            
 }
