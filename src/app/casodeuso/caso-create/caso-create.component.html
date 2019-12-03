@@ -119,28 +119,41 @@
 
 
   
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="idResponsable">
-        id Responsable:
-      </label>
-      <input novalidate id="idResponsable" class="form-control" formControlName="idResponsable" placeholder="Responsable del caso">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="idResponsable">
+      Responsable:
+    </label>
+      <select class="form-control" id="idResponsable" 
+      rows="3"
+      formControlName="idResponsable">
+         <option *ngFor="let e of desarrolladores">{{e.nombre}}</option>
+         
+       </select>
     </div>
-    <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('idResponsable').hasError('required') && 
-        casoForm.get('idResponsable').touched">
-      id requerido
-    </div>
+     <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('idResponsable').hasError('required') && 
+    casoForm.get('idResponsable').touched">
+      Responsable requerido
+    </div> 
+
 
     <div class="form-group mx-sm-3 mb-2">
       <label for="idRepresentante">
-        id Representante del cliente:
+        Representante del Cliente:
       </label>
-      <input novalidate id="idRepresentante" class="form-control" formControlName="idRepresentante" placeholder="Representante del cliente">
-    </div>
-    <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('idRepresentante').hasError('required') && 
-        casoForm.get('idRepresentante').touched">
-      id requerido
-    </div>
+        <select class="form-control" id="idRepresentante" 
+        rows="3"
+        formControlName="idRepresentante">
+           <option *ngFor="let e of desarrolladores" >{{e.nombre}}</option>
+           
+         </select>
+      </div>
+       <div class="alert alert-danger alert-dismissible fade show" *ngIf="casoForm.get('idRepresentante').hasError('required') && 
+      casoForm.get('idRepresentante').touched">
+        Representante requerido
+      </div> 
     
+
+  
  
 
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="casoForm.invalid" class="btn btn-success">Crear</button>

@@ -24,6 +24,7 @@ import { ProyectoDetailComponent } from '../proyecto/proyecto-detail/proyecto-de
 import { ProyectoCreateComponent } from '../proyecto/proyecto-create/proyecto-create.component';
 import { ModificacionesListComponent } from '../modificacion/modificacion-list/modificaciones-list.component';
 import { PaginaDComponent } from '../pagina-dashboard/paginaD/paginaD.component';
+import { PaginaVComponent } from '../pagina-dashboard/paginaV/paginaV.component';
 
 const routes: Routes = [
   {
@@ -51,13 +52,14 @@ const routes: Routes = [
       }
     ]
   },
-  //{
-  //    path: 'home',
-  //  component: AuthLoginComponent
   {
-    path: '**',
-    redirectTo: 'home',
+    path: 'home',
+    component: PaginaVComponent
   },
+ // {
+   // path: '**',
+    //redirectTo: 'home',
+  //},
 
 
 

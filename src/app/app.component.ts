@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { DesarrolladorService } from './desarrollador/desarrollador.service';
+import { ProyectoService } from './proyecto/proyecto.service';
+import { Proyecto } from './proyecto/proyecto';
 
 /**
  * The app component. This component is the base of s1_requisitos-Front
@@ -22,6 +25,7 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = "s1_requisitos-Front";
         this.authService.start();
+      
     }
 
        /**
@@ -33,6 +37,7 @@ export class AppComponent implements OnInit {
         this.authService.logout()
     }
 
+   
 }
 
 

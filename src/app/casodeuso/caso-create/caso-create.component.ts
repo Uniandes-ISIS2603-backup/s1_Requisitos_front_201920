@@ -4,6 +4,8 @@ import { CasodeusoService } from '../casodeuso.service';
 import { Casodeuso } from '../Casodeuso';
 import { ToastrService } from 'ngx-toastr';
 import { Alert } from 'selenium-webdriver';
+import { DesarrolladorService } from '../../desarrollador/desarrollador.service';
+import { Desarrollador } from '../../desarrollador/desarrollador';
 //import { DesarrolladorService } from 'src/app/desarrollador/desarrollador.service';
 
 @Component({
@@ -19,7 +21,7 @@ export class CasoCreateComponent implements OnInit {
     (
       private casoService: CasodeusoService,
       private formBuilder: FormBuilder, private toastrService: ToastrService,
-     // private ds:DesarrolladorService
+     private ds:DesarrolladorService
     ) {
 
   }
@@ -28,13 +30,27 @@ export class CasoCreateComponent implements OnInit {
   caso: Casodeuso
  
  
+desarrolladores:Desarrollador[];
 
   createCaso(caso: Casodeuso) {
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
     caso= this.arreglarDatos(caso);
     this.caso = caso;
-    var idResp=this.casoForm.value.idResponsable; 
-    var idRepre= this.casoForm.value.idRepresentante;
+    var idResp;
+    var idRepre;
+    that=this;
+    this.desarrolladores.forEach(function (value) {
+      if (value.nombre===that.casoForm.value.idResponsable){
+        idResp=value.id;
+        alert(idResp)
+      }
+       if (value.nombre===that.casoForm.value.idRepresentante){
+        idRepre=value.id;
+        alert (idRepre);
+      }
+    }); 
+
+
     console.warn("Your order has been submitted", caso);
     console.log(this.caso.nombre);
     this.caso.id=this.casos.length;
@@ -111,6 +127,7 @@ export class CasoCreateComponent implements OnInit {
     });
     
     this.casoService.getCasos().subscribe(c => (this.casos = c));
+    this.ds.getDesarrolladores().subscribe(c => (this.desarrolladores = c))
   }
 
 
