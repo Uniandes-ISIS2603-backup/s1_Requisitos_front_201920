@@ -22,6 +22,7 @@ export class PaginaVComponent implements OnInit {
   }
 
   ngOnInit() {
+  
   this.getProyectos();
   }
 

@@ -32,6 +32,7 @@ export class CasoCreateComponent implements OnInit {
  
 desarrolladores:Desarrollador[];
 
+
   createCaso(caso: Casodeuso) {
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.casoForm.value, null, 4));
     caso= this.arreglarDatos(caso);
@@ -42,11 +43,11 @@ desarrolladores:Desarrollador[];
     this.desarrolladores.forEach(function (value) {
       if (value.nombre===that.casoForm.value.idResponsable){
         idResp=value.id;
-        alert(idResp)
+      
       }
        if (value.nombre===that.casoForm.value.idRepresentante){
         idRepre=value.id;
-        alert (idRepre);
+    
       }
     }); 
 
@@ -54,11 +55,11 @@ desarrolladores:Desarrollador[];
     console.warn("Your order has been submitted", caso);
     console.log(this.caso.nombre);
     this.caso.id=this.casos.length;
-    
+    var idcaso;
       this.casoService.createCaso(caso).subscribe((cas) => {
         this.casos.push(cas);
+        idcaso=cas.id
         
-  
         this.toastrService.success("el caso fue creado", "caso creation");
         
       }, err => {
@@ -70,7 +71,7 @@ desarrolladores:Desarrollador[];
   setTimeout(function () {
 
     
-    that.casoService.createRelacionResponsable(that.casos[that.casos.length-1].id,idResp).subscribe((cas) => {
+    that.casoService.createRelacionResponsable(idcaso,idResp).subscribe((cas) => {
       
       that.toastrService.success("el responsable fue asignado", "Relacion creada");
 
@@ -83,7 +84,7 @@ desarrolladores:Desarrollador[];
 
   setTimeout(function(){
 
-    that.casoService.createRelacionRepresentante(that.casos[that.casos.length-1].id,idRepre).subscribe((cas) => {
+    that.casoService.createRelacionRepresentante(idcaso,idRepre).subscribe((cas) => {
       
       that.toastrService.success("el representante fue asignado", "relacion creada");
 

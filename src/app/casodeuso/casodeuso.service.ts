@@ -4,10 +4,11 @@ import { Observable } from "rxjs";
 import { Casodeuso } from './Casodeuso';
 import { CasodeusoDetail } from "./casodeuso-detail"
 import { environment } from "../../environments/environment";
-import { tap } from "rxjs/operators";
-import { Desarrollador } from "../desarrollador/desarrollador";
-import { validateConfig } from "@angular/router/src/config";
-import { catchError, map } from 'rxjs/operators';
+
+import { pipe } from 'rxjs'; 
+
+import { mergeMap, switchMap, retry, 
+  map, catchError, filter, scan } from 'rxjs/operators'; 
 
 //const API_URL= "../../assets/";
 const API_URL = environment.apiURL;
@@ -27,7 +28,8 @@ export class CasodeusoService {
 
   createCaso(caso: Casodeuso): Observable<Casodeuso> {
  
-return  this.http.post<CasodeusoDetail>(API_URL + '/casos', caso);
+return  this.http.post<CasodeusoDetail>(API_URL + '/casos', caso).pipe(filter(n=> n.id!=null
+  ))
   
 }
 

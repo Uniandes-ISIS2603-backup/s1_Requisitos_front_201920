@@ -149,6 +149,10 @@ const routes: Routes = [
           ]
         },
         {
+          path: 'home2',
+          redirectTo: 'home'
+        },
+        {
 
           path: 'desarrollador2',
           component: DesarrolladorCreateComponent
