@@ -4,7 +4,12 @@ import { Observable } from "rxjs";
 import { Desarrollador } from './desarrollador';
 import { DesarrolladorDetail } from './desarrollador-detail';
 import {environment} from "../../environments/environment";
+import { pipe } from 'rxjs'; 
+
+import { mergeMap, switchMap, retry, 
+  map, catchError, filter, scan } from 'rxjs/operators'; 
 const API_URL= environment.apiURL;
+
 const casos='desarrollador.json';
 @Injectable()
 export class DesarrolladorService {
@@ -18,6 +23,6 @@ export class DesarrolladorService {
        return this.http.get<DesarrolladorDetail>(API_URL+'/desarrollador/'+desarrolladorId);
     }
     createDesarrollador(desarrollador): Observable<Desarrollador> {
-      return this.http.post<Desarrollador>(API_URL + '/desarrollador', desarrollador);
+      return this.http.post<Desarrollador>(API_URL + '/desarrollador', desarrollador).pipe(filter(n=> n.id!=null));
   }
 }

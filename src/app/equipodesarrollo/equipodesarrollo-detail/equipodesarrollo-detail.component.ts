@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EquipoDesarrolloDetail} from "../equipodesarrollo-detail"
 import {EquipodesarrolloService } from '../equipodesarrollo.service';
 import { ActivatedRoute } from '@angular/router';
+import { Modificacion } from 'src/app/modificacion/modificacion';
 
 @Component({
   selector: 'app-equipodesarrollo-detail',
@@ -19,6 +20,7 @@ export class EquipoDesarrolloDetailComponent implements OnInit {
         this.equipoDetail = EDetail
     });
   }
+ 
 
   ngOnInit() {
     this.equipo_id = +this.route.snapshot.paramMap.get('id');
