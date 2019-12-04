@@ -13,8 +13,6 @@ export class PaginaVComponent implements OnInit {
 
 
   constructor(private ps:ProyectoService) {}
-
-
   proyectos:Proyecto[];
   getProyectos(): void 
   {

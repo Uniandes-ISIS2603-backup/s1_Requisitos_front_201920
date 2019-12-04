@@ -5,6 +5,9 @@ import { RequisitoService } from "../requisito.service";
 import { ToastrService } from 'ngx-toastr';
 import { Desarrollador } from "../../desarrollador/desarrollador";
 
+import { Casodeuso } from '../../casodeuso/Casodeuso';
+import { CasodeusoService } from '../../casodeuso/casodeuso.service';
+
 @Component({
   selector: 'app-requisito-create',
   templateUrl: './requisito-create.component.html',
@@ -23,14 +26,84 @@ export class RequisitoCreateComponent {
   * Lista de desarrolladores
   */
   desarrolladores: Desarrollador[];
-
-
+  /**
+   * Lista de casos
+   */
+  casos: Casodeuso[];
+  
+  /**
+   * 
+   * @param requisitoService 
+   * @param formBuilder 
+   * @param toastrService 
+   * @param cs 
+   */
   constructor
     (
       private requisitoService: RequisitoService,
       private formBuilder: FormBuilder,
-      private toastrService: ToastrService
+      private toastrService: ToastrService,
+      private cs:CasodeusoService
     ) {
+      }
+
+  createRequisito(newRequisito: Requisito) 
+  {
+    
+    //Variable que guarda el estado del pag
+    var that=this;
+    //Asigna al requisito el dado por parametro
+    this.requisito = newRequisito;
+    //Variable que guarda el id del caso a guardar
+    var idCaso;
+    //?
+    that=this; 
+    //Mira todos los casos y escoge el que se escogio en el formulario
+    this.casos.forEach(function (value) 
+    {
+      if (value.nombre===that.requisitoForm.value.idCasoDeUso)
+      {
+        idCaso=value.id;
+        alert(idCaso)
+      }
+
+    }); 
+
+    // Process checkout data here
+    console.warn("Your order has been submitted", newRequisito);
+    //Crea el requisito (normal)
+    this.requisitoService.createRequisito(newRequisito)
+      .subscribe((requisito) => 
+      {
+        this.requisito = requisito;
+        this.toastrService.success("El requisito fue creado", "Crear requisito");
+      }, err => 
+      {
+        this.toastrService.error(err, "Error");
+      });
+
+     //bloque para crear la relacion con caso de uso
+      var that=this;
+      //Define un limite de tiempo
+      setTimeout(function () 
+      {
+         that.requisitoService.createRelacionCasoDeUso(that.requisito.id,idCaso).subscribe(
+           (cas) => {
+                     that.toastrService.success("el caso de uso fue asignado", "Relacion creada");
+                }, err => {that.toastrService.error(err, "Error asignando el caso de uso")});
+              }
+          , 500);
+
+    this.requisitoForm.reset();
+
+    return this.requisito;
+  }
+
+
+  /**
+    * This function will initialize the component
+    */
+  ngOnInit() {
     this.requisitoForm = this.formBuilder.group({
       autor: ["", [Validators.required]],
       fuente: ["", [Validators.required]],
@@ -39,38 +112,11 @@ export class RequisitoCreateComponent {
       estabilidad: ["", [Validators.required]],
       comentariosAdicionales: [""],
       nombre: ["", [Validators.required]],
-      tipo: ["", [Validators.required]]
+      tipo: ["", [Validators.required]],
+      idCasoDeUso: ["", [Validators.required]],
     });
-  }
-
-  createRequisito(newRequisito: Requisito) 
-  {
-    // Process checkout data here
-    console.warn("Your order has been submitted", newRequisito);
-
-    this.requisitoService.createRequisito(newRequisito)
-      .subscribe((requisito) => {
-        this.requisito = requisito;
-      });
-    this.toastrService.success("El requisito fue creado", "Crear requisito");
-    this.requisitoForm.reset();
-  }
-
-
-  /**
-    * This function will initialize the component
-    */
-  ngOnInit() {
     this.requisito = new Requisito();
-    this.getDesarrolladores();
-  }
-
-  /**
-   * Asks the service to update the list of Desarrolladores
-   */
-  getDesarrolladores(): void 
-  {
-    this.requisitoService.getDesarrolladores().subscribe( pDesarrolladores => this.desarrolladores = pDesarrolladores);
+    this.cs.getCasos().subscribe(c => (this.casos = c));
   }
 
 }

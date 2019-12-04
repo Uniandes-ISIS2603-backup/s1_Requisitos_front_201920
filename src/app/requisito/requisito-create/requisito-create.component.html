@@ -1,7 +1,7 @@
 
 <form [formGroup]="requisitoForm" (ngSubmit)="createRequisito(requisitoForm.value)">
   <div class="row">
-  <div class="col-md-8">
+  <div class="col">
 	<h3>Crear requisito:</h3>
 	<div class="form-group mx-sm-3 mb-2">
 		<label for="autor">
@@ -121,28 +121,27 @@
         <div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('importancia').hasError('required') && 
         requisitoForm.get('importancia').touched">
 					Importancia requerida
-				</div>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="idCasoDeUso">
+            Caso de uso:
+          </label>
+            <select class="form-control" id="idCasoDeUso" 
+            rows="3"
+            formControlName="idCasoDeUso">
+               <option *ngFor="let e of casos">{{e.nombre}}</option>
+             </select>
+        </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('idCasoDeUso').hasError('required') && 
+          requisitoForm.get('idCasoDeUso').touched">
+            Caso de uso requerido
+          </div> 
+        
+
 				<button class="button mx-sm-3 mb-2" type="submit"
           [disabled]="requisitoForm.invalid" class="btn btn-success">Create</button>
    </div> 
-   <div class="col-md-4">
-     <!-- Collapsable Card Example -->
-     <div class="card ">
-        <!-- Card Header - Accordion -->
-        <a href="#BuscarDesarrollador" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="BuscarDesarrollador">
-          <h6 class="m-0 font-weight-bold text-primary">Buscar un desarrollador</h6>
-        </a>
-        <!-- Card Content - Collapse -->
-        <div class="collapse show" id="BuscarDesarrollador"> 
-          <div class="card-body">
-            Asignale a tu requisito un desarrollador:
-            <div class="text" *ngFor = "let e of desarrolladores">
-            </div>
-          </div>
-        </div>
-      </div>
-  
-    </div>  
+     
   </div>    
 </form>
 

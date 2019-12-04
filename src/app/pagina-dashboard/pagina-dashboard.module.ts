@@ -7,9 +7,6 @@ import { PaginaVComponent } from './paginaV/paginaV.component';
 import { RouterModule } from '@angular/router';
 import { PaginaDashboardComponent } from './paginaDashboard/paginaDashboard.component';
 
-
-
-
 @NgModule({
   imports: [
     CommonModule, AppRoutingModule, RouterModule

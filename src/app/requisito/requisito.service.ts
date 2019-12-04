@@ -25,7 +25,7 @@ export class RequisitoService {
   /**
    * Retorna un Requisito Detail
    */
-  getRequisitoDetail(requisitoId): Observable<RequisitoDetail> {
+  getRequisitoDetail(requisitoId: number): Observable<RequisitoDetail> {
     return this.http.get<RequisitoDetail>(API_URL + '/requisitos/' + requisitoId);
   }
   /**
@@ -37,10 +37,19 @@ export class RequisitoService {
     return this.http.post<RequisitoDetail>(API_URL + '/requisitos', requisito).pipe(tap((requisito: Requisito) => console.log(requisito.id)));
   }
   /**
-   * Obtiene los desarrolladores de la aplicacion 
+   * Elimina un requisito
    */
-  getDesarrolladores(): Observable<Desarrollador[]> {
-    return this.http.get<Desarrollador[]>(API_URL + '/desarrollador');
+  deleteRequisito(reqId: number): Observable < Requisito > {
+    return this.http.delete<RequisitoDetail>(API_URL + '/requisitos/'+reqId);
+  }
+  /**
+   * Crea la relacion con caso de uso
+   * @param reqId  id requisito
+   * @param casId  id casodeuso
+   */
+  createRelacionCasoDeUso(reqId: number, casId: number): Observable < Requisito > {
+    console.log('/requisitos/'+reqId+'/casoDeUso/'+casId);
+    return this.http.post<RequisitoDetail>(API_URL + '/requisitos/' + reqId + '/casoDeUso/' + casId, null);
   }
 
 }
