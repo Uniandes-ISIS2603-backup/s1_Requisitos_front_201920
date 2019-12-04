@@ -1,46 +1,68 @@
 <div class="row">
     <div class="col-6 offset-3">
         <br>
-        <h2 class="text-center">Sign up</h2>
+        <h2 class="text-center">Sign-Up </h2>
         <br>
-       
-        <form name="desarrolladorForm" (ngSubmit)="f.form.valid && login() && createDesarrollador(desarrolladorForm.value)" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="nombre"><b>Nombre</b></label>
-                <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="user.name" required>
+        <form [formGroup]="desarrolladorForm" (ngSubmit)="createDesarrollador(desarrolladorForm.value)">
+             <div class="form-group mx-sm-3 mb-2">
+                <label for="nombre">Nombre: </label>
+                <input type="text" formControlName="nombre" class="form-control" id="nombre">
             </div>
-                <div class="form-group">
-                    <label for="edad"><b>Edad:</b> </label>
-                    <input type="number" name="edad" class="form-control" id="nombre" [(ngModel)]="user.edad" required>
+                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('nombre').hasError('required') && 
+                 desarrolladorForm.get('nombre').touched">
+                  Nombre requerido
+                </div> 
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="edad">Edad: </label>
+                    <input type="number" formControlName="edad" class="form-control" id="edad">
                 </div>
-            
-          <div class="form-group">
-            <label for="cedula"> <b>Cedula:</b> </label>
-            <input type="number" name="cedula" class="form-control" id="cedula" [(ngModel)]="user.cedula" required>
-          </div>
-        <div class="form-group">
-            <label for="correo"><b>Correo:</b></label>
-            <input type="email" name="correo" class="form-control" id="correo" [(ngModel)]="user.correo" required>
-        </div>
+                     <div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('edad').hasError('required') && 
+                     desarrolladorForm.get('edad').touched">
+                      Edad requerido
+                    </div> 
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="cedula">Cedula: </label>
+                        <input type="number" formControlName="cedula" class="form-control" id="cedula">
+                    </div>
+                         <div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('cedula').hasError('required') && 
+                         desarrolladorForm.get('cedula').touched">
+                          Cedula requerida
+                        </div> 
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="correo">Correo: </label>
+                            <input type="email" formControlName="correo" class="form-control" id="correo">
+                        </div>
+                             <div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('correo').hasError('required') && 
+                             desarrolladorForm.get('correo').touched">
+                              Correo requerido
+                            </div> 
+        
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="tipo">
+                                  Rol:
+                                </label>
+                                  <select class="form-control" id="tipo" 
+                                  rows="3"
+                                  formControlName="tipo">
+                                     <option *ngFor="let role of roles">{{role}}</option>
+                                     </select>
+                                </div>
+                                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="desarrolladorForm.get('tipo').hasError('required') && 
+                                desarrolladorForm.get('tipo').touched">
+                                  Rol requerido
+                                </div> 
           
-            <div class="form-group">
-				<label for="tipo"><b>Tipo:</b> </label>
-                <select class="custom-select" name="tipo" id="tipo" [(ngModel)]="user.tipo" required>
-                    <option><b>Representante del Cliente</b></option> 
-                    <option><b>Responsable</b></option> 
-                    <option><b>Común</b></option>
-                </select>
-            </div>
-       	
-            <div class="form-group">
-                <label for="role"><b>Role</b></label>
-                <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>
-                    <option [value]="role" *ngFor="let role of roles">{{role}}</option>
-                </select>
-            </div>
-            <div class="justify-content-center align-self-center">
-                <a routerLink= "/dashboard/inicio" routerLinkActive="active">   <button type="submit" class="btn btn-primary">Sign up</button></a>
-            </div>
-        </form>
+            
+           
+          
+            <button class="button mx-sm-3 mb-2" type="submit" [disabled]="desarrolladorForm.invalid" class="btn btn-success">Sign up</button>
+          
+              
+            </form>
+          
     </div>
 </div>
+
+      
+   
+    
