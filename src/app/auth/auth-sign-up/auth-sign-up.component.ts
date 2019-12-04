@@ -35,7 +35,8 @@ desarrolladores:Desarrollador[];
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.detail.tipo);
+        var that=this;
+        this.authService.login(that.desarrolladorForm.value.tipo);
         this.toastrService.success('Successfully signed up')
     }
       

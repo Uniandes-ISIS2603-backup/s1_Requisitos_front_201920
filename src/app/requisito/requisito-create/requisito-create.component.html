@@ -136,6 +136,20 @@
           requisitoForm.get('idCasoDeUso').touched">
             Caso de uso requerido
           </div> 
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="idDesarrollador">
+              Desarrollador:
+            </label>
+              <select class="form-control" id="idDesarrollador" 
+              rows="3"
+              formControlName="idDesarrollador">
+                 <option *ngFor="let e of desarrolladores">{{e.nombre}}</option>
+               </select>
+          </div>
+            <div class="alert alert-danger alert-dismissible fade show" *ngIf="requisitoForm.get('idDesarrollador').hasError('required') && 
+            requisitoForm.get('idDesarrollador').touched">
+              Desarrollador requerido
+            </div> 
         
 
 				<button class="button mx-sm-3 mb-2" type="submit"
