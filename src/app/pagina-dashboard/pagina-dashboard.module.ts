@@ -5,6 +5,7 @@ import { PaginaDComponent } from './paginaD/paginaD.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { PaginaVComponent } from './paginaV/paginaV.component';
 import { RouterModule } from '@angular/router';
+import { PaginaDashboardComponent } from './paginaDashboard/paginaDashboard.component';
 
 
 
@@ -13,8 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule, AppRoutingModule, RouterModule
   ],
-  declarations: [PaginaDComponent, PaginaVComponent],
-  exports: [PaginaDComponent, PaginaVComponent],
+  declarations: [PaginaDComponent, PaginaVComponent, PaginaDashboardComponent],
+  exports: [PaginaDComponent, PaginaVComponent, PaginaDashboardComponent],
   providers: [ProyectoService]
 })
 export class PaginaDashboardModule { }

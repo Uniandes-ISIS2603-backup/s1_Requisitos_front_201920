@@ -1,11 +1,31 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a routerLink= "/auth/login" routerLinkActive="active"> <button type="button" class="btn btn-dark">Log In</button></a>
-  <a routerLink= "/auth/sign-up" routerLinkActive="active">   <button type="button" class="btn btn-dark">Sign Up</button></a>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink= "/auth/login" routerLinkActive="active">LogIn
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink= "/auth/sign-up" routerLinkActive="active">Sign up</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
 </nav>
+
 <div>
-<header class="masthead">
-</header>
-</div>
+  <header class="masthead">
+  </header>
+  </div>
 
 <router-outlet></router-outlet>
 
