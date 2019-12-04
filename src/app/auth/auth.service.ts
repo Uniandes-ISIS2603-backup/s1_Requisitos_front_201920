@@ -62,7 +62,7 @@ export class AuthService {
         } else {
             this.setClientRole()
         }
-        this.router.navigateByUrl('/dashboard/inicio');
+        this.router.navigateByUrl('/dashboard/inicio/dash');
     }
 
     /**
