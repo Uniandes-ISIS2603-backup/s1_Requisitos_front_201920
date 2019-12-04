@@ -32,7 +32,7 @@ loggeado:Desarrollador;
   salir(){
     localStorage.removeItem('id');
     localStorage.removeItem('role');
-   
+    
   }
 
 }

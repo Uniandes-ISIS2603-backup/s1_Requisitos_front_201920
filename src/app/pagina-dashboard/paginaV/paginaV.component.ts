@@ -24,6 +24,12 @@ export class PaginaVComponent implements OnInit {
   ngOnInit() {
   
   this.getProyectos();
+  if (!localStorage.getItem('foo')) { 
+    localStorage.setItem('foo', 'no reload') 
+    location.reload() 
+  } else {
+    localStorage.removeItem('foo') 
+  }
   }
 
 }

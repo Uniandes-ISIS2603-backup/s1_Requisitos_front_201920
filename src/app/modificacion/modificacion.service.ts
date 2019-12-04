@@ -18,7 +18,7 @@ export class ModificacionService {
   getModificacion(modId):Observable<Modificacion>{
     return this.http.get<Modificacion>(API_URL+  '/modificaciones/'+modId);
   }
-  createEquipoDesarrollo(mod:Modificacion): Observable<Modificacion> {
+  createModificacion(mod:Modificacion): Observable<Modificacion> {
     return this.http.post<Modificacion>(API_URL + '/modificacion', mod);
 }
 }
