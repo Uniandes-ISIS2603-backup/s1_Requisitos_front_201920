@@ -69,9 +69,7 @@ desarrolladores:Desarrollador[];
         this.ds.createDesarrollador(des).subscribe((cas) => {
             this.desarrolladores.push(cas);
             this.toastrService.success("El desarrollador fue creado", "Desarrollador creado");
-        
-          }); 
-        this.ds.getDesarrolladorDetail(id)
+            this.ds.getDesarrolladorDetail(cas.id)
             .subscribe(DDetail => {
                 this.detail=DDetail;
                localStorage.setItem('id', String(this.detail.id));
@@ -82,6 +80,11 @@ desarrolladores:Desarrollador[];
             }, err => {
               this.toastrService.error(err, "Error");
             });
+          }, err => {
+            this.toastrService.error(err, "Error");
+          }
+          ); 
+       
            
             
        
