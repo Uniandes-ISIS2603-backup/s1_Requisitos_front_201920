@@ -35,7 +35,8 @@ desarrolladores:Desarrollador[];
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.detail.tipo);
+        var that=this;
+        this.authService.login(that.desarrolladorForm.value.tipo);
         this.toastrService.success('Successfully signed up')
     }
       
@@ -68,9 +69,7 @@ desarrolladores:Desarrollador[];
         this.ds.createDesarrollador(des).subscribe((cas) => {
             this.desarrolladores.push(cas);
             this.toastrService.success("El desarrollador fue creado", "Desarrollador creado");
-        
-          }); 
-        this.ds.getDesarrolladorDetail(id)
+            this.ds.getDesarrolladorDetail(cas.id)
             .subscribe(DDetail => {
                 this.detail=DDetail;
                localStorage.setItem('id', String(this.detail.id));
@@ -81,6 +80,11 @@ desarrolladores:Desarrollador[];
             }, err => {
               this.toastrService.error(err, "Error");
             });
+          }, err => {
+            this.toastrService.error(err, "Error");
+          }
+          ); 
+       
            
             
        

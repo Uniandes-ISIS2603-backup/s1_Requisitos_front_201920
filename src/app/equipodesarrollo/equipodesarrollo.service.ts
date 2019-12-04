@@ -22,4 +22,9 @@ export class EquipodesarrolloService {
     return this.http.post<EquipoDesarrollo>(API_URL + '/equipoDesarrollo', equipo);
 }
 
+  createRelacionDesarrollador(desarrolladorId: number, equipoDesarrolloId: number)
+  {
+    return this.http.post<EquipoDesarrolloDetail>(API_URL + '/desarrollador/' +desarrolladorId  + '/equipo/' + equipoDesarrolloId , null);
+
+  }
 }

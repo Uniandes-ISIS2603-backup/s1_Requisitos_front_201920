@@ -15,7 +15,66 @@
       Nombre del equipo requerido
             </div>
         </div>
-    
+        <div class= "form-group max-sm-3 mb-2">
+          <label for="idD1">
+            Desarrollador#1
+          </label>
+          <select class="form-control" id="idD1" rows="3" formControlName="idD1">
+            <option *ngFor= "let e of desarrolladores" >{{e.nombre}}</option>
+          </select>
+          </div>
+          <div class=" alert alert-dange alert -dismissible fade show" *ngIf="equipodesarrolloForm.get('idD1').hasError('required') && 
+              equipodesarrolloForm.get('idD1').touched">
+            Desarrolladores requeridos
+        </div>
+        <div class= "form-group max-sm-3 mb-2">
+            <label for="idD2">
+              Desarrollador#2
+            </label>
+            <select class="form-control" id="idD2" rows="3" formControlName="idD2" >
+              <option *ngFor= "let e of desarrolladores" >{{e.nombre}}</option>
+            </select>
+            </div>
+            <div class=" alert alert-dange alert -dismissible fade show" *ngIf="equipodesarrolloForm.get('idD2').hasError('required') && 
+                equipodesarrolloForm.get('idD2').touched">
+              Desarrolladores requeridos
+          </div>
+          <div class= "form-group max-sm-3 mb-2">
+              <label for="idD3">
+                Desarrollador#3
+              </label>
+              <select class="form-control" id="idD3" rows="3" formControlName="idD3" >
+                <option *ngFor= "let e of desarrolladores" >{{e.nombre}}</option>
+              </select>
+              </div>
+              <div class=" alert alert-dange alert -dismissible fade show" *ngIf="equipodesarrolloForm.get('idD3').hasError('required') && 
+                  equipodesarrolloForm.get('idD3').touched">
+                Desarrolladores requeridos
+            </div>
+            <div class= "form-group max-sm-3 mb-2">
+                <label for="idD4">
+                  Desarrollador#4
+                </label>
+                <select class="form-control" id="idD4" rows="3" formControlName="idD4" >
+                  <option *ngFor= "let e of desarrolladores" >{{e.nombre}}</option>
+                </select>
+                </div>
+                <div class=" alert alert-dange alert -dismissible fade show" *ngIf="equipodesarrolloForm.get('idD4').hasError('required') && 
+                    equipodesarrolloForm.get('idD4').touched">
+                  Desarrolladores requeridos
+              </div>
+              <div class= "form-group max-sm-3 mb-2">
+                  <label for="idD5">
+                    Desarrollador#5
+                  </label>
+                  <select class="form-control" id="idD5" rows="3" formControlName="idD5" >
+                    <option *ngFor= "let e of desarrolladores" >{{e.nombre}}</option>
+                  </select>
+                  </div>
+                  <div class=" alert alert-dange alert -dismissible fade show" *ngIf="equipodesarrolloForm.get('idD5').hasError('required') && 
+                      equipodesarrolloForm.get('idD5').touched">
+                    Desarrolladores requeridos
+                </div>
             <button class="button mx-sm-3 mb-2" type="submit">Create</button>
     
     </form>
