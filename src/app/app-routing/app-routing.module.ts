@@ -70,7 +70,13 @@ const routes: Routes = [
         },
         {
           path: "crearProyecto",
-          component: ProyectoCreateComponent
+          component: ProyectoCreateComponent,
+          canActivate:[NgxPermissionsGuard],
+          data:{
+          permissions:{
+            only:['ADMIN']
+          }
+        }
         },
         {
           path: 'modificaciones',
