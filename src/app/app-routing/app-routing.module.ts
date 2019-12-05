@@ -100,7 +100,7 @@ const routes: Routes = [
           {
             path: ':id',
             component: ProyectoDetailComponent,
-            outlet: 'detail'
+           // outlet: 'detail'
           }
           ]
         },

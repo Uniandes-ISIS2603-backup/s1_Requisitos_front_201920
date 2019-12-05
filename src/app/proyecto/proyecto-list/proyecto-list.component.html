@@ -1,17 +1,14 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Proyecto</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let i of proyectos">
-						<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
-							</td>
-                </tr>
-            </tbody>
-        </table>
+    
+        <div class="col-5">
+            <div class="card-deck">
+            <div class="card col" style="width: 18rem;"  *ngFor = "let x of proyectos ">
+                <img src="https://www.clipartwiki.com/clipimg/detail/81-819300_coursed-clipart-art-project-business-clipart-transparent-background.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{x.nombre}}</h5>
+                  <a class="figure-caption" routerLink="../../proyecto/{{x.id}}">Más información</a>
+                </div>
+              </div>
+            </div>
+      
     </div>

@@ -8,17 +8,6 @@
         <i class="fa fa-bars"></i>
       </button>
   
-      <!-- Barra de busqueda -->
-      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
       <!-- Lista de elementos de la Nav bar -->
       <ul class="navbar-nav ml-auto">
         <!-- Items Nav cuando se compime  (Visible Only XS) -->
@@ -68,16 +57,8 @@
               </li>
 
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Requisitos
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Ver requisito</a>
-                  <a class="nav-link active" routerLink="requisitoC" routerLinkActive="active">Crear requisito</a>
-                </div>
-              </li>
+            
+              
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
@@ -90,16 +71,7 @@
                     Desarrollo</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Casos de uso
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="nav-link active" routerLink="casos/list" routerLinkActive="active">Ver casos de uso</a>
-                  <a class="nav-link active" routerLink="casos2" routerLinkActive="active">Crear casos de uso</a>
-                </div>
-              </li>
+             
               <!--
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -118,12 +90,47 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
+                  Requisitos
+                </a>
+
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="requisito/list" routerLinkActive="active">Ver requisito</a>
+                  <a class="nav-link active" routerLink="requisitoC" routerLinkActive="active">Crear requisito</a>
+                </div>
+
+
+ <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Casos de uso
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link active" routerLink="casos/list" routerLinkActive="active">Ver casos de uso</a>
+                  <a class="nav-link active" routerLink="casos2" routerLinkActive="active">Crear casos de uso</a>
+                </div>
+              </li>
+
+
+ <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   Iteraciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="nav-link active" routerLink="iteracion/list" routerLinkActive="active">Ver iteraciones</a>
                   <a class="nav-link active" routerLink="crearIteracion" routerLinkActive="active">Crear Iteracion</a>
                 </div>
+              </li>
+
+
+        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Modificaciones
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link active" routerLink="modificaciones/list" routerLinkActive="active">Ver modificaciones</a>
+                  </div>
               </li>
       
               <li class="nav-item dropdown">
@@ -137,15 +144,7 @@
                 </div>
               </li>
       
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Modificaciones
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link active" routerLink="modificaciones/list" routerLinkActive="active">Ver modificaciones</a>
-                  </div>
-              </li>
+              
         </ul>
       </div>
     </nav>
