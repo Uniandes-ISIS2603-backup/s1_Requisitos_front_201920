@@ -3,6 +3,7 @@ import { Casodeuso } from "../casodeuso/Casodeuso"
 import { Requisito } from "../requisito/requisito"
 
 export class Modificacion {
+    id:number
     fechaModificacion:Date
     descripcion:string
     desarrolladorModificaciones: Desarrollador

@@ -10,10 +10,11 @@ import { ProyectoDetail } from '../proyecto-detail';
   styleUrls: ['./proyecto-detail.component.css']
 })
 export class ProyectoDetailComponent implements OnInit {
+@Input() proyectoDetail: ProyectoDetail;
 
   constructor(private proyectoService: ProyectoService,
     private route: ActivatedRoute) { }
-    @Input() proyectoDetail: ProyectoDetail;
+    
 
 
 

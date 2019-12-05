@@ -13,6 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
   declarations: [ProyectoListComponent, ProyectoDetailComponent, ProyectoCreateComponent],
   exports:[ProyectoListComponent, ProyectoCreateComponent],
-  providers: [ProyectoService, ProyectoService]
+  providers: [ProyectoService]
 })
 export class ProyectoModule { }
