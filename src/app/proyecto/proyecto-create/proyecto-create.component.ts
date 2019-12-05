@@ -6,6 +6,8 @@ import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProyectoDetail } from '../proyecto-detail';
+import { ModificacionService } from '../../modificacion/modificacion.service';
+import { Modificacion } from '../../modificacion/modificacion';
 
 @Component({
   selector: 'app-proyecto-create',
@@ -21,7 +23,8 @@ export class ProyectoCreateComponent  {
  (
     private proyectoService: ProyectoService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private mods: ModificacionService
   ) 
   {
     this.proyectoForm = this.formBuilder.group({
@@ -32,9 +35,9 @@ export class ProyectoCreateComponent  {
   }
 
   showSuccess(){
-    for(let i = 0; i < this.proyecto.length; i++){
-      console.log(this.proyecto[i].id+' '+this.proyecto[i].nombre)
-    }
+    //for(let i = 0; i < this.proyecto.length; i++){
+      //console.log(this.proyecto[i].id+' '+this.proyecto[i].nombre)
+   // }
     this.toastr.success("Proyecto","Creado exitosamente",{"progressBar": true,timeOut:4000})
   }
 
@@ -45,7 +48,16 @@ export class ProyectoCreateComponent  {
     newCaso.fechaInicial = new Date(newCaso.fechaInicial)
     newCaso.fechaFinal = new Date(newCaso.fechaFinal)
     this.proyectoService.createProyecto(newCaso).subscribe(pProyecto =>{
-      this.proyecto.push(pProyecto);
+    //  this.proyecto.push(pProyecto);
+      var a: Modificacion=new Modificacion;
+      a.descripcion = "Se creo un nuevo proyecto"
+      a.fechaModificacion = new Date();
+   
+      this.mods.createModificacion(a).subscribe((cas) => {
+        this.toastr.success("Modificacion registrada")
+      }, err => {
+        this.toastr.error("no se registro la modificacion")
+      });
       this.showSuccess();
     })
     this.proyectoForm.reset();

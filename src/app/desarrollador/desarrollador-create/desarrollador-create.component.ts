@@ -6,6 +6,8 @@ import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { DesarrolladorDetail } from '../desarrollador-detail';
 import { ToastrService } from 'ngx-toastr';
+import { ModificacionService } from '../../modificacion/modificacion.service';
+import { Modificacion } from '../../modificacion/modificacion';
 
 @Component({
   selector: 'app-desarrollador-create',
@@ -18,7 +20,8 @@ export class DesarrolladorCreateComponent  {
  constructor
  (
     private desarrolladorService: DesarrolladorService,
-    private formBuilder: FormBuilder,  private toastrService: ToastrService
+    private formBuilder: FormBuilder,  private toastrService: ToastrService, 
+    private mods:ModificacionService
   ) 
   {
     this.desarrolladorForm = this.formBuilder.group({
@@ -40,7 +43,17 @@ export class DesarrolladorCreateComponent  {
 
   this.desarrolladorService.createDesarrollador(newCaso).subscribe((cas) => {
     this.casos.push(cas);
+    var a: Modificacion=new Modificacion;
+    a.descripcion = "Se creo un nuevo desarrollador con nombre: "+ cas.nombre;
+    a.fechaModificacion = new Date();
+ 
+    this.mods.createModificacion(a).subscribe((cas) => {
+      this.toastrService.success("Modificacion registrada")
+    }, err => {
+      this.toastrService.error("no se registro la modificacion")
+    });
     this.toastrService.success("el caso fue creado", "caso creation");
+    
 
   }, err => {
     this.toastrService.error(err, "Error");

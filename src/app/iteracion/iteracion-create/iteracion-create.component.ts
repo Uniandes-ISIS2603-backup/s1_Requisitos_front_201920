@@ -6,6 +6,8 @@ import { IteracionDetail } from '../iteracion-detail';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Modificacion } from '../../modificacion/modificacion';
+import { ModificacionService } from '../../modificacion/modificacion.service';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class IteracionCreateComponent  {
  (
     private iteracionService: IteracionService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private mods:ModificacionService
   ) 
   {
     this.iteracionForm = this.formBuilder.group({
@@ -49,7 +52,16 @@ export class IteracionCreateComponent  {
     newCaso.fechaInicio = new Date(newCaso.fechaInicio)
     newCaso.fechaFin = new Date(newCaso.fechaFin)
     this.iteracionService.createIteracion(newCaso).subscribe(pIteracion => { this.iteracion.push(pIteracion);
-    this.showSuccess();
+      var a: Modificacion=new Modificacion;
+      a.descripcion = "Se creo una iteracion"
+      a.fechaModificacion = new Date();
+   
+      this.mods.createModificacion(a).subscribe((cas) => {
+        this.toastr.success("Modificacion registrada")
+      }, err => {
+        this.toastr.error("no se registro la modificacion")
+      });
+      this.showSuccess();
     });
     this.iteracionForm.reset();
   }

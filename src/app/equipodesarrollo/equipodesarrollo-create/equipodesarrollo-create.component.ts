@@ -10,6 +10,8 @@ import {EquipodesarrolloService} from '../equipodesarrollo.service';
 import { ToastrService } from "ngx-toastr";
 import { Desarrollador } from '../../desarrollador/desarrollador';
 import { DesarrolladorService } from '../../desarrollador/desarrollador.service';
+import { Modificacion } from '../../modificacion/modificacion';
+import { ModificacionService } from '../../modificacion/modificacion.service';
 
 @Component({
   selector: 'app-equipodesarrollo-create',
@@ -29,7 +31,8 @@ export class EquipodesarrolloCreateComponent implements OnInit {
     private equipodesarrolloService: EquipodesarrolloService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private desarrolloService: DesarrolladorService
+    private desarrolloService: DesarrolladorService,
+    private mods: ModificacionService
   ) {
     this.equipodesarrolloForm = this.formBuilder.group({
       equipoDesarrollo: ["", [Validators.required, Validators.minLength(2)]],
@@ -84,7 +87,16 @@ export class EquipodesarrolloCreateComponent implements OnInit {
     });
     this.equipoDesarrollo.id= this.equiposDesarrollo.length;
     this.equipodesarrolloService.createEquipoDesarrollo(newEquipodesarrollo).subscribe(pEquipo => { this.equiposDesarrollo.push(pEquipo);idEquipo=pEquipo.id;
-    this.showSuccess();
+      var a: Modificacion=new Modificacion;
+      a.descripcion = "Se creo un nuevo Equipo de Desarrollo con nombre:"+ pEquipo.equipoDesarrollo;
+      a.fechaModificacion = new Date();
+   
+      this.mods.createModificacion(a).subscribe((cas) => {
+        this.toastr.success("Modificacion registrada")
+      }, err => {
+        this.toastr.error("no se registro la modificacion")
+      });
+      this.showSuccess();
     });
   
     setTimeout(function () {

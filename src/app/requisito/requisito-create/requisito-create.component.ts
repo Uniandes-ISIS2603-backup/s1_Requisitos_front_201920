@@ -8,6 +8,8 @@ import { Desarrollador } from "../../desarrollador/desarrollador";
 import { Casodeuso } from '../../casodeuso/Casodeuso';
 import { CasodeusoService } from '../../casodeuso/casodeuso.service';
 import { DesarrolladorService } from "../../desarrollador/desarrollador.service";
+import { Modificacion } from "../../modificacion/modificacion";
+import { ModificacionService } from "../../modificacion/modificacion.service";
 
 @Component({
   selector: 'app-requisito-create',
@@ -45,7 +47,8 @@ export class RequisitoCreateComponent {
       private formBuilder: FormBuilder,
       private toastrService: ToastrService,
       private cs:CasodeusoService,
-      private ds:DesarrolladorService
+      private ds:DesarrolladorService,
+      private mods: ModificacionService
     ) {
       }
 
@@ -68,7 +71,8 @@ export class RequisitoCreateComponent {
       if (value.nombre===that.requisitoForm.value.idCasoDeUso)
       {
         idCaso=value.id;
-        alert(idCaso)
+      
+
       }
 
     }); 
@@ -77,7 +81,7 @@ export class RequisitoCreateComponent {
       if (value.nombre===that.requisitoForm.value.idDesarrollador)
       {
         idDesarrollador=value.id;
-        alert(idDesarrollador)
+       
       }
 
     }); 
@@ -88,6 +92,15 @@ export class RequisitoCreateComponent {
     this.requisitoService.createRequisito(newRequisito)
       .subscribe((requisito) => 
       {
+        var a: Modificacion=new Modificacion;
+        a.descripcion = "Se creo un nuevo Requisito con nombre"+ requisito.nombre;
+        a.fechaModificacion = new Date();
+     
+        this.mods.createModificacion(a).subscribe((cas) => {
+          this.toastrService.success("Modificacion registrada")
+        }, err => {
+          this.toastrService.error("no se registro la modificacion")
+        });
         this.requisito = requisito;
         this.toastrService.success("El requisito fue creado", "Crear requisito");
       }, err => 

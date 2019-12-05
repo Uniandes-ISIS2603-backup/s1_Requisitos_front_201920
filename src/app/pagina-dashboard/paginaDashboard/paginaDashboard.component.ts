@@ -19,15 +19,14 @@ const API_URL = environment.apiURL;
 export class PaginaDashboardComponent implements OnInit {
  
   constructor(){}
-  title = 'Browser market shares at a specific website, 2014';
+  title = 'Partes de la aplicación';
   type = 'PieChart';
   data = [
-     ['Firefox', 45.0],
-     ['IE', 26.8],
-     ['Chrome', 12.8],
-     ['Safari', 8.5],
-     ['Opera', 6.2],
-     ['Others', 0.7] 
+     ['Proyectos', 45.0],
+     ['Equipos de Desarrollo', 26.8],
+     ['Casos de Uso', 12.8],
+     ['Desarrolladores', 8.5],
+     ['Iteraciones', 6.2]
   ];
   columnNames = ['Browser', 'Percentage'];
   options = {    
