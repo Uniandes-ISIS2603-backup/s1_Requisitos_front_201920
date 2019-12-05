@@ -88,7 +88,7 @@ export class EquipodesarrolloCreateComponent implements OnInit {
     this.equipoDesarrollo.id= this.equiposDesarrollo.length;
     this.equipodesarrolloService.createEquipoDesarrollo(newEquipodesarrollo).subscribe(pEquipo => { this.equiposDesarrollo.push(pEquipo);idEquipo=pEquipo.id;
       var a: Modificacion=new Modificacion;
-      a.descripcion = "Se creo un nuevo Equipo de Desarrollo con nombre:"+ pEquipo.equipoDesarrollo;
+      a.descripcion = "Se creo un nuevo Equipo de Desarrollo con nombre: "+ pEquipo.equipoDesarrollo;
       a.fechaModificacion = new Date();
    
       this.mods.createModificacion(a).subscribe((cas) => {
