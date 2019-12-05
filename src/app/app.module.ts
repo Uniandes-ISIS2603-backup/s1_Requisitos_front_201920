@@ -16,6 +16,7 @@ import {EquipodesarrolloModule} from './equipodesarrollo/equipodesarrollo.module
 import {ReactiveFormsModule} from "@angular/forms";
 import {IteracionModule} from './iteracion/iteracion.module';
 import {ProyectoModule} from './proyecto/proyecto.module';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 import {AppComponent} from './app.component';
@@ -34,6 +35,7 @@ import { PaginaDashboardModule } from './pagina-dashboard/pagina-dashboard.modul
         AppRoutingModule,
         HttpClientModule,
         CasodeusoModule,
+        GoogleChartsModule.forRoot(),
         ReactiveFormsModule,
         PaginaDashboardModule,
         DesarrolladorModule,
