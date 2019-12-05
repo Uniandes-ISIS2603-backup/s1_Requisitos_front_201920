@@ -17,34 +17,21 @@ import { CasodeusoService } from '../../casodeuso/casodeuso.service';
 export class PaginaDashboardComponent implements OnInit {
    
    
-    constructor(private ps: ProyectoService, private ds:DesarrolladorService, private cs:CasodeusoService) { }
+    constructor(private ps: ProyectoService) { }
 
 
-    proyectos: Proyecto[];
-    getProyectos(): void {
-        this.ps.getProyectos().subscribe(proy => this.proyectos = proy);
-    }
-    desarrolladores:Desarrollador[];
-    getDes(): void {
-        this.ds.getDesarrolladores().subscribe(proy => this.desarrolladores = proy);
-    }
-    casos:Casodeuso[]
-    getCaso(): void {
-        this.cs.getCasos().subscribe(proy => this.casos = proy);
-    }
+   
 
     ngOnInit() {
-    this.getProyectos();
-    this.getCaso();
-    this.getDes();
+   
     }
  
     title = 'Datos de el sistema';
     type = 'PieChart';
     data = [
-       ['Proyectos', this.proyectos.length],
-       ['Desarrolladores', this.desarrolladores.length],
-       ['Casos de uso', this.casos.length],
+     //  ['Proyectos', this.proyectos.length],
+       //['Desarrolladores', this.desarrolladores.length],
+       //['Casos de uso', this.casos.length],
        ['Safari', 8.5],
        ['Opera', 6.2],
        ['Others', 0.7] 
