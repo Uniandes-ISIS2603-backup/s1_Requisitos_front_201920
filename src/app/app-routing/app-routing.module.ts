@@ -63,6 +63,10 @@ const routes: Routes = [
         {
           path:"dash",
           component:PaginaDashboardComponent,
+          children: [{
+            path: 'd2',
+            component: GraficaLineaComponent
+          }]
         },
         {
           path: "crearProyecto",
