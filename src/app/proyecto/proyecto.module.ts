@@ -5,10 +5,11 @@ import { ProyectoService } from './proyecto.service';
 import { ProyectoDetailComponent } from './proyecto-detail/proyecto-detail.component';
 import { ProyectoCreateComponent } from './proyecto-create/proyecto-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule 
+    CommonModule, ReactiveFormsModule, AppRoutingModule
     
     ],
   declarations: [ProyectoListComponent, ProyectoDetailComponent, ProyectoCreateComponent],

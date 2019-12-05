@@ -7,7 +7,7 @@ import {environment} from "../../environments/environment";
 
 
 const API_URL = environment.apiURL;
-const proyecto = 'proyecto.json';
+//const proyecto = 'proyecto.json';
 
 @Injectable()
 export class ProyectoService {
