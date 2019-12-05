@@ -13,27 +13,24 @@ const API_URL = environment.apiURL;
 
 @Component({
     selector: 'app-paginaDashboard-list',
-    templateUrl: './paginaDashboard.component.html',
-    styleUrls: ['./paginaDashboard.component.css']
+    templateUrl: './graficaLineas.component.html',
+    styleUrls: ['./graficaLineas.component.css']
 })
-export class PaginaDashboardComponent implements OnInit {
+export class GraficaLineaComponent implements OnInit {
  
   constructor(){}
-  title = 'Browser market shares at a specific website, 2014';
-  type = 'PieChart';
-  data = [
-     ['Firefox', 45.0],
-     ['IE', 26.8],
-     ['Chrome', 12.8],
-     ['Safari', 8.5],
-     ['Opera', 6.2],
-     ['Others', 0.7] 
-  ];
-  columnNames = ['Browser', 'Percentage'];
-  options = {    
-  };
-  width = 550;
-  height = 400;
+  title = 'Area Chart';
+   type='AreaChart';
+   data = [
+      ["2013", 1000, 400],
+      ["2014", 1170, 460],
+      ["2015", 660, 1120],
+      ["2016", 1030, 540]
+   ];
+   columnNames = ['Year', 'Sales',"Expenses"];
+   options = { };
+   width = 550;
+   height = 400;
   ngOnInit(){}
   
 }

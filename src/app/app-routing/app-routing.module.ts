@@ -26,6 +26,7 @@ import { ModificacionesListComponent } from '../modificacion/modificacion-list/m
 import { PaginaDComponent } from '../pagina-dashboard/paginaD/paginaD.component';
 import { PaginaVComponent } from '../pagina-dashboard/paginaV/paginaV.component';
 import { PaginaDashboardComponent } from '../pagina-dashboard/paginaDashboard/paginaDashboard.component';
+import { GraficaLineaComponent } from '../pagina-dashboard/graficaLineas/graficaLineas.component';
 
 const routes: Routes = [
   {
@@ -61,7 +62,7 @@ const routes: Routes = [
       children: [
         {
           path:"dash",
-          component:PaginaDashboardComponent
+          component:PaginaDashboardComponent,
         },
         {
           path: "crearProyecto",
