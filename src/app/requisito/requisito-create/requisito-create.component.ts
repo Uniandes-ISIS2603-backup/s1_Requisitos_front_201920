@@ -7,6 +7,7 @@ import { Desarrollador } from "../../desarrollador/desarrollador";
 
 import { Casodeuso } from '../../casodeuso/Casodeuso';
 import { CasodeusoService } from '../../casodeuso/casodeuso.service';
+import { DesarrolladorService } from "../../desarrollador/desarrollador.service";
 
 @Component({
   selector: 'app-requisito-create',
@@ -43,7 +44,8 @@ export class RequisitoCreateComponent {
       private requisitoService: RequisitoService,
       private formBuilder: FormBuilder,
       private toastrService: ToastrService,
-      private cs:CasodeusoService
+      private cs:CasodeusoService,
+      private ds:DesarrolladorService
     ) {
       }
 
@@ -56,6 +58,8 @@ export class RequisitoCreateComponent {
     this.requisito = newRequisito;
     //Variable que guarda el id del caso a guardar
     var idCaso;
+      //Variable que guarda el id del desarrollador a guardar
+      var idDesarrollador;
     //?
     that=this; 
     //Mira todos los casos y escoge el que se escogio en el formulario
@@ -65,6 +69,15 @@ export class RequisitoCreateComponent {
       {
         idCaso=value.id;
         alert(idCaso)
+      }
+
+    }); 
+    this.desarrolladores.forEach(function (value) 
+    {
+      if (value.nombre===that.requisitoForm.value.idDesarrollador)
+      {
+        idDesarrollador=value.id;
+        alert(idDesarrollador)
       }
 
     }); 
@@ -93,6 +106,17 @@ export class RequisitoCreateComponent {
                 }, err => {that.toastrService.error(err, "Error asignando el caso de uso")});
               }
           , 500);
+       //bloque para crear la relacion con desarrollador
+     
+       //Define un limite de tiempo
+       setTimeout(function () 
+       {
+          that.requisitoService.createRelacionDesarrollador(that.requisito.id,idDesarrollador).subscribe(
+            (cas) => {
+                      that.toastrService.success("el desarrollador fue asignado", "Relacion creada");
+                 }, err => {that.toastrService.error(err, "Error asignando el desarrollador")});
+               }
+           , 500);
 
     this.requisitoForm.reset();
 
@@ -114,9 +138,11 @@ export class RequisitoCreateComponent {
       nombre: ["", [Validators.required]],
       tipo: ["", [Validators.required]],
       idCasoDeUso: ["", [Validators.required]],
+      idDesarrollador:["", [Validators.required]]
     });
     this.requisito = new Requisito();
     this.cs.getCasos().subscribe(c => (this.casos = c));
+    this.ds.getDesarrolladores().subscribe(d=>(this.desarrolladores=d))
   }
 
 }

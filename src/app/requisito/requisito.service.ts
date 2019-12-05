@@ -47,9 +47,18 @@ export class RequisitoService {
    * @param reqId  id requisito
    * @param casId  id casodeuso
    */
-  createRelacionCasoDeUso(reqId: number, casId: number): Observable < Requisito > {
+  createRelacionCasoDeUso(reqId: number, casId: number): Observable < Requisito > 
+  {
     console.log('/requisitos/'+reqId+'/casoDeUso/'+casId);
-    return this.http.post<RequisitoDetail>(API_URL + '/requisitos/' + reqId + '/casoDeUso/' + casId, null);
+    return this.http.post<RequisitoDetail>(API_URL + '/requisitos/' + reqId + '/casodeuso/' + casId, null);
   }
-
+/**
+   * Crea la relacion con caso de uso
+   * @param reqId  id requisito
+   * @param casId  id casodeuso
+   */
+  createRelacionDesarrollador(reqId: number, desId: number): Observable < Requisito > {
+    console.log('/requisitos/'+reqId+'/desarrolladorb/'+desId);
+    return this.http.post<RequisitoDetail>(API_URL + '/requisitos/' + reqId + '/desarrolladorb/' + desId, null);
+  }
 }
