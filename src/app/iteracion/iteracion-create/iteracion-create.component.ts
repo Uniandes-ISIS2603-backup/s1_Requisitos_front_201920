@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IteracionService } from '../iteracion.service';
 import { Iteracion } from '../iteracion';
 import { IteracionDetail } from '../iteracion-detail';
-import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Modificacion } from '../../modificacion/modificacion';
 import { ModificacionService } from '../../modificacion/modificacion.service';
@@ -19,16 +17,53 @@ import { ModificacionService } from '../../modificacion/modificacion.service';
 export class IteracionCreateComponent  {
 
  iteracionForm: FormGroup;
- iteracion: IteracionDetail[]
+ iteracion: Iteracion
+   /**
+   * 
+   * @param requisitoService 
+   * @param formBuilder 
+   * @param toastrService 
+   */
 
  constructor
  (
     private iteracionService: IteracionService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService,
+    private toastrService: ToastrService,
     private mods:ModificacionService
-  ) 
+  ) {
+  }
+ 
+  
+
+  createIteracion(newCaso: Iteracion) 
   {
+    
+    console.warn("el equipo fue creado", newCaso);
+    newCaso.fechaInicio = new Date(newCaso.fechaInicio)
+    newCaso.fechaFin = new Date(newCaso.fechaFin)
+    this.iteracionService.createIteracion(newCaso)
+    .subscribe(pIteracion => {
+      
+      var a: Modificacion=new Modificacion;
+      a.descripcion = "Se creo una iteracion"
+      a.fechaModificacion = new Date();
+   
+      this.mods.createModificacion(a).subscribe((cas) => {
+        this.toastrService.success("Modificacion registrada")
+      }, err => {
+        this.toastrService.error("no se registro la modificacion")
+      });
+      this.toastrService.success("La iteracion fue creada", "Crear iteracion");
+      
+    }, err => 
+    {
+      this.toastrService.error(err, "Error");
+    }
+    );
+    this.iteracionForm.reset();
+  }
+  ngOnInit() {
     this.iteracionForm = this.formBuilder.group({
       nombre: ["", [Validators.required]],
       descripcion: ["", [Validators.required]],
@@ -36,38 +71,8 @@ export class IteracionCreateComponent  {
       fechaFin:["", [Validators.required]], 
      
     });
+this.iteracion = new Iteracion();
   }
-  showSuccess() {
-    for (let i = 0; i < this.iteracion.length; i++){
-      console.log(this.iteracion[i].id+' '+this.iteracion[i].nombre);
-    }
-    this.toastr.success("Equipo", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
-   
-  }
-  
-
-  createIteracion(newCaso: Iteracion) 
-  {
-    console.warn("el equipo fue creado", newCaso);
-    newCaso.fechaInicio = new Date(newCaso.fechaInicio)
-    newCaso.fechaFin = new Date(newCaso.fechaFin)
-    this.iteracionService.createIteracion(newCaso).subscribe(pIteracion => { this.iteracion.push(pIteracion);
-      var a: Modificacion=new Modificacion;
-      a.descripcion = "Se creo una iteracion"
-      a.fechaModificacion = new Date();
-   
-      this.mods.createModificacion(a).subscribe((cas) => {
-        this.toastr.success("Modificacion registrada")
-      }, err => {
-        this.toastr.error("no se registro la modificacion")
-      });
-      this.showSuccess();
-    });
-    this.iteracionForm.reset();
-  }
-
-  
-  
 
 
 }
